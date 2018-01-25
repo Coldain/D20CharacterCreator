@@ -468,13 +468,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Compendium.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Compendium_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Compendium.mdf</DependentUpon>
-    </Content>
     <Resource Include="Assets\Images\Languages\Deep Speech.png" />
     <Resource Include="Assets\Images\Languages\Draconic.png" />
     <Resource Include="Assets\Images\Languages\Dwarven.png" />
