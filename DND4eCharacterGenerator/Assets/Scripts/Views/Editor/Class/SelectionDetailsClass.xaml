@@ -1,0 +1,85 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.Editor.Class.SelectionDetailsClass"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Editor.Class"
+      mc:Ignorable="d" 
+      d:DesignWidth="281"
+      Title="SelectionDetailsClass">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="153"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="66"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="labelClass" Content="{Binding Class}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Grid Grid.Row="1" Width="262" HorizontalAlignment="Center" Height="152.83">
+            <Image Name="imageClass" Source="{Binding Image}" Margin="1.5,0" Grid.RowSpan="2"/>
+            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/borderClassImage.PNG" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/borderClassImage.PNG" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        <TextBlock Name="textblockDescription" Grid.Row="2" TextWrapping="Wrap">
+            <Bold> <Run Text="Description"/> </Bold>
+            <LineBreak/>
+            <Run Text="{Binding Subclass.Description}"/>
+        </TextBlock>
+        
+        <TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+            <Bold><Run>Role: </Run></Bold> <Run Name="textblockRole" Text="{Binding PrimaryRoles}"/>
+        </TextBlock>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,0,0">
+            <Bold><Run>Power Source: </Run></Bold> <Run Name="textBlockPowerType" Text="{Binding Subclass.Power}"/>
+        </TextBlock>
+        <Canvas Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,29,0,0">
+            <Path Stroke="#FF9B8D4D" StrokeThickness="2"  Fill="#FFE4E2D0" Data="M15,0 L251,0 A15,15,0,0,1,261,15 A15,15,0,0,1,251,30 L10,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0" Margin="10,0,0,0"/>
+            <Label Name="labelSTR" Content="STR" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="37" Canvas.Top="6" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelCON" Content="CON" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="74" Canvas.Top="6" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelDEX" Content="DEX" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="111" Canvas.Top="6" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelINT" Content="INT" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="148" Canvas.Top="6" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelWIS" Content="WIS" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="185" Canvas.Top="6" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelCHA" Content="CHA" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="222" Canvas.Top="6" Foreground="LightGray" VerticalContentAlignment="Center"/>
+        </Canvas>
+        <Label Grid.Row="3" Content="Key Abilities" VerticalAlignment="Bottom"/>
+        <Grid VerticalAlignment="Top" Margin="0,0,0,-16" Grid.Row="4" Height="66">
+            <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="46" Margin="7,9,0,0" Stroke="Black" VerticalAlignment="Top" Width="39"/>
+            <Label Content="FORT" HorizontalAlignment="Left" Margin="18,43,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" FontSize="7"/>
+            <Image HorizontalAlignment="Left" Height="44" Margin="4,2,0,0" VerticalAlignment="Top" Width="43" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsFortitude.png"/>
+            <Label x:Name="labelFortitude" Content="{Binding Subclass.Defences[0]}" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="46" Margin="62,9,0,0" Stroke="Black" VerticalAlignment="Top" Width="38"/>
+            <Label Content="REF" HorizontalAlignment="Left" Margin="75,43,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" FontSize="7"/>
+            <Image HorizontalAlignment="Left" Height="46" Margin="61,0,0,0" VerticalAlignment="Top" Width="49" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsReflexes.png"/>
+            <Label x:Name="labelReflexes" Content="{Binding Subclass.Defences[1]}" HorizontalAlignment="Left" Margin="70,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="46" Margin="119,9,0,0" Stroke="Black" VerticalAlignment="Top" Width="39"/>
+            <Label Content="WILL" HorizontalAlignment="Left" Margin="131,43,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" FontSize="7"/>
+            <Image HorizontalAlignment="Left" Height="40" Margin="118,3,0,0" VerticalAlignment="Top" Width="40" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsWillpower.png"/>
+            <Label x:Name="labelWillpower" Content="{Binding Subclass.Defences[2]}" HorizontalAlignment="Left" Margin="131,12,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Grid Margin="181,0,10,0" Height="45">
+                <Rectangle Fill="#FF5F5F5F" Stroke="Black"/>
+                <TextBlock Name="textBoxStartingHP" Margin="0,4,0,0" Width="69" Height="12" VerticalAlignment="Top" FontSize="9" Background="White" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="{Binding Subclass.HPStart}"></Run> <Run> + Con</Run>
+                </TextBlock>
+                <Label Content="At 1st Level" FontSize="6" Padding="0" Margin="11,16,0,0" Width="32" Height="9" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White"/>
+                <TextBlock Name="textBoxHPperlevel" VerticalAlignment="Bottom" Margin="10,0,10,8" Height="12" FontSize="9" ScrollViewer.CanContentScroll="True" Background="White" TextAlignment="Center">
+                    <Run>+ </Run> <Run Text="{Binding Subclass.HPLvl}"/>
+                </TextBlock>
+                <Label Content="Per Level" FontSize="6" Padding="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="11,0,0,1" Background="{x:Null}" Foreground="White"/>
+            </Grid>
+            <Label Content="Defence Bonuses" VerticalAlignment="Bottom" HorizontalAlignment="Left" Padding="0" Margin="50,0,0,0" FontSize="8"/>
+            <Label Content="Hit Points" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="8" Padding="0" Margin="0,0,37,0"/>
+        </Grid>
+        <TextBlock Name="textblockHeaders" Grid.Row="5" TextWrapping="Wrap"/>
+    </Grid>
+</Page>

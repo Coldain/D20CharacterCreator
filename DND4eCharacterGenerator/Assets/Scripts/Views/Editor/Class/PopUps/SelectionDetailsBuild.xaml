@@ -1,0 +1,22 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.Editor.Class.SelectionDetailsBuild"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Editor.Class"
+      mc:Ignorable="d" 
+      d:DesignWidth="281"
+      Title="SelectionDetailsClass">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="labelClass" Content="{Binding Build}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>        
+        <TextBlock Name="textblockDescription" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Description}"/>
+        <TextBlock Name="textblockHeaders" Grid.Row="2" TextWrapping="Wrap"/>
+    </Grid>
+</Page>

@@ -1,0 +1,283 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.CharacterSheet.CSBattleMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.CharacterSheet"
+      mc:Ignorable="d" 
+     d:DesignHeight="1045" d:DesignWidth="820.5"
+      Title="CSBattleMain">
+    <Viewbox>
+        <Grid Background="White" Width="820.5" Height="1045" IsHitTestVisible = "False" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="265*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="White" Width="808" HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,2,10,-2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23*"/>
+                    <RowDefinition Height="328*"/>
+                    <RowDefinition Height="327*"/>
+                    <RowDefinition Height="324*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="23*"/>
+                    <ColumnDefinition Width="257*"/>
+                    <ColumnDefinition Width="256*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="labelSheet" Content="" Margin="92,2,100,0" VerticalAlignment="Top" Padding="0" Grid.Column="2"/>
+                <!--Card Setup-->
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="3" Grid.Row="1"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="1" Grid.Row="2"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="2" Grid.Row="2"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="3" Grid.Row="2"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="1" Grid.Row="3"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="2" Grid.Row="3"/>
+                <Rectangle Fill="#FFE4E4E4" HorizontalAlignment="Left" Height="325" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="250" Grid.Column="3" Grid.Row="3"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,37,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.Column="1" Grid.Row="1">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,37,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.Column="2" Grid.Row="1">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,37,15,0" Stroke="Black" VerticalAlignment="Top" Width="234" Grid.Column="3" Grid.Row="1">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.Column="1" Grid.Row="2">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.Column="2" Grid.Row="2">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="234" Grid.Column="3" Grid.Row="2">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,37,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.Column="1" Grid.Row="3">
+                </Rectangle>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="264" Margin="0,37,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.Column="2" Grid.Row="3">
+                </Rectangle>
+                <Rectangle Fill="White" Height="264" Margin="0,37,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="234" Grid.Column="3" Grid.Row="3">
+                </Rectangle>
+                <!--Card Heders Images-->
+                <Image x:Name="headerPowerMeleeBasic" HorizontalAlignment="Left" Height="35" Margin="1,1,0,0" VerticalAlignment="Top" Width="218" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" Grid.Column="1" Grid.Row="2"/>
+                <Image x:Name="headerPowerRangedBasic" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="218" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" Grid.Column="2" Grid.Row="2" Margin="1,1,0,0"/>
+                <Image x:Name="headerPower1" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="218" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" Grid.Column="3" Grid.Row="2" Margin="1,1,0,0"/>
+                <Image x:Name="headerPower2" HorizontalAlignment="Left" Height="36" Margin="1,1,0,0" VerticalAlignment="Top" Width="218" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" Grid.Column="1" Grid.Row="3"/>
+                <Image x:Name="headerPower3" HorizontalAlignment="Left" Height="36" Margin="1,1,0,0" VerticalAlignment="Top" Width="218" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" Grid.Column="2" Grid.Row="3"/>
+                <Image x:Name="headerPower4" HorizontalAlignment="Left" Height="36" Margin="1,1,0,0" VerticalAlignment="Top" Width="218" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" Grid.Column="3" Grid.Row="3"/>
+                <!--/Card Header Images-->
+                <!--/Card Setup-->
+                <!--Stats Card-->
+                <!--Header-->
+                <Label x:Name="labelCharaterName" Content="{Binding Name}" HorizontalAlignment="Left" Margin="5,2,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <TextBlock x:Name="labelLevelRaceClass" HorizontalAlignment="Left" Margin="5,21,0,0" VerticalAlignment="Top" FontSize="9" Padding="0" Grid.Column="1" Grid.Row="1">
+                    <Run Text="Level: "/> <Run Text="{Binding Level}"/> <Run Text=" "/> <Run Text="{Binding Race.Race}"/> <Run Text=" "/> <Run Text="{Binding Class.Class}"/>
+                </TextBlock>
+                <!--/Header-->
+                <!--Stats-->
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="39" Margin="5,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" Grid.Column="1" Grid.Row="1"/>
+                <Ellipse Fill="White" HorizontalAlignment="Left" Height="46" Margin="5,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-1.457,-2.783" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="HP" HorizontalAlignment="Left" Margin="21,40,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelMaxHP" Content="000" HorizontalAlignment="Left" Margin="13,66,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="20" Width="32" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="37" Margin="5,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" Grid.Column="1" Grid.Row="1"/>
+                <Ellipse Fill="White" HorizontalAlignment="Left" Height="46" Margin="5,117,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-1.457,-2.783" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="SPD" HorizontalAlignment="Left" Margin="18,103,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelSpeed" Content="00" HorizontalAlignment="Left" Margin="18,128,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="20" Width="23" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="39" Margin="5,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" Grid.Column="1" Grid.Row="1"/>
+                <Ellipse Fill="White" HorizontalAlignment="Left" Height="46" Margin="5,184,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-1.457,-2.783" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="INIT" HorizontalAlignment="Left" Margin="18,168,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelInitiative" Content="00" HorizontalAlignment="Left" Margin="18,195,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="20" Width="23" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <!--/Stats-->
+                <!--Abilities-->
+                <Label Content="SCORE" HorizontalAlignment="Left" Margin="60,45,0,0" VerticalAlignment="Top" FontSize="8" Padding="0" Width="26" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="ABILITY" HorizontalAlignment="Left" Margin="100,45,0,0" VerticalAlignment="Top" FontSize="8" Padding="0" Width="32" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="MOD" HorizontalAlignment="Left" Margin="146,45,0,0" VerticalAlignment="Top" FontSize="8" Padding="0" Width="23" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,57,88,0" Stroke="Black" VerticalAlignment="Top" Width="112" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxStrenghtScore" HorizontalAlignment="Right" Height="22" Margin="0,57,170,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="STR" HorizontalAlignment="Left" Margin="100,59,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Width="26" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxStrenghtCheck" HorizontalAlignment="Right" Height="22" Margin="0,57,88,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,83,88,0" Stroke="Black" VerticalAlignment="Top" Width="112" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxConstitutionScore" HorizontalAlignment="Right" Height="22" Margin="0,83,172,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="CON" HorizontalAlignment="Left" Margin="100,85,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Width="36" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxConstitutionCheck" HorizontalAlignment="Right" Height="22" Margin="0,83,88,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,109,88,0" Stroke="Black" VerticalAlignment="Top" Width="112" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxDexterityScore" HorizontalAlignment="Right" Height="22" Margin="0,109,170,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="DEX" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Width="29" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxDexterityCheck" HorizontalAlignment="Right" Height="22" Margin="0,109,88,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,135,88,0" Stroke="Black" VerticalAlignment="Top" Width="112" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxIntelligenceScore" HorizontalAlignment="Right" Height="22" Margin="0,135,170,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="INT" HorizontalAlignment="Left" Margin="100,136,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Width="25" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxIntelligenceCheck" HorizontalAlignment="Right" Height="22" Margin="0,135,88,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,162,88,0" Stroke="Black" VerticalAlignment="Top" Width="112" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxWisdomScore" HorizontalAlignment="Right" Height="22" Margin="0,162,170,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="WIS" HorizontalAlignment="Left" Margin="100,164,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Width="26" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxWisdomCheck" HorizontalAlignment="Right" Height="22" Margin="0,162,88,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,188,88,0" Stroke="Black" VerticalAlignment="Top" Width="112" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxCharismaScore" HorizontalAlignment="Right" Height="22" Margin="0,188,170,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="CHA" HorizontalAlignment="Left" Margin="100,190,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Width="31" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxCharismaCheck" HorizontalAlignment="Right" Height="22" Margin="0,188,88,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
+                <!--/Abilities-->
+                <!--Defenses-->
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Margin="181,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="45" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="AC" HorizontalAlignment="Left" Margin="195,81,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Image HorizontalAlignment="Left" Height="52" Margin="181,34,0,0" VerticalAlignment="Top" Width="46" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsArmorClass.png" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelArmorClass" Content="00" HorizontalAlignment="Left" Margin="195,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Margin="182,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="45" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="FORT" HorizontalAlignment="Left" Margin="191,147,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Image HorizontalAlignment="Left" Height="57" Margin="177,98,0,0" VerticalAlignment="Top" Width="56" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsFortitude.png" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelFortitude" Content="00" HorizontalAlignment="Left" Margin="196,113,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="60" Margin="182,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="45" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="REF" HorizontalAlignment="Left" Margin="196,215,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Image HorizontalAlignment="Left" Height="52" Margin="183,171,0,0" VerticalAlignment="Top" Width="58" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsReflexes.png" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelReflexes" Content="00" HorizontalAlignment="Left" Margin="189,179,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Margin="181,239,0,0" Stroke="Black" VerticalAlignment="Top" Width="46" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="WILL" HorizontalAlignment="Left" Margin="191,281,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <Image HorizontalAlignment="Left" Height="52" Margin="179,233,0,0" VerticalAlignment="Top" Width="54" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsWillpower.png" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="labelWillpower" Content="00" HorizontalAlignment="Left" Margin="193,243,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Grid.Column="1" Grid.Row="1"/>
+                <!--/Defenses-->
+                <!--Senses-->
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,239,82,0" Stroke="Black" VerticalAlignment="Top" Width="124" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="Passive Insight" HorizontalAlignment="Left" Margin="54,241,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Width="85" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxPassiveInsight" HorizontalAlignment="Right" Height="20" Margin="0,240,84,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Margin="0,265,82,0" Stroke="Black" VerticalAlignment="Top" Width="124" Grid.Column="1" Grid.Row="1"/>
+                <Label Content="Passive Perception" HorizontalAlignment="Left" Margin="54,267,0,0" VerticalAlignment="Top" Foreground="White" Padding="0" Width="103" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="textBoxPassivePerception" HorizontalAlignment="Right" Height="20" Margin="0,266,84,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                <!--/Senses-->
+                <!--Footer-->
+                <TextBlock x:Name="labelPlayerName" HorizontalAlignment="Left" Margin="5,307,0,0" VerticalAlignment="Top" FontSize="9" Padding="0" Grid.Column="1" Grid.Row="1">
+                <Run Text="Player Name: "/> <Run Text="{Binding Player}"/>
+                </TextBlock>
+                <!--/Footer-->
+                <!--/Stats Card-->
+
+                <!--Skills Card-->
+                <TextBlock HorizontalAlignment="Left" Margin="5,2,0,0" TextWrapping="Wrap" Text="Skills" VerticalAlignment="Top" TextDecorations="{x:Null}" FontSize="14" RenderTransformOrigin="2.576,0.593" FontWeight="Bold" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Skill" HorizontalAlignment="Left" Margin="12,37,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="20" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Ability" HorizontalAlignment="Left" Margin="102,37,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="32" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Training" HorizontalAlignment="Left" Margin="154,37,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="41" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Score" HorizontalAlignment="Left" Margin="198,37,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="29" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="15" Margin="7,52,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Acrobatics" HorizontalAlignment="Left" Margin="12,53,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="54" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Dexterty" HorizontalAlignment="Left" Margin="100,52,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="44" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedAcrobatics" Content="X" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreAcrobatics" HorizontalAlignment="Right" Height="15" Margin="0,52,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,66,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Arcana" HorizontalAlignment="Left" Margin="12,67,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="35" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Intelligence" HorizontalAlignment="Left" Margin="100,67,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="59" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedArcana" Content="X" HorizontalAlignment="Left" Margin="169,67,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreArcana" HorizontalAlignment="Right" Height="15" Margin="0,66,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="16" Margin="7,80,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Athletics" HorizontalAlignment="Left" Margin="12,81,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="44" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Strength" HorizontalAlignment="Left" Margin="100,81,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="44" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedAthletics" Content="X" HorizontalAlignment="Left" Margin="169,81,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreAthletics" HorizontalAlignment="Right" Height="16" Margin="0,80,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,95,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Bluff" HorizontalAlignment="Left" Margin="12,96,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="23" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Charisma" HorizontalAlignment="Left" Margin="100,96,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="48" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedBluff" Content="X" HorizontalAlignment="Left" Margin="169,96,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreBluff" HorizontalAlignment="Right" Height="15" Margin="0,95,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="15" Margin="7,109,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Diplomacy" HorizontalAlignment="Left" Margin="12,109,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="55" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Charisma" HorizontalAlignment="Left" Margin="100,109,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="48" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedDiplomacy" Content="X" HorizontalAlignment="Left" Margin="169,109,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreDiplomacy" HorizontalAlignment="Right" Height="15" Margin="0,109,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,123,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Dungeoneering" HorizontalAlignment="Left" Margin="12,124,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="81" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Wisdom" HorizontalAlignment="Left" Margin="100,124,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="43" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedDungeoneering" Content="X" HorizontalAlignment="Left" Margin="169,123,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreDungeoneering" HorizontalAlignment="Right" Height="15" Margin="0,123,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="15" Margin="7,137,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Endurance" HorizontalAlignment="Left" Margin="12,138,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="55" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Constitution" HorizontalAlignment="Left" Margin="100,138,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="63" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedEndurance" Content="X" HorizontalAlignment="Left" Margin="169,138,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreEndurance" HorizontalAlignment="Right" Height="15" Margin="0,137,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="16" Margin="7,151,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Heal" HorizontalAlignment="Left" Margin="12,152,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="23" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Wisdom" HorizontalAlignment="Left" Margin="100,152,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="43" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedHeal" Content="X" HorizontalAlignment="Left" Margin="169,152,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreHeal" HorizontalAlignment="Right" Height="16" Margin="0,151,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="15" Margin="7,166,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="History" HorizontalAlignment="Left" Margin="12,167,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="37" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Intelligence" HorizontalAlignment="Left" Margin="100,167,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="59" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedHistory" Content="X" HorizontalAlignment="Left" Margin="169,167,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreHistory" HorizontalAlignment="Right" Height="15" Margin="0,166,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,180,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Insight" HorizontalAlignment="Left" Margin="12,181,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="35" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Wisdom" HorizontalAlignment="Left" Margin="100,181,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="43" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedInsight" Content="X" HorizontalAlignment="Left" Margin="169,181,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreInsight" HorizontalAlignment="Right" Height="15" Margin="0,180,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="15" Margin="7,194,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Intimidate" HorizontalAlignment="Left" Margin="12,195,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="53" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Charisma" HorizontalAlignment="Left" Margin="100,195,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="48" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedIntimidate" Content="X" HorizontalAlignment="Left" Margin="169,194,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreIntimidate" HorizontalAlignment="Right" Height="15" Margin="0,194,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,208,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Nature" HorizontalAlignment="Left" Margin="12,209,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="35" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Wisdom" HorizontalAlignment="Left" Margin="100,209,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="43" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedNature" Content="X" HorizontalAlignment="Left" Margin="169,209,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreNature" HorizontalAlignment="Right" Height="15" Margin="0,208,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="16" Margin="7,222,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Perception" HorizontalAlignment="Left" Margin="12,223,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="55" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Wisdom" HorizontalAlignment="Left" Margin="100,223,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="43" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedPerception" Content="X" HorizontalAlignment="Left" Margin="169,223,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScorePerception" HorizontalAlignment="Right" Height="16" Margin="0,222,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,237,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Religion" HorizontalAlignment="Left" Margin="12,238,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="42" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Intelligence" HorizontalAlignment="Left" Margin="100,238,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="59" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedReligion" Content="X" HorizontalAlignment="Left" Margin="169,238,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreReligion" HorizontalAlignment="Right" Height="15" Margin="0,237,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="16" Margin="7,251,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Stealth" HorizontalAlignment="Left" Margin="12,252,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="35" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Dexterty" HorizontalAlignment="Left" Margin="100,252,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="44" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedStealth" Content="X" HorizontalAlignment="Left" Margin="169,252,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="14" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreStealth" HorizontalAlignment="Right" Height="16" Margin="0,251,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="7,266,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" OpacityMask="Black" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Streetwise" HorizontalAlignment="Left" Margin="12,267,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="53" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Charisma" HorizontalAlignment="Left" Margin="100,267,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="48" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedStreetwise" Content="X" HorizontalAlignment="Left" Margin="169,267,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreStreetwise" HorizontalAlignment="Right" Height="15" Margin="0,266,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="15" Margin="7,280,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="221" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Thievery" HorizontalAlignment="Left" Margin="12,281,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="43" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Dexterty" HorizontalAlignment="Left" Margin="100,281,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Width="44" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="labelSkillTrainedThievery" Content="X" HorizontalAlignment="Left" Margin="169,281,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Height="13" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <TextBox x:Name="textBoxSkillScoreThievery" HorizontalAlignment="Right" Height="15" Margin="0,280,28,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="34" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8" FontSize="10" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FF666666" HorizontalAlignment="Left" Height="243" Margin="95,52,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="1" StrokeThickness="0" Grid.Column="2" Grid.Row="1"/>
+                <Rectangle Fill="#FF666666" HorizontalAlignment="Left" Height="243" Margin="168,52,0,0" Stroke="#FF666666" VerticalAlignment="Top" Width="1" StrokeThickness="0" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="X Indicates a trained skill" HorizontalAlignment="Left" Margin="4,307,0,0" VerticalAlignment="Top" FontSize="9" Padding="0" Grid.Column="2" Grid.Row="1"/>
+                <!--/Skills Card-->
+
+                <!--Action Point Card-->
+                <TextBlock HorizontalAlignment="Left" Margin="5,2,0,0" TextWrapping="Wrap" Text="Action Point" VerticalAlignment="Top" TextDecorations="{x:Null}" FontSize="14" RenderTransformOrigin="2.576,0.593" FontWeight="Bold" Grid.Column="3" Grid.Row="1" Padding="0"/>
+                <Label x:Name="labelActionPoints" Content="Base Action Points: 1" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top" FontSize="9" Padding="5,0,0,0" Grid.Column="3" Grid.Row="1"/>
+                <TextBlock HorizontalAlignment="Left" Height="72" Margin="0,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Padding="5" Grid.Column="3" Grid.Row="1">
+                <Bold><Run Text="Effect: "/></Bold>
+                <Run Text="Gain a standard action this turn."/>
+                <LineBreak/>
+                <Bold><Run Text="Special: "/></Bold>
+                <Run Text="You are reset to one action point when you take an extended rest. You can an action point each milestone."/>
+                </TextBlock>
+                <Label Content="Encounter Special" HorizontalAlignment="Left" Margin="0,307,0,0" VerticalAlignment="Top" FontSize="9" Padding="5,0,0,0" Grid.Column="3" Grid.Row="1"/>
+                <!--/Action Point Card-->
+                <!--Footer-->
+                <!--/Footer-->
+                <Grid x:Name="gridPowerCardMeleeBasic" HorizontalAlignment="Left" Height="176" Margin="0,80,0,0" VerticalAlignment="Top" Width="235" Grid.Column="1" Grid.Row="2">
+                    <Rectangle Stroke="Black"/>
+                </Grid>
+                <Grid x:Name="gridPowerCardRangedBasic" HorizontalAlignment="Left" Height="176" Margin="0,80,0,0" VerticalAlignment="Top" Width="235" Grid.Column="2" Grid.Row="2">
+                    <Rectangle Stroke="Black"/>
+                </Grid>
+                <Grid x:Name="gridPowerCard1" HorizontalAlignment="Left" Height="176" Margin="0,80,0,0" VerticalAlignment="Top" Width="235" Grid.Column="3" Grid.Row="2">
+                    <Rectangle Stroke="Black" Margin="0,0,1,0" Width="234" HorizontalAlignment="Left"/>
+                </Grid>
+                <Grid x:Name="gridPowerCard2" HorizontalAlignment="Left" Height="176" Margin="0,81,0,0" VerticalAlignment="Top" Width="235" Grid.Column="1" Grid.Row="3">
+                    <Rectangle Stroke="Black"/>
+                </Grid>
+                <Grid x:Name="gridPowerCard3" HorizontalAlignment="Left" Height="176" Margin="0,81,0,0" VerticalAlignment="Top" Width="235" Grid.Column="2" Grid.Row="3">
+                    <Rectangle Stroke="Black"/>
+                </Grid>
+                <Grid x:Name="gridPowerCard4" HorizontalAlignment="Left" Height="176" Margin="0,81,0,0" VerticalAlignment="Top" Width="235" Grid.Column="3" Grid.Row="3">
+                    <Rectangle Stroke="Black" Width="234" HorizontalAlignment="Left"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

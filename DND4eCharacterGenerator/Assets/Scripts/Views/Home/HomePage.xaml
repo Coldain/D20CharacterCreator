@@ -1,0 +1,121 @@
+﻿<Window x:Class="DnD4e.Assets.Scripts.Views.Home.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Home"
+      xmlns:other="clr-namespace:DnD4e.Assets.Scripts.Model"
+      mc:Ignorable="d" 
+      Background="#FF32406E"      
+      d:DesignHeight="300" d:DesignWidth="300"
+      MouseDown="Window_MouseDown"
+      Title="MainMenu" Height="768" Width="1024">
+    <Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="689*"/>
+                <ColumnDefinition Width="302*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="108" Margin="10,10,0,0" VerticalAlignment="Top" Width="347" Source="/DND4eCharacterGenerator;component/Assets/Images/logoDnD.png"/>
+            <Label Content="Character Builder" HorizontalAlignment="Left" Margin="108,98,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="20"/>
+            <Grid Margin="0,135,0,41" Grid.ColumnSpan="2">
+                <Rectangle Fill="#FFE4E2D0"/>
+                <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerHomePage.PNG" Stretch="UniformToFill" Width="250" Height="48" Margin="0,0,0,29"/>
+                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerHomePage.PNG" Stretch="UniformToFill" Width="250" Height="46" Margin="0,27,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Rectangle Fill="#FFCBC5A4" Height="30" VerticalAlignment="Top"/>
+                <Rectangle Fill="#FFCBC5A4" Height="30" VerticalAlignment="Bottom"/>
+                <Rectangle VerticalAlignment="Top" Height="5">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FFE4E2D0" Offset="0.126"/>
+                            <GradientStop Color="#FF9B8D4D" Offset="0.8"/>
+                            <GradientStop Color="#FF9B8D4D" Offset="0.879"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle VerticalAlignment="Bottom" Height="5">
+                    <Rectangle.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FFE4E2D0" Offset="0.126"/>
+                            <GradientStop Color="#FF9B8D4D" Offset="0.8"/>
+                            <GradientStop Color="#FF9B8D4D" Offset="0.879"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Image x:Name="image1" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="333" Source="/DND4eCharacterGenerator;component/Assets/Images/Misc/imageHomePage.png" Margin="0,-69,0,5" Height="600"/>
+                <Grid Width="267" Height="186" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="43,170,0,180">
+                    <Canvas x:Name="buttonSimple"  Height="30" Width="100" Margin="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                        <Path Stroke="#FF9B8D4D" StrokeThickness="2" Data="M15,0 L85,0 A15,15,0,0,1,100,15 A15,15,0,0,1,85,30 L15,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0">
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF3C612A"/>
+                                    <GradientStop Color="#FF86FF4D" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <Label Content="Simple" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="30" Canvas.Top="6" Foreground="White"/>
+                        <Path Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.2" StrokeThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Canvas>
+                    <Canvas x:Name="buttonCustom"  Height="30" Width="100" Margin="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                        <Path Stroke="#FF9B8D4D" StrokeThickness="2" Data="M15,0 L85,0 A15,15,0,0,1,100,15 A15,15,0,0,1,85,30 L15,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0">
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF3C612A"/>
+                                    <GradientStop Color="#FF86FF4D" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <Label Content="Custom" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="28" Canvas.Top="6" Foreground="White"/>
+                        <Path Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.2" StrokeThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Canvas>
+                    <Canvas x:Name="buttonLoad"  Height="30" Width="100" Margin="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+                        <Path Stroke="#FF9B8D4D" StrokeThickness="2" Data="M15,0 L85,0 A15,15,0,0,1,100,15 A15,15,0,0,1,85,30 L15,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0">
+                            <Path.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF3C612A"/>
+                                    <GradientStop Color="#FF86FF4D" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <Label Content="Load" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="35" Canvas.Top="6" Foreground="White"/>
+                        <Path Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.2" StrokeThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Canvas>
+                    <TextBlock HorizontalAlignment="Right" Margin="0" TextWrapping="Wrap" Text="Build a Quick D&amp;D Essentials Character" VerticalAlignment="Top" Height="62" Width="139" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0" TextWrapping="Wrap" Text="Build a Custom D&amp;D Character" VerticalAlignment="Center" Height="41" Width="139" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.504,0.78"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0" TextWrapping="Wrap" Text="Load a D&amp;D Character" VerticalAlignment="Bottom" Height="40" Width="139" FontSize="16" FontWeight="Bold"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="100" Margin="503,316,0,0" VerticalAlignment="Top" Width="100"/>
+                <Grid Margin="315,117,371,114" Width="305" Height="305" Panel.ZIndex="-5" ShowGridLines="True" Opacity="0.35">
+                    <Rectangle Fill="#FFE4C691" Stroke="#FF9B8D4D"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="5,0"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="80,0"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="155,0"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="230,0"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="0,80"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="80,80"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="155,80"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="230,80"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="0,155"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="80,155"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="155,155"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="230,155"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="0,230"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="80,230"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="155,230"/>
+                    <Image HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" Margin="230,230"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Window>

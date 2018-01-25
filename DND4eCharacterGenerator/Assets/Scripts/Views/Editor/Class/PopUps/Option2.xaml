@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="DnD4e.Assets.Scripts.Views.Editor.Class.PopUps.Option2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Editor.Class.PopUps"
+      xmlns:other="clr-namespace:DnD4e.Assets.Scripts.Model"
+      mc:Ignorable="d" 
+      d:DesignHeight="628" d:DesignWidth="421">
+
+    <Grid>
+        <Label Content="Choose an Option" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TreeView Name="trvFamilies" HorizontalAlignment="Left" Height="507" Margin="25,55,0,0" VerticalAlignment="Top" Width="385" BorderBrush="#FF9B8D4D" Background="#FFDAD8C3" BorderThickness="2" TreeView.SelectedItemChanged="TreeViewItem_OnItemSelected">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:optionSelections}" ItemsSource="{Binding Options}">
+                    <StackPanel Orientation="Horizontal" Background="#FFA5B4AA" Width="340" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding Relevance}" Foreground="White" Margin="2,0,0,0" />
+                        <TextBlock Text=" [" Foreground="Blue" Margin="0" />
+                        <TextBlock Text="{Binding Options.Count}" Foreground="Blue" />
+                        <TextBlock Text="]" Foreground="Blue" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type other:ClassOption}">
+                    <Grid Width="340" Height="25" Margin="-20,0,0,0" MouseLeftButtonDown="Item_Selected">
+                        <Rectangle Stroke="#FF9B8D4D" StrokeThickness="2" Fill="#FFE4E2D0" Height="20"/>
+                        <Label Content="{Binding OptionName}" FontSize="10" FontWeight="Bold" Margin="8,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Bottom"/>
+                        <Canvas MouseEnter="treeViewItem_MouseEnter" MouseLeftButtonUp="treeViewItem_MouseUp" MouseLeave="treeViewItem_MouseLeave" MouseLeftButtonDown="treeViewItem_MouseDown" Background="#FFCBC5A4" Opacity="0.8" VerticalAlignment="Top" HorizontalAlignment="Left" Height="17" Width="336" Margin="2,4,0,0">
+                            <Rectangle Stroke="{x:Null}" StrokeThickness="2" Fill="{x:Null}" Height="17" Width="336" Opacity="0.6"/>
+                        </Canvas>
+                    </Grid>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <Grid Margin="25,582,11,10">
+            <Rectangle Height="1" Fill="#FFF4F4F5" Stroke="Black" VerticalAlignment="Top"/>
+            <Canvas x:Name="buttonDeselect"  Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,4,0,0" IsEnabled="False" >
+                <Path Stroke="#FF9B8D4D" StrokeThickness="2" Data="M15,0 L85,0 A15,15,0,0,1,100,15 A15,15,0,0,1,85,30 L15,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3C612A"/>
+                            <GradientStop Color="#FF86FF4D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Label Content="Deselect" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="26" Canvas.Top="6" Background="{x:Null}" Foreground="White"/>
+                <Path x:Name="canvasDeselect" Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.6" StrokeThickness="0"/>
+            </Canvas>
+            <Canvas x:Name="buttonChooseForMe"  Height="30" Width="100" Margin="142,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Path Stroke="#FF9B8D4D" StrokeThickness="2" Data="M15,0 L85,0 A15,15,0,0,1,100,15 A15,15,0,0,1,85,30 L15,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3C612A"/>
+                            <GradientStop Color="#FF86FF4D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path>
+                <Label Content="Choose for Me" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="9" Canvas.Top="6" Foreground="White"/>
+                <Path Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.2" StrokeThickness="0"/>
+            </Canvas>
+            <Canvas x:Name="buttonSelect"  Height="30" Width="100" Margin="285,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False">
+                <Path Stroke="#FF9B8D4D" StrokeThickness="2" Data="M15,0 L85,0 A15,15,0,0,1,100,15 A15,15,0,0,1,85,30 L15,30 A15,15,0,0,1,0,15 A15,15,0,0,1,15,0">
+                    <Path.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3C612A"/>
+                            <GradientStop Color="#FF86FF4D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                </Path >
+                <Label Content="Select" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="33" Canvas.Top="6" Foreground="White"/>
+                <Path x:Name="canvasSelect" Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.6" StrokeThickness="0"/>
+            </Canvas>
+        </Grid>
+    </Grid>
+</UserControl>

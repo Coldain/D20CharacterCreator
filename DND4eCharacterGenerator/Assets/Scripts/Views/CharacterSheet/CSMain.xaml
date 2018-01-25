@@ -1,0 +1,628 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.CharacterSheet.CSMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.CharacterSheet"
+      mc:Ignorable="d" 
+      Background="White"
+      d:DesignHeight="1045" d:DesignWidth="807.5"
+      Title="CSMain">
+    <Viewbox>
+        <Grid Height="1045" Width="807.5" IsHitTestVisible = "False">
+            <Grid Background="White" Height="990" Width="747.5" VerticalAlignment="Top">
+                <Grid Margin="0,0,-0.5,850">                    
+                        <!--Header-->
+                    <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPage.PNG" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                <SkewTransform AngleY="0" AngleX="0"/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="30,30,0,0" VerticalAlignment="Top" Width="215" Source="/DND4eCharacterGenerator;component/Assets/Images/logoDnD.png"/>
+                    <Label Content="4e Character Sheet" HorizontalAlignment="Left" Margin="62,88,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Padding="0"/>
+                    <Label Content="Player Name / RPGA" HorizontalAlignment="Left" Margin="294,33,0,0" VerticalAlignment="Top" FontSize="7" Padding="0"/>
+                    <TextBox x:Name="textBoxPlayerName" HorizontalAlignment="Left" Height="19" Margin="365,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" TextDecorations="{x:Null}" Text="{Binding character.Player}"/>
+                    <Label x:Name="labelCharaterName" Content="{Binding character.Name}" HorizontalAlignment="Left" Margin="287,55,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Padding="0"/>
+                    <TextBlock x:Name="labelAlignmentGenderRaceClass" HorizontalAlignment="Left" Margin="287,75,0,0" VerticalAlignment="Top" FontSize="9" Padding="0">
+                        <Run Text="{Binding character.Alignment}"/> <Run Text=" "/> <Run Text="{Binding character.Gender}"/> <Run Text=" "/> <Run Text="{Binding character.Race.Race}"/> <Run Text=" "/> <Run Text="{Binding character.Class.Class}"/>
+                    </TextBlock>
+                    
+                    <TextBlock x:Name="textBlockAge" HorizontalAlignment="Left" Margin="293,90,0,0" Text="{Binding character.Age}" VerticalAlignment="Top" TextDecorations="Underline" FontSize="8"/>
+                    <TextBlock x:Name="textBlockHeight" HorizontalAlignment="Left" Margin="324,90,0,0" Text="{Binding character.Height}" VerticalAlignment="Top" TextDecorations="Underline" FontSize="8" RenderTransformOrigin="2.576,0.593"/>
+                    <TextBlock x:Name="textBlockWeight" HorizontalAlignment="Left" Margin="364,90,0,0" Text="{Binding character.Weight}" VerticalAlignment="Top" TextDecorations="Underline" FontSize="8" RenderTransformOrigin="2.576,0.593"/>
+                    <TextBlock x:Name="textBlockSize" HorizontalAlignment="Left" Margin="408,90,0,0" Text="{Binding character.Race.Size}" VerticalAlignment="Top" TextDecorations="Underline" FontSize="8" RenderTransformOrigin="2.576,0.593"/>
+                    <Grid Margin="448,90,0,0" Width="123" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock x:Name="textBlockDeity" HorizontalAlignment="Center" Text="{Binding character.Deity.Deity}" VerticalAlignment="Center" FontSize="8"/>
+                        <Rectangle VerticalAlignment="Bottom" Height="1" Fill="Black" Stroke="Black"/>
+                    </Grid>
+                        <Label Content="Age" HorizontalAlignment="Left" Margin="293,100,0,0" VerticalAlignment="Top" FontSize="8" Padding="0"/>
+                    <Label Content="Height" HorizontalAlignment="Left" Margin="323,100,0,0" VerticalAlignment="Top" FontSize="8" Padding="0"/>
+                    <Label Content="Weight" HorizontalAlignment="Left" Margin="365,100,0,0" VerticalAlignment="Top" FontSize="8" Padding="0"/>
+                    <Label Content="Size" HorizontalAlignment="Left" Margin="414,100,0,0" VerticalAlignment="Top" FontSize="8" Padding="0"/>
+                    <Label Content="Deity" HorizontalAlignment="Left" Margin="502,100,0,0" VerticalAlignment="Top" FontSize="8" Padding="0"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Margin="0,30,30,0" Stroke="Black" VerticalAlignment="Top" Width="60"/>
+                    <TextBox x:Name="textBoxCurrentLevel" HorizontalAlignment="Right" Height="20" Margin="0,35,35,0" TextWrapping="Wrap" Text="{Binding character.Level}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Level" HorizontalAlignment="Left" Margin="681,60,0,0" VerticalAlignment="Top" FontSize="7" Padding="0"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Margin="0,80,30,0" Stroke="Black" VerticalAlignment="Top" Width="135" StrokeThickness="2"/>
+                    <TextBox x:Name="textBoxCurrentExperience" HorizontalAlignment="Right" Height="20" Margin="0,85,35,0" TextWrapping="Wrap" Text="{Binding character.TotalXP}" VerticalAlignment="Top" Width="125" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Total XP" HorizontalAlignment="Left" Margin="588,110,0,0" VerticalAlignment="Top" FontSize="7" Padding="0"/>
+                    <!--/Header-->
+                </Grid>
+                <Grid Margin="0,135,-0.5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="277*"/>
+                        <ColumnDefinition Width="258*"/>
+                        <ColumnDefinition Width="272*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Margin="10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="163*"/>
+                            <RowDefinition Height="244*"/>
+                            <RowDefinition Height="219*"/>
+                            <RowDefinition Height="241*"/>
+                        </Grid.RowDefinitions>
+                        <!--Column 1-->
+                        <!--Defenses-->
+                        <Grid Height="19" VerticalAlignment="Top">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Defenses" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Stroke="Black" VerticalAlignment="Top" Width="45" Margin="0,27,0,0"/>
+                        <Label Content="AC" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="16,67,0,0"/>
+                        <Image HorizontalAlignment="Left" Height="52" Margin="-1,19,0,0" VerticalAlignment="Top" Width="46" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsArmorClass.png"/>
+                        <Label x:Name="labelArmorClass" Content="{Binding character.ArmorClass}" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Margin="13,33,0,0"/>
+                        <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Margin="61,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="45"/>
+                        <Label Content="FORT" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Padding="0" Margin="70,70,0,0"/>
+                        <Image HorizontalAlignment="Left" Height="57" Margin="55,21,0,0" VerticalAlignment="Top" Width="56" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsFortitude.png"/>
+                        <Label x:Name="labelFortitude" Content="{Binding character.Fortitude}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Margin="74,34,0,0"/>
+                        <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Margin="123,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="45"/>
+                        <Label Content="REF" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="137,69,0,0"/>
+                        <Image HorizontalAlignment="Left" Height="51" Margin="123,24,0,0" VerticalAlignment="Top" Width="58" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsReflexes.png"/>
+                        <Label x:Name="labelReflexes" Content="{Binding character.Reflexes}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Margin="128,33,0,0"/>
+                        <Rectangle Fill="#FF5F5F5F" HorizontalAlignment="Left" Height="59" Margin="187,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="45"/>
+                        <Label Content="WILL" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="197,70,0,0"/>
+                        <Image HorizontalAlignment="Left" Height="52" Margin="184,23,-2,0" VerticalAlignment="Top" Width="55" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconStatsWillpower.png"/>
+                        <Label x:Name="labelWillpower" Content="{Binding character.Willpower}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Padding="0" Margin="199,33,0,0"/>
+                        <Label Content="Conditional Bonuses:" HorizontalAlignment="Left"  VerticalAlignment="Top" FontSize="9" FontWeight="Bold" Margin="0,91,0,0"/>
+                        <!--/Defenses-->
+                        <!--Hit Points-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="1">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Hit Points" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="70" Stroke="Black" VerticalAlignment="Top" Width="155" StrokeThickness="2" Margin="0,24,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="5,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="145"/>
+                        <Label Grid.Row="1" Content="Max HP:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Padding="0" Margin="27,41,0,0"/>
+                        <Label Grid.Row="1" x:Name="labelMaxHP" Content="{Binding character.MaxHP}" HorizontalAlignment="Left" Margin="93,32,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Height="28" Width="44" Padding="0"/>
+                        <TextBlock Grid.Row="1" x:Name="labelBloodiedHP" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="27,65,0,0">
+                            <Run Text="(Bloodied: "/> <Run Text="{Binding character.BloodiedHP}"/> <Run Text=" )"/>
+                        </TextBlock>
+                        <Grid Grid.Row="1" Margin="172,24,-2,145">
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right"  Stroke="Black" VerticalAlignment="Top" Width="67" Height="65"/>
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46" Stroke="Black" VerticalAlignment="Bottom" Width="67"/>
+                            <Label Content="Temp HP:" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Padding="0" Margin="6,3,0,0"/>
+                        </Grid>
+                        <Rectangle  Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="131" Margin="0,103,-2,0" Stroke="Black" VerticalAlignment="Top" Width="239"/>
+                        <Label  Grid.Row="1" Content="Current HP:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Padding="0" FontWeight="Bold" Margin="16,111,0,0"/>
+                        <!--/Hit Points-->
+                        <!--Healing Surges-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="2">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Healing Surges" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Rectangle Grid.Row="2" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="23" Stroke="Black" VerticalAlignment="Top" Width="50" StrokeThickness="2" Margin="0,44,186,0"/>
+                        <Label Grid.Row="2" Content="Surge Value" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="0,24,0,0"/>
+                        <TextBox Grid.Row="2" x:Name="textBoxSurgeValue" HorizontalAlignment="Right" Height="15" TextWrapping="Wrap" Text="{Binding character.HealingSurgeValue}" VerticalAlignment="Top" Width="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,48,190,0" FontSize="11" Padding="0,-2,0,0"/>
+                        <Label Grid.Row="2" Content="Surges / Day" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="91,24,0,0"/>
+                        <Rectangle Grid.Row="2" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="23" Stroke="Black" VerticalAlignment="Top" Width="50" StrokeThickness="2" Margin="0,44,103,0"/>
+                        <TextBox Grid.Row="2" x:Name="textBoxMaxSurges" HorizontalAlignment="Right" Height="15" TextWrapping="Wrap" Text="{Binding character.HealingSurges}" VerticalAlignment="Top" Width="42" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,48,107,0" FontSize="11" Padding="0,-2,0,0"/>
+                        <Grid Grid.Row="2" Margin="172,43,-2,102">
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="70"  Stroke="Black" VerticalAlignment="Top" Width="67"/>
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46" Stroke="Black" VerticalAlignment="Bottom" Width="67"/>
+                            <Label Content="Surges:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Padding="0" Margin="14,4,0,0"/>
+                        </Grid>
+                        <Label Grid.Row="2" Content="Current Conditions:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Padding="0" FontWeight="Bold" Margin="-1,79,0,0"/>
+                        <!--/Healing Surges-->
+                        <!--Combat, Statistics, and Senses-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="3">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Width="237" Height="17" Stretch="Fill"/>
+                            <Label Content="Combat, Statistics, and Senses" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Rectangle Grid.Row="3" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="20" Stroke="Black" VerticalAlignment="Top" Width="213" Margin="0,29,23,0"/>
+                        <Label Grid.Row="3" Content="Initiative" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="5,30,0,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="28" Stroke="Black" VerticalAlignment="Top" Width="55" StrokeThickness="2" Margin="0,25,1,0"/>
+                        <TextBox Grid.Row="3" x:Name="textBoxInitiative" HorizontalAlignment="Right" Height="18" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,30,6,0"/>
+                        <Label Grid.Row="3" Content="Conditional Modifiers:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Padding="0" FontWeight="Bold" Margin="0,51,0,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="20" Stroke="Black" VerticalAlignment="Top" Width="213" Margin="0,83,23,0"/>
+                        <Label Grid.Row="3" Content="Speed" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="5,83,0,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="27" Stroke="Black" VerticalAlignment="Top" Width="55" StrokeThickness="2" Margin="0,78,1,0"/>
+                        <TextBox Grid.Row="3" x:Name="textBoxSpeed" HorizontalAlignment="Right" Height="18" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,83,6,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="21" Stroke="Black" VerticalAlignment="Top" Width="213" Margin="0,126,23,0"/>
+                        <Label Grid.Row="3" Content="Passive Insight" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="5,128,0,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="28" Stroke="Black" VerticalAlignment="Top" Width="55" StrokeThickness="2" Margin="0,123,0,0"/>
+                        <TextBox Grid.Row="3" x:Name="textBoxPassiveInsight" HorizontalAlignment="Right" Height="19" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,128,5,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="21" Stroke="Black" VerticalAlignment="Top" Width="213" Margin="0,159,24,0"/>
+                        <Label Grid.Row="3" Content="Passive Perception" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Padding="0" Margin="5,161,0,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="28" Stroke="Black" VerticalAlignment="Top" Width="55" StrokeThickness="2" Margin="0,157,0,0"/>
+                        <TextBox Grid.Row="3" x:Name="textBoxPassivePerception" HorizontalAlignment="Right" Height="19" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,161,5,0"/>
+                        <TextBlock Grid.Row="3" x:Name="labelSpecialSenses" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Padding="0" Margin="0,185,0,0">
+                    <Bold><Run Text="Special Senses: "/></Bold> 
+                    <Run Text="Normal."/>
+                        </TextBlock>
+                        <!--/Combat, Statistics, and Senses-->
+                        <!--/Column 1-->
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="270*"/>
+                            <RowDefinition Height="138*"/>
+                            <RowDefinition Height="219*"/>
+                            <RowDefinition Height="95*"/>
+                            <RowDefinition Height="73*"/>
+                            <RowDefinition Height="69*"/>
+                        </Grid.RowDefinitions>
+                        <!--Column 2-->
+                        <!--Action Points-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="0">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Action Points" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Margin="0,24,152,162" Height="70" Width="67">
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="70" Stroke="Black" VerticalAlignment="Top" Width="67"/>
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46" Stroke="Black" VerticalAlignment="Bottom" Width="67"/>
+                            <Label Content="Action Points:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="9" Padding="0" Margin="4,5,0,0"/>
+                        </Grid>
+                        <Label Grid.Row="0" Content="Milestones" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="89,24,0,0" Height="13" Width="51"/>
+                        <TextBox Grid.Row="0" x:Name="textBox" HorizontalAlignment="Left" Height="53" TextWrapping="Wrap" Text="0&#xA;1&#xA;2" VerticalAlignment="Top" Width="13" BorderBrush="White" Margin="110,42,0,0"/>
+                        <Label Grid.Row="0" Content="Action Points" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="151,24,0,0" Height="13" Width="63"/>
+                        <TextBox Grid.Row="0" HorizontalAlignment="Left" Height="53" TextWrapping="Wrap" Text="1&#xA;2&#xA;3" VerticalAlignment="Top" Width="13" BorderBrush="White" Margin="175,42,0,0"/>
+                        <TextBlock Grid.Row="0" HorizontalAlignment="Left" Height="66" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" Margin="3,108,0,0" FontSize="11">
+                            <Bold><Run Text="Effect: "/></Bold> 
+                            <Run Text="Gain a standard action this turn."/>
+                            <LineBreak/>
+                            <Bold><Run Text="Special: "/></Bold>
+                            <Run Text="You are reset to one action point when you take an extended rest. You can an action point each milestone."/>
+                        </TextBlock>
+                        <Rectangle Grid.Row="0" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="35" Margin="3,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="130" StrokeThickness="2"/>
+                        <Rectangle Grid.Row="0" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="25" Margin="8,192,0,0" Stroke="Black" VerticalAlignment="Top" Width="120"/>
+                        <TextBlock Grid.Row="0" x:Name="labelMaxClassPoints" HorizontalAlignment="Left" Margin="16,195,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Padding="0">
+                            <Run Text="Max PP: "/> <Run Text="{Binding character.Class.Subclass.PP}"/>
+                        </TextBlock>
+                        <Grid Grid.Row="0" Margin="146,187,6,137" Width="67" Height="70" Grid.RowSpan="2">
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="69" Stroke="Black" VerticalAlignment="Top" Width="67" Margin="0,-5,0,0"/>
+                            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="46" Stroke="Black" VerticalAlignment="Bottom" Width="67" Margin="0,0,0,5"/>
+                            <Label x:Name="labelClassPoints" Content="Power Points:" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Padding="0" Margin="4,0,0,0" FontSize="9"/>
+                        </Grid>
+                        <!--/Action Points-->
+                        <!--Second Wind-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="1">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Second Wind" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Label Grid.Row="1" Content="Second Wind (one per encounter)" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="0,24,0,0" Height="13" Width="159"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="20" Margin="0,46,0,0"/>
+                        <Label Grid.Row="1" Content="Used" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="27,50,0,0" Height="13" Width="23"/>
+                        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Height="66" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Margin="0,71,0,0" FontSize="11">
+                            <Bold><Run Text="Effect: "/></Bold> 
+                            <Run Text="You spend a healing surge and regain hit point equal to your surge value. You gain a +2 bonus to all defenses until the start of your next turn."/>
+                        </TextBlock>
+                        <!--/Second Wind-->
+                        <!--Death Saving Throw Failures-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="2">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Death Saving Throw Failures" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Rectangle Grid.Row="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="20" Margin="0,26,0,0"/>
+                        <Rectangle Grid.Row="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="20" Margin="40,26,0,0"/>
+                        <Rectangle Grid.Row="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="20" Margin="80,26,0,0"/>
+                        <Rectangle Grid.Row="2" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="213" Margin="0,54,6,0"/>
+                        <Label Grid.Row="2" Content="Saving Throw Modifiers&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="16" Padding="0" Margin="4,56,0,0" Width="125"/>
+                        <TextBox Grid.Row="2" x:Name="textBoxSavingThrowModifiers" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="54" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,54,0,0"/>
+                        <!--/Death Saving Throw Failures-->
+                        <!--Basic Attacks-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="3">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Basic Attacks" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <TextBlock Grid.Row="3" HorizontalAlignment="Left" Text="Melee_____________________________________" VerticalAlignment="Top" TextDecorations="Underline" FontSize="14" FontWeight="Bold" Margin="0,19,0,0" Height="19" Width="255"/>
+                        <Label Grid.Row="3" x:Name="labelMeleeWeapon" Content="Melee Weapon" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="0,38,0,0" Height="13" Width="70"/>
+                        <Rectangle Grid.Row="3" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,54,151,0"/>
+                        <TextBox Grid.Row="3" x:Name="textBoxMeleeWeaponAttackBonus" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,59,156,0"/>
+                        <Label Grid.Row="3" x:Name="labelMeleeWeaponAttackVs" Content="Attack Type vs Defense Type" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="7" Padding="0" Margin="0,84,0,0"/>
+                        <Rectangle Grid.Row="3" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Margin="0,54,26,0" Stroke="Black" VerticalAlignment="Top" Width="92" StrokeThickness="2"/>
+                        <TextBox Grid.Row="3" x:Name="textBoxMeleeWeaponDamage" HorizontalAlignment="Right" Height="20" Margin="0,59,33,0" TextWrapping="Wrap" Text="00d00 + 00" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Label Grid.Row="3" Content="Damage" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="7" Padding="0" Margin="133,84,0,0"/>
+                        <TextBlock Grid.Row="4" HorizontalAlignment="Left" Text="Ranged___________________________________" VerticalAlignment="Top" TextDecorations="Underline" FontSize="14" FontWeight="Bold" Margin="0" Height="19" Width="253"/>
+                        <Label Grid.Row="4" x:Name="labelRangedWeapon" Content="Ranged Weapon" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Padding="0" Margin="0,17,0,0" Height="13" Width="77"/>
+                        <Rectangle Grid.Row="4" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Margin="0,33,150,0" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2"/>
+                        <TextBox Grid.Row="4" x:Name="textBoxRangedWeaponAttackBonus" HorizontalAlignment="Right" Height="20" Margin="0,38,156,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Label Grid.Row="4" x:Name="labelRangedWeaponAttackVs" Content="Attack Type vs Defense Type" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="7" Padding="0" Margin="0,66,0,0" Height="9" Grid.RowSpan="2" Width="87"/>
+                        <Rectangle Grid.Row="4" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Margin="0,33,26,0" Stroke="Black" VerticalAlignment="Top" Width="92" StrokeThickness="2"/>
+                        <TextBox Grid.Row="4" x:Name="textBoxRangedWeaponDamage" HorizontalAlignment="Right" Height="20" Margin="0,38,33,0" TextWrapping="Wrap" Text="00d00 + 00" VerticalAlignment="Top" Width="78" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <Label Grid.Row="4" Content="Damage" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="7" Padding="0" Margin="133,66,0,0" Height="9" Grid.RowSpan="2" Width="26"/>
+                        <!--/Basic Attacks-->
+                        <!--Misc-->
+                        <TextBlock HorizontalAlignment="Left" Margin="0,99,0,0" Text="Resistances / Vulnerabilities____________" VerticalAlignment="Top" TextDecorations="Underline" FontSize="14" FontWeight="Bold" Grid.Row="2" Height="19" Width="253"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,149,0,0" Text="Current Conditions and Effects_________" VerticalAlignment="Top" TextDecorations="Underline" FontSize="14" FontWeight="Bold" Grid.Row="2" Height="19" Width="253"/>
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="5" Margin="0,9,0,0">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Languages" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <TextBlock x:Name="labelLanguages" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="9" Padding="0" Grid.Row="5" Margin="0,33,0,0">
+                            <Run Text="{Binding character.KnownLanguages[0].Language}"/> <Run Text=" "/> <Run Text="{Binding character.KnownLanguages[1].Language}"/> <Run Text=" "/> <Run Text="{Binding character.KnownLanguages[2].Language}"/> <Run Text=" "/> <Run Text="{Binding character.KnownLanguages[3].Language}"/> <Run Text=" "/> <Run Text="{Binding character.KnownLanguages[4].Language}"/>
+                        </TextBlock>
+                        <!--/Misc-->
+                        <!--/Column 2-->
+                    </Grid>
+                    <Grid Grid.Column="2" Margin="10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="277*"/>
+                            <RowDefinition Height="245*"/>
+                            <RowDefinition Height="364*"/>
+                        </Grid.RowDefinitions>
+                        <!--Column 3-->
+                        <!--Character Picture-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="0">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Character Picture" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Rectangle Grid.Row="0" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="230" Stroke="Black" VerticalAlignment="Top" Width="230" StrokeThickness="2" Margin="0,28,0,0"/>
+                        <Image Grid.Row="0" x:Name="imageCharacter" HorizontalAlignment="Right" Height="170" Margin="0,58,30,0" VerticalAlignment="Top" Width="170"/>
+                        <!--/Character Picture-->
+                        <!--Abilities-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="1">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Abilities" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Label Grid.Row="1" Content="Check" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" Padding="0" Margin="206,19,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="232" Margin="0,35,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.SubList[3]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Margin="16,36,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.MainList[3]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="8" Padding="0" Margin="80,40,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,26,31,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxStrengthScore" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="{Binding character.Strength}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,31,36,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxStrenghtCheck" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="{Binding character.StrengthMod}" VerticalAlignment="Top" Width="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,35,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="232" Margin="0,62,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.SubList[0]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Margin="16,63,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.MainList[0]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="8" Padding="0" Margin="73,67,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,62,31,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxConsittutionScore" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="{Binding character.Constitution}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,67,36,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxConstitutionCheck" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="{Binding character.ConstitutionMod}" VerticalAlignment="Top" Width="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,62,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="232" Margin="0,105,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.SubList[1]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Margin="16,106,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.MainList[1]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="8" Padding="0" Margin="79,110,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,97,31,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxDexterityScore" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="{Binding character.Dexterity}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,102,36,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxDexterityCheck" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="{Binding character.DexterityMod}" VerticalAlignment="Top" Width="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,105,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="232" Margin="0,132,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.SubList[5]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Margin="16,133,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.MainList[5]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="8" Padding="0" Margin="75,137,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,132,31,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxIntelligenceScore" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="{Binding character.Intelligence}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,137,36,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxIntelligenceCheck" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="{Binding character.IntelligenceMod}" VerticalAlignment="Top" Width="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,132,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="232" Margin="0,177,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.SubList[4]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Margin="16,178,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.MainList[4]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="8" Padding="0" Margin="80,182,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,169,31,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxWisdomScore" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="{Binding character.Wisdom}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,174,36,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxWisdomCheck" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="{Binding character.WisdomMod}" VerticalAlignment="Top" Width="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,177,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FF5F5F5F" HorizontalAlignment="Right" Height="22" Stroke="Black" VerticalAlignment="Top" Width="232" Margin="0,204,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.SubList[2]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="14" Padding="0" Margin="16,205,0,0"/>
+                        <Label Grid.Row="1" Content="{Binding abilities.MainList[2]}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="8" Padding="0" Margin="79,209,0,0"/>
+                        <Rectangle Grid.Row="1" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="30" Stroke="Black" VerticalAlignment="Top" Width="60" StrokeThickness="2" Margin="0,204,31,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxCharismaScore" HorizontalAlignment="Right" Height="20" TextWrapping="Wrap" Text="{Binding character.Charisma}" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,209,36,0"/>
+                        <TextBox Grid.Row="1" x:Name="textBoxCharismaCheck" HorizontalAlignment="Right" Height="22" TextWrapping="Wrap" Text="{Binding character.CharismaMod}" VerticalAlignment="Top" Width="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Margin="0,204,0,0"/>
+                        <!--/Abilities-->
+                        <!--Skills-->
+                        <Grid Height="19" VerticalAlignment="Top" Grid.Row="2">
+                            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerSubHeading.PNG" VerticalAlignment="Top" Height="17" Stretch="Fill"/>
+                            <Label Content="Skills" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0" Padding="0"/>
+                            <Rectangle VerticalAlignment="Bottom" Height="2" Fill="Black"/>
+                        </Grid>
+                        <Label Grid.Row="2" Content="Skill" HorizontalAlignment="Left" Margin="6,19,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Height="21"/>
+                        <Label Grid.Row="2" Content="Ability" HorizontalAlignment="Left" Margin="93,19,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Height="21"/>
+                        <Label Grid.Row="2" Content="Training" HorizontalAlignment="Left" Margin="149,19,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Height="21"/>
+                        <Label Grid.Row="2" Content="Score" HorizontalAlignment="Left" Margin="196,19,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Height="21"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="294" Margin="0,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="230" StrokeThickness="2"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Stroke="#FF666666" VerticalAlignment="Top" Width="226" Margin="0,42,2,0"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[0]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="10,43,0,0"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[1]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="102,43,0,0"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedAcrobatics" HorizontalAlignment="Left" Margin="171,43,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.AcrobaticsTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreAcrobatics" HorizontalAlignment="Right" Height="18" Margin="0,42,2,0" TextWrapping="Wrap" Text="{Binding character.AcrobaticsBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black" Margin="0,59,2,0"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[1]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="10,60,0,0"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[5]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="102,60,0,0"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedArcana" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Margin="171,60,0,0">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.ArcanaTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreArcana" HorizontalAlignment="Right" Height="18" Margin="0,59,2,0" TextWrapping="Wrap" Text="{Binding character.ArcanaBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Stroke="#FF666666" VerticalAlignment="Top" Width="226" Margin="0,76,2,0"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[2]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="10,77,0,0"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[3]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="102,77,0,0"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedAthletics" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center" Margin="171,77,0,0">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.AthleticsTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreAthletics" HorizontalAlignment="Right" Height="18" Margin="0,76,2,0" TextWrapping="Wrap" Text="{Binding character.AthleticsBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black" Margin="0,93,2,0"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[3]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="10,94,0,0"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[2]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="102,94,0,0"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedBluff" HorizontalAlignment="Left" Margin="171,94,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.BluffTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreBluff" HorizontalAlignment="Right" Height="18" Margin="0,93,2,0" TextWrapping="Wrap" Text="{Binding character.BluffBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Stroke="#FF666666" VerticalAlignment="Top" Width="226" Margin="0,110,2,0"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[4]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="10,111,0,0"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[2]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="102,111,0,0"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedDiplomacy" HorizontalAlignment="Left" Margin="171,111,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.DiplomacyTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreDiplomacy" HorizontalAlignment="Right" Height="18" Margin="0,110,2,0" TextWrapping="Wrap" Text="{Binding character.DiplomacyBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black" Margin="0,127,2,0"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[5]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="10,128,0,0"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[4]}" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" Margin="102,128,0,0"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedDungeoneering" HorizontalAlignment="Left" Margin="171,128,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.DungeoneeringTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreDungeoneering" HorizontalAlignment="Right" Height="18" Margin="0,127,2,0" TextWrapping="Wrap" Text="{Binding character.DungeoneeringBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Margin="0,144,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[6]}" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[0]}" HorizontalAlignment="Left" Margin="102,145,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedEndurance" HorizontalAlignment="Left" Margin="171,145,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.EnduranceTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreEndurance" HorizontalAlignment="Right" Height="18" Margin="0,144,2,0" TextWrapping="Wrap" Text="{Binding character.EnduranceBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Margin="0,161,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[7]}" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[4]}" HorizontalAlignment="Left" Margin="102,162,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedHeal" HorizontalAlignment="Left" Margin="171,162,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.HealTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreHeal" HorizontalAlignment="Right" Height="18" Margin="0,161,2,0" TextWrapping="Wrap" Text="{Binding character.HealBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Margin="0,178,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[8]}" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[5]}" HorizontalAlignment="Left" Margin="102,179,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedHistory" HorizontalAlignment="Left" Margin="171,179,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.HistoryTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreHistory" HorizontalAlignment="Right" Height="18" Margin="0,178,2,0" TextWrapping="Wrap" Text="{Binding character.HistoryBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Margin="0,195,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[9]}" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[4]}" HorizontalAlignment="Left" Margin="102,196,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedInsight" HorizontalAlignment="Left" Margin="171,196,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.HistoryTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreInsight" HorizontalAlignment="Right" Height="18" Margin="0,195,2,0" TextWrapping="Wrap" Text="{Binding character.InsightBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Margin="0,212,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[10]}" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[2]}" HorizontalAlignment="Left" Margin="102,213,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedIntimidate" HorizontalAlignment="Left" Margin="171,213,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.IntimidateTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreIntimidate" HorizontalAlignment="Right" Height="18" Margin="0,212,2,0" TextWrapping="Wrap" Text="{Binding character.IntimidateBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Margin="0,229,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[11]}" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[4]}" HorizontalAlignment="Left" Margin="102,230,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedNature" HorizontalAlignment="Left" Margin="171,230,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.NatureTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreNature" HorizontalAlignment="Right" Height="18" Margin="0,229,2,0" TextWrapping="Wrap" Text="{Binding character.NatureBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Margin="0,246,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[12]}" HorizontalAlignment="Left" Margin="10,247,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[4]}" HorizontalAlignment="Left" Margin="102,247,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedPerception" HorizontalAlignment="Left" Margin="171,247,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.PerceptionTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScorePerception" HorizontalAlignment="Right" Height="18" Margin="0,246,2,0" TextWrapping="Wrap" Text="{Binding character.PerceptionBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Margin="0,263,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[13]}" HorizontalAlignment="Left" Margin="10,264,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[5]}" HorizontalAlignment="Left" Margin="102,264,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedReligion" HorizontalAlignment="Left" Margin="171,264,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.ReligionTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreReligion" HorizontalAlignment="Right" Height="18" Margin="0,263,2,0" TextWrapping="Wrap" Text="{Binding character.ReligionBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Margin="0,280,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[14]}" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[1]}" HorizontalAlignment="Left" Margin="102,281,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedStealth" HorizontalAlignment="Left" Margin="171,281,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.StealthTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreStealth" HorizontalAlignment="Right" Height="18" Margin="0,280,2,0" TextWrapping="Wrap" Text="{Binding character.StealthBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="White" HorizontalAlignment="Right" Height="18" Margin="0,297,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226" OpacityMask="Black"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[15]}" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[2]}" HorizontalAlignment="Left" Margin="102,298,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedStreetwise" HorizontalAlignment="Left" Margin="171,298,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.StreetwiseTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreStreetwise" HorizontalAlignment="Right" Height="18" Margin="0,297,2,0" TextWrapping="Wrap" Text="{Binding character.StreetwiseBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="White" OpacityMask="Black"/>
+                        <Rectangle Grid.Row="2" Fill="#FFC8C8C8" HorizontalAlignment="Right" Height="18" Margin="0,314,2,0" Stroke="#FF666666" VerticalAlignment="Top" Width="226"/>
+                        <Label Grid.Row="2" Content="{Binding skills.MainList[16]}" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" Content="{Binding abilities.MainList[1]}" HorizontalAlignment="Left" Margin="102,315,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True"/>
+                        <Label Grid.Row="2" x:Name="labelSkillTrainedThievery" HorizontalAlignment="Left" Margin="171,315,0,0" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" RenderTransformOrigin="1.822,0.719" Width="25" HorizontalContentAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Content" Value="" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding character.ThieveryTraining}" Value="True">
+                                            <Setter Property="Content" Value="X"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                        <TextBox Grid.Row="2" x:Name="textBoxSkillScoreThievery" HorizontalAlignment="Right" Height="18" Margin="0,314,2,0" TextWrapping="Wrap" Text="{Binding character.ThieveryBonus}" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FF666666" Background="#FFC8C8C8"/>
+                        <Rectangle Grid.Row="2" Fill="#FF666666" HorizontalAlignment="Left" Height="290" Stroke="#FF666666" VerticalAlignment="Top" Width="1" StrokeThickness="0" Margin="94,42,0,0"/>
+                        <Rectangle Grid.Row="2" Fill="#FF666666" HorizontalAlignment="Left" Height="290" Stroke="#FF666666" VerticalAlignment="Top" Width="1" StrokeThickness="0" Margin="170,42,0,0"/>
+                        <!--/Skills-->
+                        <!--/Column 3-->
+                    </Grid>
+                    <!--Column Borders-->
+                    <Rectangle Fill="Black" HorizontalAlignment="Left" Stroke="Black" Width="3" Grid.Column="1"/>
+                    <Rectangle Fill="Black" HorizontalAlignment="Right" Stroke="Black" Width="3" Grid.Column="1"/>
+                    <!--/Column Borders-->
+                </Grid>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>

@@ -1,0 +1,49 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.Editor.Class.SelectionDetailsDeity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Editor.Class"
+      mc:Ignorable="d" 
+      d:DesignWidth="281"
+      Title="SelectionDetailsClass">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="153"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="labelClass" Content="{Binding Deity}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Grid Grid.Row="1" Width="262" HorizontalAlignment="Center" Height="152.83">
+            <Image Name="imageClass" Source="{Binding Image}" Margin="1.5,0" Grid.RowSpan="2"/>
+            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/borderClassImage.PNG" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/borderClassImage.PNG" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="{Binding Alignment}" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock Grid.Row="3" TextWrapping="Wrap" Text="{Binding Description}" Margin="0,5,0,0"/>
+        <TextBlock Grid.Row="4" Margin="0,5,0,0" TextWrapping="Wrap">
+            <Run Text="✦ "/><Run Text="{Binding Laws[0]}"/>
+            <LineBreak/>
+            <Run Text="✦ "/><Run Text="{Binding Laws[1]}"/>
+            <LineBreak/>
+            <Run Text="✦ "/><Run Text="{Binding Laws[2]}"/>
+            <LineBreak/>
+        </TextBlock>
+        <TextBlock Grid.Row="5" Margin="0,5,0,0" FontWeight="Bold">
+           <Run Text="{Binding Domains[0]}"/><Run Text=" "/><Run Text="{Binding Domains[1]}"/><Run Text=" "/><Run Text="{Binding Domains[2]}"/><Run Text=" "/><Run Text="{Binding Domains[3]}"/>
+        </TextBlock>
+    </Grid>
+</Page>

@@ -1,0 +1,17 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.CharacterSheet.CSFeats"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.CharacterSheet"
+      mc:Ignorable="d" 
+      d:DesignHeight="1045" d:DesignWidth="815.5"
+      Title="CSFeats">
+    <Viewbox>
+        <Grid IsHitTestVisible = "False" Background="White" Height="1045" Width="815.5">
+            <Grid Height="1045" Width="807.5">
+            <TextBox Text="THIS IS A TEST: FEATS" FontSize="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</Page>
