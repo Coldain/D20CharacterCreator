@@ -78,9 +78,12 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class.PopUps
             SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass);
             editor.framedetails.Content = details;
             priorPage.subclassPicked = true;
-            priorPage.ChangeSelections(true);            
-            priorPage.gridBuild.IsEnabled = true;
-            priorPage.ChangeCompleted(false, priorPage.gridBuild, false);
+            priorPage.ChangeSelections(true);
+            if (mySubclass.Builds.Count != 1)
+            {
+                priorPage.gridBuild.IsEnabled = true;
+                priorPage.ChangeCompleted(false, priorPage.gridBuild, false);
+            }
             if (mySubclass.ListOptions[0].Options.Count > 1)
             {
                 priorPage.gridOption.IsEnabled = true;

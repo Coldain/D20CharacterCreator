@@ -48,9 +48,16 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
             if (editor.main.characterCurrent.Class.Subclasses.Count == 1)
             {
                 ChangeCompleted(true, gridSubClass, false);
+                gridSubClass.IsEnabled = false;
                 subclassPicked = true;
+                foreach (SubClasses tempSubClass in editor.main.listSubClasses)
+                {
+                    if (tempSubClass.SubClass == editor.main.characterCurrent.Class.Subclasses[0])
+                        editor.main.characterCurrent.Class.Subclass = tempSubClass;
+                }
             }
-            ChangeCompleted(false, gridSubClass, false);
+            else
+                ChangeCompleted(false, gridSubClass, false);
             ChangeCompleted(false, gridDeity, true);
         }
 
