@@ -2,6 +2,7 @@
 using DnD4e.Assets.Scripts.Views.Editor;
 using DnD4e.CharacterBuilder.Editor.View.Class;
 using DnD4e.CharacterBuilder.Editor.ViewModels;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -47,8 +48,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
 
         private void buttonContinue_Click(object sender, RoutedEventArgs e)
         {
-            string savePath = @"C:\Users\Coldain\Desktop\DnD\4e\Character Creator\Saved Characters\test.text";
-            System.IO.FileStream fs = new System.IO.FileStream(savePath, System.IO.FileMode.Open);
+            System.IO.FileStream fs = new System.IO.FileStream(main.characterPath, System.IO.FileMode.Open);
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(JSONConverter));
             JSONConverter j = (JSONConverter)ser.ReadObject(fs);
             fs.Close();
@@ -93,7 +93,16 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tvi.IsSelected = false;
         }
 
-        private void buttonDeselect_Click(object sender, RoutedEventArgs e)
+        private void buttonSelect_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JSON files (*.json)|*.json|Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.ShowDialog();
+            main.characterPath = openFileDialog.FileName;
+            main.characterPath = main.characterPath.Replace(@"\\", @"\");
+        }
+
+            private void buttonDeselect_Click(object sender, RoutedEventArgs e)
         {
             Canvas tempCanvase = sender as Canvas;
             tvi = null;
@@ -231,6 +240,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             {
                 case "buttonCancel":
                     buttonCancel_Click(this, null);
+                    break;
+                case "buttonSelect":
+                    buttonSelect_Click(this, null);
                     break;
                 case "buttonContinue":
                     buttonContinue_Click(this, null);

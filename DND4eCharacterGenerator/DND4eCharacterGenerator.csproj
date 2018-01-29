@@ -65,6 +65,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -89,7 +90,6 @@
     <Compile Include="Assets\Scripts\Model\BaseClassBuilder%27.cs" />
     <Compile Include="Assets\Scripts\Model\Builds.cs" />
     <Compile Include="Assets\Scripts\Model\Campaigns.cs" />
-    <Compile Include="Assets\Scripts\Model\CharacterBuffer.cs" />
     <Compile Include="Assets\Scripts\Model\CharacterBuffer2.cs" />
     <Compile Include="Assets\Scripts\Model\Classes.cs" />
     <Compile Include="Assets\Scripts\Model\ClassOption.cs" />

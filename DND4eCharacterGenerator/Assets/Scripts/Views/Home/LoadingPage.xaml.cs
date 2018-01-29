@@ -19,7 +19,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
         public MainController main = new MainController();
         public ExcelImporter tempExcel = new ExcelImporter();
         HomePage homePage = new HomePage();
-        int mainLoadTotals = 11;
+        int mainLoadTotals = 10;
         int mainLoadCurrent = 0;
         string mainLoadName = "Data Loading...";
 
@@ -177,11 +177,12 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 Thread.Sleep(1);
                 worker.ReportProgress((int)percentage, String.Format("Processing " + tempClass.Class));
                 tempClass.Subclasses = myClassData[1].Split('|').ToList();
-                tempClass.PrimaryRoles = myClassData[2];
-                tempClass.SecondaryRoles = myClassData[3];
-                tempClass.ShortDescription = myClassData[4];
+                tempClass.Source = myClassData[2].Split('|').ToList();
+                tempClass.PrimaryRoles = myClassData[3];
+                tempClass.SecondaryRoles = myClassData[4];
+                tempClass.ShortDescription = myClassData[5];
                 tempClass.Image = "/DND4eCharacterGenerator;component/Assets/Images/Classes/" + myClassData[0] + ".png";
-                tempClass.PreferredRaces = myClassData[5].Split('|').ToList();
+                tempClass.PreferredRaces = myClassData[6].Split('|').ToList();
                 main.listclassMain.Add(tempClass);                                
             }
             x++;
@@ -342,17 +343,17 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tempRace.Race = myRaceData[0];
                 Thread.Sleep(1);
                 worker.ReportProgress((int)percentage, String.Format("Processing " + tempRace.Race));
-                tempRace.Size = myRaceData[1];
-                tempRace.Speed = Convert.ToInt16(myRaceData[2]);
-                tempRace.SpeedType = myRaceData[3];
-                tempRace.Vision = myRaceData[4];
-                tempRace.ShortDescription = myRaceData[5];
-                tempRace.Description = myRaceData[6].Split('|').ToList();
-                tempRace.HeightFeet = myRaceData[7];
-                tempRace.HeightCM = myRaceData[8];
-                tempRace.WeightLBS = myRaceData[9];
-                tempRace.WeightKG = myRaceData[10];
-                tempRace.Source = myRaceData[11];
+                tempRace.Source = myRaceData[1];
+                tempRace.Size = myRaceData[2];
+                tempRace.Speed = Convert.ToInt16(myRaceData[3]);
+                tempRace.SpeedType = myRaceData[4];
+                tempRace.Vision = myRaceData[5];
+                tempRace.ShortDescription = myRaceData[6];
+                tempRace.Description = myRaceData[7].Split('|').ToList();
+                tempRace.HeightFeet = myRaceData[8];
+                tempRace.HeightCM = myRaceData[9];
+                tempRace.WeightLBS = myRaceData[10];
+                tempRace.WeightKG = myRaceData[11];                
                 tempRace.Image = "/DND4eCharacterGenerator;component/Assets/Images/Races/" + myRaceData[0] +".PNG";
                 tempRace.SubRaces = myRaceData[12].Split('|').ToList();
                 tempRace.Traits = myRaceData[13].Split('|').ToList();

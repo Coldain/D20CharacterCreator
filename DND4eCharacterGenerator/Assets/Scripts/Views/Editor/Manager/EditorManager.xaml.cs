@@ -114,13 +114,21 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Manager
         }
 
         private void buttonSave_Click()
-        {
-            JSONConverter buffer = editor.main.characterCurrent.SaveCharacter(1);
-            string savePath = @"C:\Users\Coldain\Desktop\DnD\4e\Character Creator\Saved Characters\" + editor.main.characterCurrent.Name + "_" + editor.main.characterCurrent.Player + ".text";
-            System.IO.FileStream fs = new System.IO.FileStream(savePath, System.IO.FileMode.OpenOrCreate);
+        {            
+            System.Windows.Forms.FolderBrowserDialog folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            folderBrowserDialog.ShowDialog();
+            //string savePathTXT = folderBrowserDialog.SelectedPath + "\\" + editor.main.characterCurrent.Name + "_" + editor.main.characterCurrent.Player + ".txt";
+            string savePathJSON = folderBrowserDialog.SelectedPath + "\\" + editor.main.characterCurrent.Name + "_" + editor.main.characterCurrent.Player + ".json";
+            JSONConverter buffer = editor.main.characterCurrent.SaveCharacter();
+            
+            //System.IO.FileStream fsTXT = new System.IO.FileStream(savePathTXT, System.IO.FileMode.OpenOrCreate);
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(JSONConverter));
-            ser.WriteObject(fs, buffer);
-            fs.Close();
+            //ser.WriteObject(fsTXT, buffer);
+            //fsTXT.Close();
+            System.IO.FileStream fsJSON = new System.IO.FileStream(savePathJSON, System.IO.FileMode.OpenOrCreate);
+            ser.WriteObject(fsJSON, buffer);
+            fsJSON.Close();
+
 
 
             //CharacterBuffer buffer = editor.main.characterCurrent.SaveCharacter();

@@ -114,6 +114,10 @@ namespace DnD4e.Assets.Scripts.Model
         public string _class_secondaryRoles { get; set; }
         [DataMember(Name = "_class_shortDescription")]
         public string _class_shortDescription { get; set; }
+        [DataMember(Name = "_class_source")]
+        public List<string> _class_source { get; set; }
+        [DataMember(Name = "class_preferedRaces")]
+        public List<string> class_preferedRaces { get; set; }
         [DataMember(Name = "_class_subclass_abilities")]
         public List<string> _class_subclass_abilities { get; set; }
         [DataMember(Name = "_class_subclass_attack")]
@@ -346,8 +350,6 @@ namespace DnD4e.Assets.Scripts.Model
         public string _player { get; set; }
         [DataMember(Name = "_powerPoints")]
         public int _powerPoints { get; set; }
-        [DataMember(Name = "_preferedRaces")]
-        public List<string> _preferedRaces { get; set; }
         [DataMember(Name = "_race_abilities")]
         public List<string> _race_abilities { get; set; }
         [DataMember(Name = "_race_abilityChoice")]

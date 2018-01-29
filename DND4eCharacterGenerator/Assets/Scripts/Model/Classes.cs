@@ -17,6 +17,7 @@ namespace DnD4e.Assets.Scripts.Model
         private string _primaryRoles;
         private string _secondaryRoles;
         private string _shortDescription;
+        private List<string> _source;
         private string _image;
         private List<string> _preferedRaces;      
         #endregion
@@ -94,6 +95,18 @@ namespace DnD4e.Assets.Scripts.Model
                 NotifyPropertyChanged("ShortDescription");
             }
         }
+        public List<string> Source
+        {
+            get
+            {
+                return _source;
+            }
+            set
+            {
+                _source = value;
+                NotifyPropertyChanged("Source");
+            }
+        }
         public string Image
         {
             get
@@ -136,14 +149,21 @@ namespace DnD4e.Assets.Scripts.Model
             PrimaryRoles = copyClass.PrimaryRoles;
             SecondaryRoles = copyClass.SecondaryRoles;
             ShortDescription = copyClass.ShortDescription;
+            Source = copyClass.Source;
             Image = copyClass.Image;
             PreferredRaces = copyClass.PreferredRaces;
         }
 
-        public Classes(string class_class, List<string> class_subclasses)
+        public Classes(string class_class, List<string> class_subclasses, string class_primaryRoles, string class_secondaryRoles, string class_shortDescription, List<string> class_source, string class_image, List<string> class_preferedRaces)
         {
             _class = class_class;
-            _subclasses = class_subclasses;            
+            _subclasses = class_subclasses;
+            _primaryRoles = class_primaryRoles;
+            _secondaryRoles = class_secondaryRoles;
+            _shortDescription = class_shortDescription;
+            _source = class_source;
+            _image = class_image;
+            _preferedRaces = class_preferedRaces;
         }
         #endregion
 
