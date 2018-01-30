@@ -9,4 +9,4 @@ If you have any feature requests, any issues you notice, etc post it as an issue
 Please star and comment if you're interested in this project.
 
 
-(Shhhh don't tell but I'm also going to start work on a charactr manager / party manager / combat manger / session manager / compendium / etc. With a few other people. It'll be made with React Native and developed for both iOS and Android).
+(Shhhh don't tell but I'm also going to start work on a character manager / party manager / combat manger / session manager / compendium / etc. With a few other people. It'll be made with React Native and developed for both iOS and Android).
