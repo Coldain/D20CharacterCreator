@@ -14,6 +14,9 @@ namespace DnD4e.Assets.Scripts.Model
         private string _setting;
         private string _image;
         private string _shortDescription;
+        private string _description;
+        private string _background;
+        private string _tidbits;
         #endregion
 
         #region Properties
@@ -53,14 +56,53 @@ namespace DnD4e.Assets.Scripts.Model
                 NotifyPropertyChanged("Shortdescription");
             }
         }
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                _description = value;
+                NotifyPropertyChanged("Description");
+            }
+        }
+        public string Background
+        {
+            get
+            {
+                return _background;
+            }
+            set
+            {
+                _background = value;
+                NotifyPropertyChanged("Background");
+            }
+        }
+        public string Tidbits
+        {
+            get
+            {
+                return _tidbits;
+            }
+            set
+            {
+                _tidbits = value;
+                NotifyPropertyChanged("Tidbits");
+            }
+        }
         #endregion
 
         #region Constructors
-        public Campaigns (string tempSetting, string tempImage, string tempShortDescription)
+        public Campaigns (string tempSetting, string tempImage, string tempShortDescription, string tempDescription, string tempBackground, string tempTidbits)
         {
             Setting = tempSetting;
             Image = tempImage;
             Shortdescription = tempShortDescription;
+            Description = tempDescription;
+            Background = tempBackground;
+            Tidbits = tempTidbits;
         }
 
         public Campaigns()

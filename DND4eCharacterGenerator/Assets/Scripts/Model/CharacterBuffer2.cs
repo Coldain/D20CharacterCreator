@@ -96,6 +96,12 @@ namespace DnD4e.Assets.Scripts.Model
         public string _campaign_setting { get; set; }
         [DataMember(Name = "_campaign_shortdescription")]
         public string _campaign_shortdescription { get; set; }
+        [DataMember(Name = "_campaign_tidbits")]
+        public string _campaign_tidbits { get; set; }
+        [DataMember(Name = "_campaign_description")]
+        public string _campaign_description { get; set; }
+        [DataMember(Name = "_campaign_background")]
+        public string _campaign_background { get; set; }
         [DataMember(Name = "_charisma")]
         public int _charisma { get; set; }
         [DataMember(Name = "_charismaCheck")]

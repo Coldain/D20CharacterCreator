@@ -2109,7 +2109,7 @@ namespace DnD4e.CharacterOOP
 
         public Character(JSONConverter buffer)
         {
-            Campaign = new Campaigns(buffer._campaign_setting, buffer._campaign_image, buffer._campaign_shortdescription);
+            Campaign = new Campaigns(buffer._campaign_setting, buffer._campaign_image, buffer._campaign_shortdescription, buffer._campaign_tidbits, buffer._campaign_description, buffer._campaign_background);
             Size = buffer._size;
             Speed = buffer._speed;
             Initiative = buffer._initiative;
@@ -2277,7 +2277,10 @@ namespace DnD4e.CharacterOOP
             JSONConverter buffer = new JSONConverter();
             buffer._campaign_setting = Campaign.Setting;
             buffer._campaign_image = Campaign.Image;
-            buffer._campaign_shortdescription = Campaign.Shortdescription; ;
+            buffer._campaign_shortdescription = Campaign.Shortdescription;
+            buffer._campaign_tidbits = Campaign.Tidbits;
+            buffer._campaign_description = Campaign.Description;
+            buffer._campaign_background = Campaign.Background;
             buffer._size = Size;
             buffer._speed = Speed;
             buffer._initiative = Initiative;

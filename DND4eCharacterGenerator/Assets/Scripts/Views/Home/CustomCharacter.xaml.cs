@@ -169,7 +169,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
             myCampaign = grid.DataContext as Campaigns;
             if (myCampaign != null)
             {
-                SelectionDetailsRole details = new SelectionDetailsRole(myCampaign.Setting, myCampaign.Shortdescription);
+                SelectionDetailsRole details = new SelectionDetailsRole(myCampaign.Setting, myCampaign.Tidbits + "\r\n" + "Description" + myCampaign.Description + "\r\n" + "Background" + myCampaign.Background);
                 home.popUp.framedetails.Content = details;
                 ChangeSelections(true);
             }

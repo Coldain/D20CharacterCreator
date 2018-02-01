@@ -132,13 +132,16 @@ namespace DnD4e.Assets.Scripts.Views.Home
             {
                 double percentage = ((double)i / (double)8) * 100.0;
                 string row = i.ToString();
-                List<string> myCampaignData = tempExcel.GetRangeValue("A" + row, "B" + row);
+                List<string> myCampaignData = tempExcel.GetRangeValue("A" + row, "E" + row);
                 Campaigns tempCampaign = new Campaigns();
                 tempCampaign.Setting = myCampaignData[0];
                 Thread.Sleep(1);
                 worker.ReportProgress((int)percentage, String.Format("Processing " + tempCampaign.Setting));
                 tempCampaign.Image = "/DND4eCharacterGenerator;component/Assets/Images/Campaigns/" + myCampaignData[0] + ".png";
                 tempCampaign.Shortdescription = myCampaignData[1];
+                tempCampaign.Description = myCampaignData[2];
+                tempCampaign.Background = myCampaignData[3];
+                tempCampaign.Tidbits = myCampaignData[4];
                 main.listCampaings.Add(tempCampaign);
             }
             x++;
