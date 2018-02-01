@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
-using WpfApplication1;
+using RPGCharacterCreator;
 
 namespace DnD4e.Assets.Scripts.Views.Home
 {

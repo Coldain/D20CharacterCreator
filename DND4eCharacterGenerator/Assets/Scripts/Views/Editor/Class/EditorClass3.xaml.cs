@@ -53,8 +53,41 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
                 foreach (SubClasses tempSubClass in editor.main.listSubClasses)
                 {
                     if (tempSubClass.SubClass == editor.main.characterCurrent.Class.Subclasses[0])
+                    {                        
+                        if (tempSubClass.ListOptions[0].Options.Count > 1)
+                        {
+                            gridOption.IsEnabled = true;
+                            ChangeCompleted(false, gridOption, false);
+                            ClassOption tempOption = new ClassOption();
+                            tempOption.OptionName = tempSubClass.ListOptions[0].OptionDetails[0];
+                            textblockOptionPick.Text = "Click to choose your " + tempSubClass.ListOptions[0].OptionDetails[0] + " option.";
+                            tempSubClass.OptionPicked1 = tempOption;
+                        }
+                        else
+                        {
+                            if (editor.main.characterCurrent.Class.Subclass.OptionPicked1.OptionName == "Option")
+                                gridOption.IsEnabled = false;
+                            optionPicked = true;
+                        }
+                        if (tempSubClass.ListOptions[1].Options.Count > 1)
+                        {
+                            gridOption2.IsEnabled = true;
+                            ChangeCompleted(false, gridOption2, false);
+                            ClassOption tempOption = new ClassOption();
+                            tempOption.OptionName = tempSubClass.ListOptions[1].OptionDetails[0];
+                            textblockOptionPick2.Text = "Click to choose your " + tempSubClass.ListOptions[1].OptionDetails[0] + " option.";
+                            tempSubClass.OptionPicked2 = tempOption;
+                        }
+                        else
+                        {
+                            if (editor.main.characterCurrent.Class.Subclass.OptionPicked2.OptionName == "Option")
+                                gridOption2.IsEnabled = false;
+                            option2Picked = true;
+                        }
                         editor.main.characterCurrent.Class.Subclass = tempSubClass;
+                    }
                 }
+                
             }
             else
                 ChangeCompleted(false, gridSubClass, false);

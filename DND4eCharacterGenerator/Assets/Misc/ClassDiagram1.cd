@@ -15,7 +15,7 @@
       <FileName>MainModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WpfApplication1.CharacterSheetBattleMain" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="RPGCharacterCreator.CharacterSheetBattleMain" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="14.25" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -23,7 +23,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WpfApplication1.CharacterSheetDetails" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="RPGCharacterCreator.CharacterSheetDetails" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="10.25" Y="1" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WpfApplication1.CharacterSheetMain" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="RPGCharacterCreator.CharacterSheetMain" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="8.25" Y="1" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -39,7 +39,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WpfApplication1.Resource.CharacterSheetBattleX" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="RPGCharacterCreator.Resource.CharacterSheetBattleX" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="16.5" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -47,7 +47,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="WpfApplication1.Resource.CharacterSheetFeats" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="RPGCharacterCreator.Resource.CharacterSheetFeats" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="12.25" Y="1" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
