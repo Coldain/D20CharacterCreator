@@ -1,5 +1,7 @@
-﻿using DnD4e.Assets.Scripts.Views.CharacterSheet;
+﻿using DnD4e.Assets.Scripts.Model;
+using DnD4e.Assets.Scripts.Views.CharacterSheet;
 using DnD4e.Assets.Scripts.Views.Editor;
+using DnD4e.Assets.Scripts.Views.Misc;
 using DnD4e.CharacterBuilder.Editor.View.Class;
 using DnD4e.CharacterBuilder.Editor.ViewModels;
 using System.Windows;
@@ -96,6 +98,18 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 case "buttonLoad":
                     buttonLoad_Click(this, null);
                     break;
+                case "button1":
+                    button1_Click(this, null);
+                    break;
+                case "button2":
+                    button2_Click(this, null);
+                    break;
+                case "button3":
+                    button3_Click(this, null);
+                    break;
+                case "button4":
+                    button4_Click(this, null);
+                    break;
             }
         }
 
@@ -103,6 +117,39 @@ namespace DnD4e.Assets.Scripts.Views.Home
         {
             if (e.ChangedButton == MouseButton.Left && !mouseBusy && e.ButtonState == MouseButtonState.Pressed)
                 this.DragMove();
-        }   
+        }
+
+
+
+        public void button1_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Comming...");
+            PowerCard power = new PowerCard(main, main.listPowers[0]);
+            popUp.frameContainer.Content = power;
+            popUp.ShowDialog();
+        }
+
+        public void button2_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Comming...");
+            PowerCard power = new PowerCard(main, main.listPowers[1]);
+            popUp.frameContainer.Content = power;
+            popUp.ShowDialog();
+        }
+
+        public void button3_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Comming...");
+            PowerCard power = new PowerCard(main, main.listPowers[2]);
+            popUp.frameContainer.Content = power;
+            popUp.ShowDialog();
+        }
+        public void button4_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Comming...");
+            PowerCard power = new PowerCard(main, main.listPowers[3]);
+            popUp.frameContainer.Content = power;
+            popUp.ShowDialog();
+        }
     }
 }
