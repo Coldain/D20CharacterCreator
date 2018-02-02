@@ -19,7 +19,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
         public MainController main = new MainController();
         public ExcelImporter tempExcel = new ExcelImporter();
         HomePage homePage = new HomePage();
-        int mainLoadTotals = 10;
+        int mainLoadTotals = 12;
         int mainLoadCurrent = 0;
         string mainLoadName = "Data Loading...";
 
@@ -66,20 +66,22 @@ namespace DnD4e.Assets.Scripts.Views.Home
             #region Initializer / Referencer Data
             List<string> sheets = new List<string>();
             List<int> itemCounts = new List<int>();
+            List<string> endColumns = new List<string>();
             tempExcel.Create();
             mainLoadName = "Loading Reference Magic...";
             tempExcel.SetSheet("Referencer");
             var worker = sender as BackgroundWorker;
             worker.ReportProgress(0, String.Format("DataLoading"));
-            for (int i = 2; i < 17; i++)
+            for (int i = 2; i < 19; i++)
             {
                 double percentage = ((double)i / (double)16) * 100.0;
                 string row = i.ToString();
-                List<string> myReferencerData = tempExcel.GetRangeValue("A" + row, "B" + row);
+                List<string> myReferencerData = tempExcel.GetRangeValue("A" + row, "C" + row);
                 sheets.Add(myReferencerData[0]);
                 Thread.Sleep(1);
                 worker.ReportProgress((int)percentage, String.Format("Processing " + myReferencerData[0]));
                 itemCounts.Add(Convert.ToInt16(myReferencerData[1]));
+                endColumns.Add(myReferencerData[2]);
             }
             #endregion
 
@@ -93,7 +95,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
             {
                 double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myDefinitionData = tempExcel.GetRangeValue("A" + row, "D" + row);
+                List<string> myDefinitionData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Definitions tempDefinition = new Definitions();
                 tempDefinition.Name = myDefinitionData[0];
                 Thread.Sleep(1);
@@ -112,7 +114,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
             {
                 double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myDefinitionListData = tempExcel.GetRangeValue("A" + row, "D" + row);
+                List<string> myDefinitionListData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 DefinitionList tempDefinitionList = new DefinitionList();
                 tempDefinitionList.Name = myDefinitionListData[0];
                 Thread.Sleep(1);
@@ -130,9 +132,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             tempExcel.SetSheet(sheets[x]);
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)8) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myCampaignData = tempExcel.GetRangeValue("A" + row, "E" + row);
+                List<string> myCampaignData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Campaigns tempCampaign = new Campaigns();
                 tempCampaign.Setting = myCampaignData[0];
                 Thread.Sleep(1);
@@ -153,9 +155,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
 
-                double percentage = ((double)i / (double)6) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myRoleData = tempExcel.GetRangeValue("A" + row, "C" + row);
+                List<string> myRoleData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Roles tempRole = new Roles();
                 tempRole.Role = myRoleData[0];
                 Thread.Sleep(1);
@@ -172,9 +174,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             tempExcel.SetSheet(sheets[x]);
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)28) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myClassData = tempExcel.GetRangeValue("A" + row, "G" + row);
+                List<string> myClassData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Classes tempClass = new Classes();
                 tempClass.Class = myClassData[0];
                 Thread.Sleep(1);
@@ -196,9 +198,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             tempExcel.SetSheet(sheets[x]);
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)54) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> mySubclassData = tempExcel.GetRangeValue("A" + row, "BG" + row);
+                List<string> mySubclassData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 SubClasses tempSubclass = new SubClasses();
                 tempSubclass.SubClass = mySubclassData[0];
                 Thread.Sleep(1);
@@ -288,9 +290,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             tempExcel.SetSheet(sheets[x]);
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)17) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myBuildData = tempExcel.GetRangeValue("A" + row, "J" + row);
+                List<string> myBuildData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Builds tempBuild = new Builds();
                 tempBuild.Build = myBuildData[0];
                 Thread.Sleep(1);
@@ -314,9 +316,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             tempExcel.SetSheet(sheets[x]);
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)86) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myDeityData = tempExcel.GetRangeValue("A" + row, "H" + row);
+                List<string> myDeityData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Deities tempDeity = new Deities();
                 tempDeity.Deity = myDeityData[0];
                 Thread.Sleep(1);
@@ -339,9 +341,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             tempExcel.SetSheet(sheets[x]);
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)47) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myRaceData = tempExcel.GetRangeValue("A" + row, "AE" + row);
+                List<string> myRaceData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Races tempRace = new Races();
                 tempRace.Race = myRaceData[0];
                 Thread.Sleep(1);
@@ -390,9 +392,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
             //Languages data
             for (int i = 2; i < (itemCounts[x] + 2); i++)
             {
-                double percentage = ((double)i / (double)22) * 100.0;
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
                 string row = i.ToString();
-                List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, "C" + row);
+                List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
                 Languages tempLanguage = new Languages();
                 tempLanguage.Language = myLanguageData[0];
                 Thread.Sleep(1);
@@ -404,6 +406,175 @@ namespace DnD4e.Assets.Scripts.Views.Home
             }
             x++;
             #endregion
+
+            #region Traits Data
+            //mainLoadName = "Loading Languages...";
+            //tempExcel.SetSheet(sheets[x]);
+            ////Languages data
+            //for (int i = 2; i < (itemCounts[x] + 2); i++)
+            //{
+            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+            //    string row = i.ToString();
+            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+            //    Languages tempLanguage = new Languages();
+            //    tempLanguage.Language = myLanguageData[0];
+            //    Thread.Sleep(1);
+            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
+            //    tempLanguage.Setting = myLanguageData[1];
+            //    tempLanguage.Description = myLanguageData[2];
+            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
+            //    main.listLanguages.Add(tempLanguage);
+            //}
+            x++;
+            #endregion
+
+            #region Subraces Data
+            //mainLoadName = "Loading Languages...";
+            //tempExcel.SetSheet(sheets[x]);
+            ////Languages data
+            //for (int i = 2; i < (itemCounts[x] + 2); i++)
+            //{
+            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+            //    string row = i.ToString();
+            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+            //    Languages tempLanguage = new Languages();
+            //    tempLanguage.Language = myLanguageData[0];
+            //    Thread.Sleep(1);
+            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
+            //    tempLanguage.Setting = myLanguageData[1];
+            //    tempLanguage.Description = myLanguageData[2];
+            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
+            //    main.listLanguages.Add(tempLanguage);
+            //}
+            x++;
+            #endregion
+
+            #region Items Data
+            //mainLoadName = "Loading Languages...";
+            //tempExcel.SetSheet(sheets[x]);
+            ////Languages data
+            //for (int i = 2; i < (itemCounts[x] + 2); i++)
+            //{
+            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+            //    string row = i.ToString();
+            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+            //    Languages tempLanguage = new Languages();
+            //    tempLanguage.Language = myLanguageData[0];
+            //    Thread.Sleep(1);
+            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
+            //    tempLanguage.Setting = myLanguageData[1];
+            //    tempLanguage.Description = myLanguageData[2];
+            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
+            //    main.listLanguages.Add(tempLanguage);
+            //}
+            x++;
+            #endregion
+
+            #region Feats Data
+            //mainLoadName = "Loading Languages...";
+            //tempExcel.SetSheet(sheets[x]);
+            ////Languages data
+            //for (int i = 2; i < (itemCounts[x] + 2); i++)
+            //{
+            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+            //    string row = i.ToString();
+            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+            //    Languages tempLanguage = new Languages();
+            //    tempLanguage.Language = myLanguageData[0];
+            //    Thread.Sleep(1);
+            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
+            //    tempLanguage.Setting = myLanguageData[1];
+            //    tempLanguage.Description = myLanguageData[2];
+            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
+            //    main.listLanguages.Add(tempLanguage);
+            //}
+            x++;
+            #endregion
+
+            #region Power Data
+            mainLoadName = "Loading Powers...";
+            tempExcel.SetSheet(sheets[x]);
+            //Powers data
+            for (int i = 2; i < (itemCounts[x] + 2); i++)
+            {
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+                string row = i.ToString();
+                List<string> myPowerData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+                Powers tempPower = new Powers();
+                tempPower.Power = myPowerData[0];
+                Thread.Sleep(1);
+                worker.ReportProgress((int)percentage, String.Format("Processing " + tempPower.Power));
+                tempPower.Source = myPowerData[1];
+                tempPower.Class = myPowerData[2];
+                tempPower.ClassLevel = myPowerData[3];
+                tempPower.Description = myPowerData[4];
+                tempPower.PowerType = myPowerData[5];
+                tempPower.PowerUsage = myPowerData[6];
+                tempPower.SourceTypes = myPowerData[7].Split('|').ToList();
+                tempPower.ActionType = myPowerData[8];
+                tempPower.WeaponTypes = myPowerData[9].Split('|').ToList();
+                tempPower.Prerequisite = myPowerData[10];
+                tempPower.PrerequisiteType = myPowerData[11];
+                tempPower.PrerequisiteDescription = myPowerData[12];
+                tempPower.Requirement = myPowerData[13];
+                tempPower.RequirementType = myPowerData[14];
+                tempPower.RequirementDescription = myPowerData[15];
+                tempPower.TargetNumber = myPowerData[16];
+                tempPower.TargetType = myPowerData[17];
+                tempPower.AttackType = myPowerData[18];
+                tempPower.AttackVsType = myPowerData[19];
+                tempPower.Hit = myPowerData[20].Split('|').ToList();
+                tempPower.Hit1 = myPowerData[21].Split('|').ToList();
+                tempPower.Hit1Level = myPowerData[22];
+                tempPower.HitDescription = myPowerData[23];
+                tempPower.EffectDescription = myPowerData[24].Split('|').ToList();
+                main.listPowers.Add(tempPower);
+            }
+            x++;
+            #endregion
+
+            #region Spells Data
+            //mainLoadName = "Loading Languages...";
+            //tempExcel.SetSheet(sheets[x]);
+            ////Languages data
+            //for (int i = 2; i < (itemCounts[x] + 2); i++)
+            //{
+            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+            //    string row = i.ToString();
+            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+            //    Languages tempLanguage = new Languages();
+            //    tempLanguage.Language = myLanguageData[0];
+            //    Thread.Sleep(1);
+            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
+            //    tempLanguage.Setting = myLanguageData[1];
+            //    tempLanguage.Description = myLanguageData[2];
+            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
+            //    main.listLanguages.Add(tempLanguage);
+            //}
+            x++;
+            #endregion
+
+            #region Rituals Data
+            //mainLoadName = "Loading Languages...";
+            //tempExcel.SetSheet(sheets[x]);
+            ////Languages data
+            //for (int i = 2; i < (itemCounts[x] + 2); i++)
+            //{
+            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+            //    string row = i.ToString();
+            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+            //    Languages tempLanguage = new Languages();
+            //    tempLanguage.Language = myLanguageData[0];
+            //    Thread.Sleep(1);
+            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
+            //    tempLanguage.Setting = myLanguageData[1];
+            //    tempLanguage.Description = myLanguageData[2];
+            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
+            //    main.listLanguages.Add(tempLanguage);
+            //}
+            x++;
+            #endregion
+
             tempExcel.Close();
             mainLoadName = "Loading Complete!";
         }        

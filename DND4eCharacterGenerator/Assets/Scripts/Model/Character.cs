@@ -36,6 +36,7 @@ namespace DnD4e.CharacterOOP
         public string _company;
         public string _companions;
         public string _notes;
+        public List<Powers> _powerList;
         #endregion
         #region Defenses
         public int _armorClass;
@@ -501,6 +502,18 @@ namespace DnD4e.CharacterOOP
             {
                 _notes = value;
                 NotifyPropertyChanged("Notes");
+            }
+        }
+        public List<Powers> PowerList
+        {
+            get
+            {
+                return _powerList;
+            }
+            set
+            {
+                _powerList = value;
+                NotifyPropertyChanged("PowerList");
             }
         }
         #endregion
@@ -2105,6 +2118,7 @@ namespace DnD4e.CharacterOOP
             RacialIntelligence = false;
             RacialWisdom = false;
             RacialCharisma = false;
+            PowerList = new List<Powers>();
     }
 
         public Character(JSONConverter buffer)
@@ -2257,6 +2271,37 @@ namespace DnD4e.CharacterOOP
             _stealthMisc = buffer._stealthMisc;
             _streetwiseMisc = buffer._streetwiseMisc;
             _thieveryMisc = buffer._thieveryMisc;
+            if (buffer._powerList != null)
+                foreach (JSONPower bufferPower in buffer._powerList)
+                {
+                    Powers tempPower = new Powers();
+                    tempPower.Power = bufferPower._power;
+                    tempPower.Source = bufferPower._source;
+                    tempPower.Class = bufferPower._class;
+                    tempPower.ClassLevel = bufferPower._classLevel;
+                    tempPower.Description = bufferPower._description;
+                    tempPower.PowerType = bufferPower._powerType;
+                    tempPower.PowerUsage = bufferPower._powerUsage;
+                    tempPower.SourceTypes = bufferPower._sourceTypes;
+                    tempPower.ActionType = bufferPower._actionType;
+                    tempPower.WeaponTypes = bufferPower._weaponTypes;
+                    tempPower.Prerequisite = bufferPower._prerequisite;
+                    tempPower.PrerequisiteType = bufferPower._prerequisiteType;
+                    tempPower.PrerequisiteDescription = bufferPower._prerequisiteDescription;
+                    tempPower.Requirement = bufferPower._requirement;
+                    tempPower.RequirementType = bufferPower._requirementType;
+                    tempPower.RequirementDescription = bufferPower._requirementDescription;
+                    tempPower.TargetNumber = bufferPower._targetNumber;
+                    tempPower.TargetType = bufferPower._targetType;
+                    tempPower.AttackType = bufferPower._attackType;
+                    tempPower.AttackVsType = bufferPower._attackVsType;
+                    tempPower.Hit = bufferPower._hit;
+                    tempPower.Hit1 = bufferPower._hit1;
+                    tempPower.Hit1Level = bufferPower._hit1Level;
+                    tempPower.HitDescription = bufferPower._hitDescription;
+                    tempPower.EffectDescription = bufferPower._effectDescription;
+                    PowerList.Add(tempPower);
+                }
         }
 
         #endregion
@@ -2505,6 +2550,36 @@ namespace DnD4e.CharacterOOP
             buffer._stealthMisc = _stealthMisc;
             buffer._streetwiseMisc = _streetwiseMisc;
             buffer._thieveryMisc = _thieveryMisc;
+            foreach (Powers tempPower in PowerList)
+            {
+                JSONPower bufferPower = new JSONPower();
+                bufferPower._power = tempPower.Power;
+                bufferPower._source = tempPower.Source;
+                bufferPower._class = tempPower.Class;
+                bufferPower._classLevel = tempPower.ClassLevel;
+                bufferPower._description = tempPower.Description;
+                bufferPower._powerType = tempPower.PowerType;
+                bufferPower._powerUsage = tempPower.PowerUsage;
+                bufferPower._sourceTypes = tempPower.SourceTypes;
+                bufferPower._actionType = tempPower.ActionType;
+                bufferPower._weaponTypes = tempPower.WeaponTypes;
+                bufferPower._prerequisite = tempPower.Prerequisite;
+                bufferPower._prerequisiteType = tempPower.PrerequisiteType;
+                bufferPower._prerequisiteDescription = tempPower.PrerequisiteDescription;
+                bufferPower._requirement = tempPower.Requirement;
+                bufferPower._requirementType = tempPower.RequirementType;
+                bufferPower._requirementDescription = tempPower.RequirementDescription;
+                bufferPower._targetNumber = tempPower.TargetNumber;
+                bufferPower._targetType = tempPower.TargetType;
+                bufferPower._attackType = tempPower.AttackType;
+                bufferPower._attackVsType = tempPower.AttackVsType;
+                bufferPower._hit = tempPower.Hit;
+                bufferPower._hit1 = tempPower.Hit1;
+                bufferPower._hit1Level = tempPower.Hit1Level;
+                bufferPower._hitDescription = tempPower.HitDescription;
+                bufferPower._effectDescription = tempPower.EffectDescription;
+                buffer._powerList.Add(bufferPower);
+            }
             return buffer;
         }
         #endregion

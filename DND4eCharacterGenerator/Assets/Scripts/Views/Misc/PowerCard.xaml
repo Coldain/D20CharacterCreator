@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="DnD4e.Assets.Scripts.Views.Misc.PowerCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Misc"
+             mc:Ignorable="d" 
+             d:DesignHeight="325" d:DesignWidth="250">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216*"/>
+            <ColumnDefinition Width="19"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="38"/>
+            <RowDefinition Height="176"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#FFE4E4E4" Stroke="Black" Margin="0,-1,0,0" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <!--<Image x:Name="headerReach" HorizontalAlignment="Right" Height="36" VerticalAlignment="Top" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerBurst.png"/>
+        <Image x:Name="headerReach" HorizontalAlignment="Right" Height="36" VerticalAlignment="Top" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerBurst.png"/>
+        <Image x:Name="headerReach" HorizontalAlignment="Right" Height="36" VerticalAlignment="Top" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerBurst.png"/>-->
+        <Image x:Name="headerReach" HorizontalAlignment="Center" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerMelee.png" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Image x:Name="headerPower0" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" HorizontalAlignment="Left"/>
+        <Rectangle Fill="White" Stroke="Black" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+        <Rectangle Stroke="Black" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</UserControl>

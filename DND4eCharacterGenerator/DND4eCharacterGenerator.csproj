@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Model\Experience Manager.cs" />
     <Compile Include="Assets\Scripts\Model\Information.cs" />
     <Compile Include="Assets\Scripts\Model\Languages.cs" />
+    <Compile Include="Assets\Scripts\Model\Powers.cs" />
     <Compile Include="Assets\Scripts\Model\Races.cs" />
     <Compile Include="Assets\Scripts\Model\Roles.cs" />
     <Compile Include="Assets\Scripts\Model\Skills.cs" />
@@ -318,6 +319,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\Scripts\Views\Misc\PowerCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Views\Editor\Class\SelectionDetailsRole.xaml.cs">
@@ -349,6 +354,9 @@
     </Compile>
     <Compile Include="Assets\Scripts\Views\Home\LoadingPage.xaml.cs">
       <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Scripts\Views\Misc\PowerCard.xaml.cs">
+      <DependentUpon>PowerCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -398,7 +406,6 @@
   <ItemGroup>
     <Folder Include="Assets\Images\Characters\Poses\" />
     <Folder Include="Assets\Images\Races\" />
-    <Folder Include="Assets\Scripts\Views\Simple\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Icons\iconPowerBurst.png" />

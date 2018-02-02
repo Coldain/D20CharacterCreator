@@ -19,6 +19,7 @@ namespace DnD4e.CharacterBuilder.Editor.ViewModels
         public List<Deities> listDeities = new List<Deities>();
         public List<Races> listRaces = new List<Races>();
         public List<Languages> listLanguages = new List<Languages>();
+        public List<Powers> listPowers = new List<Powers>();
         public string characterPath;
         public ICommand CheckedInCommand { get; set; }
         public bool dataLoaded = false;

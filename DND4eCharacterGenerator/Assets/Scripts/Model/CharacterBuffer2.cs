@@ -494,5 +494,61 @@ namespace DnD4e.Assets.Scripts.Model
         public int _wisdomMod { get; set; }
         [DataMember(Name = "_wisdomRaw")]
         public int _wisdomRaw { get; set; }
+        [DataMember(Name = "_powerList")]
+        public List<JSONPower> _powerList { get; set; }        
+    }
+    [DataContract]
+    public class JSONPower
+    {
+        [DataMember(Name = "_power")]
+        public string _power { get; set; }
+        [DataMember(Name = "_source")]
+        public string _source { get; set; }
+        [DataMember(Name = "_class")]
+        public string _class { get; set; }
+        [DataMember(Name = "_classLevel")]
+        public string _classLevel { get; set; }
+        [DataMember(Name = "_description")]
+        public string _description { get; set; }
+        [DataMember(Name = "_powerType")]
+        public string _powerType { get; set; }
+        [DataMember(Name = "_powerUsage")]
+        public string _powerUsage { get; set; }
+        [DataMember(Name = "_sourceTypes")]
+        public List<string> _sourceTypes { get; set; }
+        [DataMember(Name = "_actionType")]
+        public string _actionType { get; set; }
+        [DataMember(Name = "_weaponTypes")]
+        public List<string> _weaponTypes { get; set; }
+        [DataMember(Name = "_prerequisite")]
+        public string _prerequisite { get; set; }
+        [DataMember(Name = "_prerequisiteType")]
+        public string _prerequisiteType { get; set; }
+        [DataMember(Name = "_prerequisiteDescription")]
+        public string _prerequisiteDescription { get; set; }
+        [DataMember(Name = "_requirement")]
+        public string _requirement { get; set; }
+        [DataMember(Name = "_requirementType")]
+        public string _requirementType { get; set; }
+        [DataMember(Name = "_requirementDescription")]
+        public string _requirementDescription { get; set; }
+        [DataMember(Name = "_targetNumber")]
+        public string _targetNumber { get; set; }
+        [DataMember(Name = "_targetType")]
+        public string _targetType { get; set; }
+        [DataMember(Name = "_attackType")]
+        public string _attackType { get; set; }
+        [DataMember(Name = "_attackVsType")]
+        public string _attackVsType { get; set; }
+        [DataMember(Name = "_hit")]
+        public List<string> _hit { get; set; }
+        [DataMember(Name = "_hit1")]
+        public List<string> _hit1 { get; set; }
+        [DataMember(Name = "_hit1Level")]
+        public string _hit1Level { get; set; }
+        [DataMember(Name = "_hitDescription")]
+        public string _hitDescription { get; set; }
+        [DataMember(Name = "_effectDescription")]
+        public List<string> _effectDescription { get; set; }
     }
 }
