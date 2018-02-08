@@ -100,6 +100,8 @@ namespace DnD4e.Assets.Scripts.Views.Home
             openFileDialog.ShowDialog();
             main.characterPath = openFileDialog.FileName;
             main.characterPath = main.characterPath.Replace(@"\\", @"\");
+            List<string> tempList = main.characterPath.Split('\\').ToList();
+            CharacterName.Text = tempList[tempList.Count()-1];
         }
 
             private void buttonDeselect_Click(object sender, RoutedEventArgs e)

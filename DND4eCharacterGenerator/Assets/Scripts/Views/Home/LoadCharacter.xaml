@@ -10,9 +10,11 @@
 
     <Viewbox Height="628" Width="428">
         <Grid Height="628" Width="428">
-            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Character Creation Setup" VerticalAlignment="Top" FontSize="18" TextDecorations="{x:Null}" FontWeight="Bold"/>
-            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="10,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.ColumnSpan="2"/>            
-            <Label Content="Select Your Character's Starting Level" HorizontalAlignment="Left" Margin="20,480,0,0" VerticalAlignment="Top"/>            
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Load your Character" VerticalAlignment="Top" FontSize="18" TextDecorations="{x:Null}" FontWeight="Bold"/>
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="10,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,480,0,0" VerticalAlignment="Top">
+                <Run Text="Selected Character:" FontWeight="Bold"/> <Run Text="Character Name" Name="CharacterName"/>
+            </TextBlock>
             <Grid Margin="25,581,18,10">
                 <Rectangle Height="1" Stroke="#FF9B8D4D" VerticalAlignment="Top"/>
                 <Canvas x:Name="buttonCancel"  Height="30" Width="100" Margin="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
