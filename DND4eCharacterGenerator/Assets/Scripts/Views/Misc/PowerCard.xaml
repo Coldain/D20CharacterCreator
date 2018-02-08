@@ -27,9 +27,10 @@
                 <RowDefinition Height="36"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="176"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            <Rectangle Fill="#FFE4E4E4" Stroke="Black" Margin="-2,-2,0,-2" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+            <Rectangle Fill="#FFE4E4E4" Stroke="Black" Margin="-2,-2,0,-2" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
             <Image x:Name="headerReach" HorizontalAlignment="Center" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerBurst.png" Grid.Column="1" Grid.ColumnSpan="2">
                 <Image.Style>
                     <Style TargetType="Image">
@@ -77,9 +78,9 @@
                     <RowDefinition Height="22"/>
                     <RowDefinition Height="14"/>
                 </Grid.RowDefinitions>
-                <Label Name="labelPower" Content="{Binding power.Power}" VerticalAlignment="Top" Grid.ColumnSpan="1" Padding="0" Margin="2,0,0,0" FontWeight="Bold" Foreground="White" FontSize="15"/>         
+                <Label Name="labelPower" Content="{Binding power.Power}" VerticalAlignment="Top" Grid.ColumnSpan="1" Padding="0" Margin="2,0,0,0" FontWeight="Bold" Foreground="White" FontSize="15"/>
                 <TextBlock Name="textBlockPowerType" Grid.Row="1" Grid.ColumnSpan="2" Foreground="White" Padding="0" Margin="2.5,0,0,0" FontSize="10">
-                <Run Text="{Binding power.PowerType}"/> <Run Text=" ✦ "/> <Run Text="{Binding power.PowerUsage}"/>
+                <Run Text="{Binding power.PowerUsage}"/> <Run Text=" ✦ "/> <Run Text="{Binding power.ActionType}"/>
                 </TextBlock>
             </Grid>
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
@@ -92,310 +93,60 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Name="textBlockWeapon" TextWrapping="Wrap" FontSize="8" Grid.ColumnSpan="2" Margin="2.5,3,0,0">
-                <Run Name="textWeaponName" Text="Bloodclaw CragHammer" FontWeight="Bold"/> <Run Text="+" FontWeight="Bold"/><Run Name="textAttackBonus" Text="6" FontWeight="Bold"/><Run Text=":" FontWeight="Bold"/> +
-                    <Run Name="textAttackType" Text="{Binding power.AttackType}">
-                        <Run.Style>
-                            <Style TargetType="Run">
-                                <Setter Property="Text" Value="" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding power.AttackType}" Value="DexMod">
-                                        <Setter Property="Text" Value="{Binding character.DexterityMod}"/>           
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding power.AttackType}" Value="ChaMod">
-                                        <Setter Property="Text" Value="{Binding character.CharismaMod}"/>           
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding power.AttackType}" Value="StrMod">
-                                        <Setter Property="Text" Value="{Binding character.StrengthMod}"/>           
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding power.AttackType}" Value="WisMod">
-                                        <Setter Property="Text" Value="{Binding character.WidsomMod}"/>           
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding power.AttackType}" Value="IntMod">
-                                        <Setter Property="Text" Value="{Binding character.IntellifenceMod}"/>           
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding power.AttackType}" Value="ConMod">
-                                        <Setter Property="Text" Value="{Binding character.ConstitutionMod}"/>           
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Run.Style>
-                    </Run>vs. <Run Text="{Binding power.AttackVsType}"/>, <Run Text="1d10 + 20"/> <Run Text="damage"/>
+                <Run Name="textWeaponName" Text="Bloodclaw CragHammer" FontWeight="Bold"/> <Run Text="+" FontWeight="Bold"/><Run Name="textAttackBonus" Text="6" FontWeight="Bold"/><Run Text=":" FontWeight="Bold"/> +<Run Name="textAttackType" Text="{Binding power.AttackType}"> </Run> vs. <Run Text="{Binding power.AttackVsType}"/>, <Run Text="1d10 + 20"/> <Run Text="damage"/>
                 </TextBlock>
-                <TextBlock Name="textBlockWeaponType" Grid.Row="1" Margin="2.5,0,0,0" FontSize="9">
-                    <Run Text="{Binding power.WeaponTypes[0]}" FontWeight="Bold"/><Run Text="{Binding power.WeaponTypes[1]}" FontWeight="Bold"/><Run Text="{Binding power.WeaponTypes[3]}" FontWeight="Bold"/> <Run Text="Weapon"/>
+                <TextBlock Name="textBlockWeaponType" Grid.Row="1" Margin="2.5,0,0,0" FontSize="9" TextWrapping="Wrap">
+                    <Run Text="{Binding power.MethodTypes[0]}" FontWeight="Bold"/> <Run Text="{Binding power.MethodRanges[0]}"/> <Run Text="{Binding power.MethodTypes[1]}" FontWeight="Bold"/> <Run Text="{Binding power.MethodRanges[1]}"/> <Run Text="{Binding power.MethodTypes[2]}" FontWeight="Bold"/> <Run Text="{Binding power.MethodRanges[2]}"/>
                 </TextBlock>
                 <TextBlock Name="textBlockTarget" Grid.Row="1" Margin="2.5,0,0,0" Grid.Column="1" FontSize="9" TextWrapping="Wrap">
-                <Run Text="Target" FontWeight="Bold"/>: <Run Text="{Binding power.TargetNumber}"/> <Run Text="{Binding power.TargetType}"/>
+                <Run Text="Target" FontWeight="Bold"/>: <Run Text="{Binding power.Target}"/>
                 </TextBlock>
             </Grid>
-            <Viewbox StretchDirection="DownOnly" Stretch="UniformToFill" Grid.Row="2" Grid.ColumnSpan="2" Height="174" Margin="1" Width="235" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel Height="265" Width="357">
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.415"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labelDescription" Text="{Binding power.Description}" HorizontalAlignment="Left" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25*"/>
-                            <RowDefinition Height="24*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Name="labelKeywords" HorizontalAlignment="Left" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                        <Run Text="Keywords:" FontWeight="Bold"/> <Run Text="{Binding power.sourceTypes[0]}"/>, <Run Text="{Binding power.sourceTypes[1]}"/>,  <Run Text="{Binding power.sourceTypes[2]}"/>, <Run Text="{Binding power.sourceTypes[3]}"/>, <Run Text="{Binding power.sourceTypes[4]}"/>
-                        </TextBlock>
-                        <TextBlock Name="labelAttacl" HorizontalAlignment="Left" Grid.Row="1" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                        <Run Text="Attack:" FontWeight="Bold"/> <Run Text="{Binding power.AttackType}"/> vs. <Run Text="{Binding AttackVsType}"/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.578"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labelHit" Text="{Binding power.HitDescription}" HorizontalAlignment="Left" Grid.Row="2" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}" >
-                        <!--<Run Text="Hit:" FontWeight="Bold"/> <Run Text="3[W] + Con modifier"/> (<Run Text="10"/>) <Run Text="damage."/>-->
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <TextBlock Name="label1" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="" FontWeight="Bold"/> <Run Text=""/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle >
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.478"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="label2" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="" FontWeight="Bold"/> <Run Text=""/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <TextBlock Name="labelmiss" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="" FontWeight="Bold"/> <Run Text=""/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.555"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labeleffect" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="Effect:" FontWeight="Bold"/> <Run Text="{Binding power.EffectDescription}"/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <TextBlock Name="labelaugment" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="" FontWeight="Bold"/> <Run Text="" FontWeight="Bold"/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.498"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labeleffect2" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="" FontWeight="Bold"/> <Run Text=""/>
-                        </TextBlock>
-                    </Grid>
-                </StackPanel>
+            <Viewbox Grid.Row="2" Grid.ColumnSpan="2" StretchDirection="DownOnly" Stretch="UniformToFill">
+                <ListView Name="SPPowers" ItemsSource="{Binding details}" BorderBrush="{x:Null}" Width="235" Height="176" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:tempPowerDetails}">
+                            <StackPanel Margin="-5,-5,5,0">
+                                <Grid>
+                                    <Rectangle>
+                                        <Rectangle.Style>
+                                            <Style TargetType="Rectangle">
+                                                <Setter Property="Fill">
+                                                    <Setter.Value>
+                                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                                            <LinearGradientBrush.RelativeTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                                                    <TranslateTransform/>
+                                                                </TransformGroup>
+                                                            </LinearGradientBrush.RelativeTransform>
+                                                            <GradientStop Color="White" Offset="1"/>
+                                                            <GradientStop Color="#FFD4D3BE" Offset="0.478"/>
+                                                        </LinearGradientBrush>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Filled}" Value="1">
+                                                        <Setter Property="Fill" Value="Transparent"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Rectangle.Style>
+                                    </Rectangle>
+                                    <TextBlock Name="labelDescription" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="1">
+                                        <Run Text="{Binding Header}" FontWeight="Bold"/> <Run Text="{Binding Body}"/>
+                                    </TextBlock>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Viewbox>
-            <!--<Viewbox StretchDirection="DownOnly" Stretch="UniformToFill" Grid.Row="2" Grid.ColumnSpan="2" Height="174" Margin="1" Width="235" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel Height="265" Width="357">
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.415"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labelDescription" Text="Your attack wracks an enemy's mind and binds its body in stone as you channel the clackstone monolith's forbidden power." HorizontalAlignment="Left" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25*"/>
-                            <RowDefinition Height="24*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Name="labelKeywords" HorizontalAlignment="Left" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                        <Run Text="Keywords:" FontWeight="Bold"/> <Run Text="Polymorph, Psychic, Weapon"/>
-                        </TextBlock>
-                        <TextBlock Name="labelAttacl" HorizontalAlignment="Left" Grid.Row="1" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                        <Run Text="Attack:" FontWeight="Bold"/> <Run Text="Constitution"/> vs. <Run Text="AC"/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.578"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labelHit" HorizontalAlignment="Left" Grid.Row="2" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}" >
-                        <Run Text="Hit:" FontWeight="Bold"/> <Run Text="3[W] + Con modifier"/> (<Run Text="10"/>) <Run Text="damage."/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <TextBlock Name="label1" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="First Failed Saving Throw:" FontWeight="Bold"/> <Run Text="The target is restrained until it saves against the ongoing damage."/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle >
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.478"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="label2" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="Second Failed Saving Throw:" FontWeight="Bold"/> <Run Text="The target is petrified instead of restrained and takes a -2 penalty to saving throws against the ongoing damage. The ongoing damage from this power ignores the resistance granted by the petrified condidition."/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <TextBlock Name="labelmiss" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="Miss:" FontWeight="Bold"/> <Run Text="Half damage, and ongoing 10 psychic damage (save ends)."/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.555"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labeleffect" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="Effect:" FontWeight="Bold"/> <Run Text="You push each creature adjacent to you 1 square. You then assume the aspect of the blackstone gaoler until the end of the encounter. While in this aspect, you can use the folloing augmentation with your battlemind at-will attack powers that are augmentable. This augmentation is in addition to the effects that an at-will power might have; this augmentation doesn't supersede them."/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <TextBlock Name="labelaugment" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="Augment:" FontWeight="Bold"/> <Run Text="2" FontWeight="Bold"/>
-                        </TextBlock>
-                    </Grid>
-                    <Grid>
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <LinearGradientBrush.RelativeTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </LinearGradientBrush.RelativeTransform>
-                                    <GradientStop Color="White" Offset="1"/>
-                                    <GradientStop Color="#FFD4D3BE" Offset="0.498"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <TextBlock Name="labeleffect2" MaxWidth="365" TextWrapping="Wrap" Margin="1" Style="{DynamicResource CollapsableTextblock}">
-                            <Run Text="Effect:" FontWeight="Bold"/> <Run Text="You gain resistance to all damage equal to your Con modifier (+10) until the end of your next turn. In addition, one creature you hit with the at-will power is restrained until the end of your next turn."/>
-                        </TextBlock>
-                    </Grid>
-                </StackPanel>
-            </Viewbox>-->
+            <TextBlock Grid.Row="5" Padding="0" Margin="0,-2,0,0">
+                <Run Text="{Binding power.Origin}"/> <Run Text="{Binding power.PowerType}"/> <Run Text="{Binding power.OriginType}"/>
+            </TextBlock>
         </Grid>
     </Viewbox>
 </UserControl>

@@ -505,29 +505,31 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 Thread.Sleep(1);
                 worker.ReportProgress((int)percentage, String.Format("Processing " + tempPower.Power));
                 tempPower.Source = myPowerData[1];
-                tempPower.Class = myPowerData[2];
-                tempPower.ClassLevel = myPowerData[3];
-                tempPower.Description = myPowerData[4];
-                tempPower.PowerType = myPowerData[5];
-                tempPower.PowerUsage = myPowerData[6];
-                tempPower.SourceTypes = myPowerData[7].Split('|').ToList();
-                tempPower.ActionType = myPowerData[8];
-                tempPower.WeaponTypes = myPowerData[9].Split('|').ToList();
-                tempPower.Prerequisite = myPowerData[10];
-                tempPower.PrerequisiteType = myPowerData[11];
-                tempPower.PrerequisiteDescription = myPowerData[12];
-                tempPower.Requirement = myPowerData[13];
-                tempPower.RequirementType = myPowerData[14];
-                tempPower.RequirementDescription = myPowerData[15];
-                tempPower.TargetNumber = myPowerData[16];
-                tempPower.TargetType = myPowerData[17];
-                tempPower.AttackType = myPowerData[18];
-                tempPower.AttackVsType = myPowerData[19];
-                tempPower.Hit = myPowerData[20].Split('|').ToList();
-                tempPower.Hit1 = myPowerData[21].Split('|').ToList();
-                tempPower.Hit1Level = myPowerData[22];
-                tempPower.HitDescription = myPowerData[23];
-                tempPower.EffectDescription = myPowerData[24].Split('|').ToList();
+                tempPower.Origin = myPowerData[2];
+                tempPower.OriginType = myPowerData[3];
+                tempPower.PowerType = myPowerData[4];
+                tempPower.PowerUsage = myPowerData[5];
+                tempPower.ActionType = myPowerData[6];
+                tempPower.AttackType = myPowerData[7];
+                tempPower.AttackVsType = myPowerData[8];
+                tempPower.Hits = myPowerData[9].Split('|').ToList();
+                tempPower.HitLevels = myPowerData[10].Split('|').ToList();
+                tempPower.MethodTypes = myPowerData[11].Split('|').ToList();
+                tempPower.MethodRanges = myPowerData[12].Split('|').ToList(); ;
+                tempPower.Target = myPowerData[13];
+                tempPower.Prerequisite = myPowerData[14];
+                tempPower.PrerequisiteType = myPowerData[15];
+                tempPower.Requirement = myPowerData[16];
+                tempPower.RequirementType = myPowerData[17];
+                tempPower.AdditionalEffectName = myPowerData[18];
+                tempPower.AdditionalEffectDescription = myPowerData[19];
+                tempPower.Headers = myPowerData[20].Split('|').ToList();
+                tempPower.Bodies = myPowerData[21].Split('|').ToList();
+                if (tempPower.Bodies[0] == "")
+                {
+                    tempPower.Headers.RemoveAt(0);
+                    tempPower.Bodies.RemoveAt(0);
+                }
                 main.listPowers.Add(tempPower);
             }
             x++;
