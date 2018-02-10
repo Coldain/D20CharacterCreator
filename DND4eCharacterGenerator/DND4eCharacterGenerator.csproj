@@ -319,7 +319,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\Scripts\Views\Misc\ItemCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Assets\Scripts\Views\Misc\PowerCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Scripts\Views\Misc\PowerCardDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -355,8 +363,14 @@
     <Compile Include="Assets\Scripts\Views\Home\LoadingPage.xaml.cs">
       <DependentUpon>LoadingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\Scripts\Views\Misc\ItemCard.xaml.cs">
+      <DependentUpon>ItemCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\Scripts\Views\Misc\PowerCard.xaml.cs">
       <DependentUpon>PowerCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Scripts\Views\Misc\PowerCardDetails.xaml.cs">
+      <DependentUpon>PowerCardDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -406,6 +420,9 @@
   <ItemGroup>
     <Folder Include="Assets\Images\Characters\Poses\" />
     <Folder Include="Assets\Images\Races\" />
+    <Folder Include="Assets\Scripts\Views\Editor\Feat\" />
+    <Folder Include="Assets\Scripts\Views\Editor\Power\" />
+    <Folder Include="Assets\Scripts\Views\Editor\Shop\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Icons\iconPowerBurst.png" />

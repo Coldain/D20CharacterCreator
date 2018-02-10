@@ -31,8 +31,8 @@ namespace DnD4e.Assets.Scripts.Model
     //    public string Setting { get; set; }
     //}
 
-    [DataContract]
-    public class JSONConverter
+    [DataContract(Name = "_character")]
+    public class JSONCharacter
     {
         [DataMember(Name = "_capacity")]
         public int _capacity { get; set; }
@@ -495,9 +495,67 @@ namespace DnD4e.Assets.Scripts.Model
         [DataMember(Name = "_wisdomRaw")]
         public int _wisdomRaw { get; set; }
         [DataMember(Name = "_powerList")]
-        public List<JSONPower> _powerList { get; set; }        
+        public List<JSONPower> _powerList { get; set; }
     }
-    [DataContract]
+
+//    [DataContract(Name = "Class")]
+//    {
+//    public string Class
+//    {
+//        get
+//        {
+//            return _class;
+//        }
+//        set
+//        {
+//            _class = value;
+//            NotifyPropertyChanged("Class");
+//        }
+//    }
+//    public List<string> Subclasses
+//    {
+//        get
+//        {
+//            return _subclasses;
+//        }
+//        set
+//        {
+//            _subclasses = value;
+//            NotifyPropertyChanged("Subclasses");
+//        }
+//    }
+//    public SubClasses Subclass
+//    {
+//        get
+//        {
+//            return _subclass;
+//        }
+//        set
+//        {
+//            _subclass = value;
+//            NotifyPropertyChanged("Subclass");
+//        }
+//    }
+//    public string PrimaryRoles
+//    {
+//        get
+//        {
+//            return _primaryRoles;
+//        }
+//        set
+//        {
+//            _primaryRoles = value;
+//            NotifyPropertyChanged("PrimaryRoles");
+//        }
+//    }
+//    public string SecondaryRoles { get; set; }
+//    public string ShortDescription { get; set; }
+//    public List<string> Source { get; set; }
+//    public string Image { get; set; }
+//    public List<string> PreferredRaces { get; set; }
+//}
+
+    [DataContract(Name = "Power")]
     public class JSONPower
     {
         [DataMember(Name = "_power")]

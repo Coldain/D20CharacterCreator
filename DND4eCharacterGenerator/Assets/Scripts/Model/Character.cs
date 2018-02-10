@@ -2121,7 +2121,7 @@ namespace DnD4e.CharacterOOP
             PowerList = new List<Powers>();
     }
 
-        public Character(JSONConverter buffer)
+        public Character(JSONCharacter buffer)
         {
             Campaign = new Campaigns(buffer._campaign_setting, buffer._campaign_image, buffer._campaign_shortdescription, buffer._campaign_tidbits, buffer._campaign_description, buffer._campaign_background);
             Size = buffer._size;
@@ -2315,9 +2315,9 @@ namespace DnD4e.CharacterOOP
             }
         }
       
-        public JSONConverter SaveCharacter()
+        public JSONCharacter SaveCharacter()
         {
-            JSONConverter buffer = new JSONConverter();
+            JSONCharacter buffer = new JSONCharacter();
             buffer._campaign_setting = Campaign.Setting;
             buffer._campaign_image = Campaign.Image;
             buffer._campaign_shortdescription = Campaign.Shortdescription;

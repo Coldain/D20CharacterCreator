@@ -119,10 +119,10 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Manager
             folderBrowserDialog.ShowDialog();
             //string savePathTXT = folderBrowserDialog.SelectedPath + "\\" + editor.main.characterCurrent.Name + "_" + editor.main.characterCurrent.Player + ".txt";
             string savePathJSON = folderBrowserDialog.SelectedPath + "\\" + editor.main.characterCurrent.Name + "_" + editor.main.characterCurrent.Player + ".json";
-            JSONConverter buffer = editor.main.characterCurrent.SaveCharacter();
+            JSONCharacter buffer = editor.main.characterCurrent.SaveCharacter();
             
             //System.IO.FileStream fsTXT = new System.IO.FileStream(savePathTXT, System.IO.FileMode.OpenOrCreate);
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(JSONConverter));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(JSONCharacter));
             //ser.WriteObject(fsTXT, buffer);
             //fsTXT.Close();
             System.IO.FileStream fsJSON = new System.IO.FileStream(savePathJSON, System.IO.FileMode.OpenOrCreate);
