@@ -49,8 +49,8 @@ namespace DnD4e.Assets.Scripts.Views.Home
         private void buttonContinue_Click(object sender, RoutedEventArgs e)
         {
             System.IO.FileStream fs = new System.IO.FileStream(main.characterPath, System.IO.FileMode.Open);
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(JSONConverter));
-            JSONConverter j = (JSONConverter)ser.ReadObject(fs);
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(JSONCharacter));
+            JSONCharacter j = (JSONCharacter)ser.ReadObject(fs);
             fs.Close();
             main.characterCurrent = new CharacterOOP.Character(j);
             CharacterEditor editorWindow = new CharacterEditor(main);
@@ -61,19 +61,19 @@ namespace DnD4e.Assets.Scripts.Views.Home
             //System.IO.StreamReader sr = System.IO.File.OpenText(savePath);
 
 
-            //DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(JSONConverter));
-            //JSONConverter JConvert = js.ReadObject(sr);
+            //DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(JSONCharacter));
+            //JSONCharacter JConvert = js.ReadObject(sr);
             //sr.Close();
-            //JsonSerializer.DeserializeFromString<JSONConverter>(JConvert);
+            //JsonSerializer.DeserializeFromString<JSONCharacter>(JConvert);
 
-            //DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(JSONConverter));
+            //DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(JSONCharacter));
             //System.IO.MemoryStream ms = new System.IO.MemoryStream();
             //ms.Position = 0;
             //System.IO.StreamReader sr = new System.IO.StreamReader(ms);
             //string savePath = @"C:\Users\Coldain\Desktop\DnD\4e\Character Creator\Saved Characters\Nadarr_.text";
             //using (System.IO.StreamWriter outputFile = new System.IO.StreamWriter(savePath))
             //{
-            //    JSONConverter JConvert = (JSONConverter)js.ReadObject(ms);
+            //    JSONCharacter JConvert = (JSONCharacter)js.ReadObject(ms);
             //    main.characterCurrent = new CharacterOOP.Character(JConvert);
             //}        
             //sr.Close();
