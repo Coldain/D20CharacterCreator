@@ -13,7 +13,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Load your Character" VerticalAlignment="Top" FontSize="18" TextDecorations="{x:Null}" FontWeight="Bold"/>
             <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="10,33,0,0" Stroke="Black" VerticalAlignment="Top" Width="480" Grid.ColumnSpan="2"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,480,0,0" VerticalAlignment="Top">
-                <Run Text="Selected Character:" FontWeight="Bold"/> <Run Text="Character Name" Name="CharacterName"/>
+                <Run Text="Selected Character:" FontWeight="Bold"/> <Run Text="" Name="CharacterName"/>
             </TextBlock>
             <Grid Margin="25,581,18,10">
                 <Rectangle Height="1" Stroke="#FF9B8D4D" VerticalAlignment="Top"/>

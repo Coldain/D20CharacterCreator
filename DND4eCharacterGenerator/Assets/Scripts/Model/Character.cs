@@ -2298,6 +2298,7 @@ namespace DnD4e.CharacterOOP
                     tempPower.Bodies = bufferPower._bodies;
                     tempPower.AdditionalEffectName = bufferPower._additionalEffectName;
                     tempPower.AdditionalEffectDescription = bufferPower._additionalEffectDescription;
+                    tempPower.Feats = bufferPower._feats;
                     PowerList.Add(tempPower);
                 }
         }
@@ -2574,6 +2575,7 @@ namespace DnD4e.CharacterOOP
                 bufferPower._bodies = tempPower.Bodies;
                 bufferPower._additionalEffectName = tempPower.AdditionalEffectName;
                 bufferPower._additionalEffectDescription = tempPower.AdditionalEffectDescription;
+                bufferPower._feats = tempPower.Feats;
                 buffer._powerList.Add(bufferPower);
             }
             return buffer;

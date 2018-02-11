@@ -604,5 +604,7 @@ namespace DnD4e.Assets.Scripts.Model
         public string _additionalEffectName { get; set; }
         [DataMember(Name = "_additionalEffectDescription")]
         public string _additionalEffectDescription { get; set; }
+        [DataMember(Name = "_feats")]
+        public List<string> _feats { get; set; }
     }
 }

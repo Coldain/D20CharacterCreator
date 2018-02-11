@@ -31,25 +31,25 @@
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <Rectangle Fill="#FFE4E4E4" Stroke="Black" Margin="-2,-2,0,-2" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
-            <Image x:Name="headerReach" HorizontalAlignment="Center" Source="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerBurst.png" Grid.Column="1" Grid.ColumnSpan="2">
+            <Image x:Name="headerReach" HorizontalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2">
                 <Image.Style>
                     <Style TargetType="Image">
                         <Setter Property="Source" Value="{x:Null}" />
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding power.AttackType[0]}" Value="Burst">
+                            <DataTrigger Binding="{Binding power.MethodTypes[0]}" Value="Burst">
                                 <Setter Property="Source" Value="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerBurst.png"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding power.AttackType[0]}" Value="Melee">
+                            <DataTrigger Binding="{Binding power.MethodTypes[0]}" Value="Melee">
                                 <Setter Property="Source" Value="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerMelee.png"/>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding power.AttackType[0]}" Value="Ranged">
+                            <DataTrigger Binding="{Binding power.MethodTypes[0]}" Value="Ranged">
                                 <Setter Property="Source" Value="/DND4eCharacterGenerator;component/Assets/Images/Icons/iconPowerRanged.png"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Image.Style>
             </Image>
-            <Image x:Name="headerPower0" Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/headerPowerAtWill.png" HorizontalAlignment="Left">
+            <Image x:Name="headerPower0" HorizontalAlignment="Left" Margin="-0.5,-1.5,0,0">
                 <Image.Style>
                     <Style TargetType="Image">
                         <Setter Property="Source" Value="{x:Null}" />
@@ -67,8 +67,8 @@
                     </Style>
                 </Image.Style>
             </Image>
-            <Rectangle Fill="White" Stroke="Black" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
-            <Rectangle Stroke="Black" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Rectangle Fill="White" Stroke="Black" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="-2,0,0,0"/>
+            <Rectangle Stroke="Black" Grid.Row="2" Grid.ColumnSpan="2" Margin="-2,0,0,0"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="47*"/>
@@ -102,13 +102,13 @@
                 <Run Text="Target" FontWeight="Bold"/>: <Run Text="{Binding power.Target}"/>
                 </TextBlock>
             </Grid>
-            <Viewbox Grid.Row="2" Grid.ColumnSpan="2" StretchDirection="DownOnly" Stretch="UniformToFill">
+            <Viewbox Grid.Row="2" Grid.ColumnSpan="2" StretchDirection="DownOnly" Stretch="UniformToFill" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListView Name="SPPowers" ItemsSource="{Binding details}" BorderBrush="{x:Null}" Width="235" Height="176" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                     <ListView.ItemTemplate>
                         <DataTemplate DataType="{x:Type local:tempPowerDetails}">
                             <StackPanel Margin="-5,-5,5,0">
-                                <Grid>
-                                    <Rectangle>
+                                <Grid >
+                                    <Rectangle Width="270" Margin="-10,0,0,0">
                                         <Rectangle.Style>
                                             <Style TargetType="Rectangle">
                                                 <Setter Property="Fill">

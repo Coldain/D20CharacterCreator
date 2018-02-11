@@ -523,8 +523,9 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tempPower.RequirementType = myPowerData[17];
                 tempPower.AdditionalEffectName = myPowerData[18];
                 tempPower.AdditionalEffectDescription = myPowerData[19];
-                tempPower.Headers = myPowerData[20].Split('|').ToList();
-                tempPower.Bodies = myPowerData[21].Split('|').ToList();
+                tempPower.Feats = myPowerData[20].Split('|').ToList();
+                tempPower.Headers = myPowerData[21].Split('|').ToList();
+                tempPower.Bodies = myPowerData[22].Split('|').ToList();
                 if (tempPower.Bodies[0] == "")
                 {
                     tempPower.Headers.RemoveAt(0);
