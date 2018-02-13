@@ -1,0 +1,150 @@
+{
+	"docs":[
+ {
+   "$doctype": "Language",
+   "Language": "Abyssal",
+   "Setting": "Core",
+   "Description": "Abyssal is the language of demons, gnolls, and sahuagin. The Barazhad script is used for its written form. Under normal circumstances, Abyssal may not be learned by 1st-level characters.",
+   "Script": "Barazhad"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Common",
+   "Setting": "Core",
+   "Description": "Common is the primary language of Dungeons and Dragons. Common is used to refer to the \"common language\" used by everyone in the game, sometimes in addition to their other choices of languages (eg. Elven, Dwarven, Draconic, etc.).",
+   "Script": "Common"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Draconic",
+   "Setting": "Core",
+   "Description": "Draconic is the language spoken by dragons and related races, including dragonborn and kobolds. Written Draconic uses the script invented by Io, Iokharic.",
+   "Script": "Rellanic"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Dwarven",
+   "Setting": "Core",
+   "Description": "The Dwarven language is the language used by dwarves. It is also used by azer. It uses the Davek script.",
+   "Script": "Iokharic"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Elven",
+   "Setting": "Core",
+   "Description": "Elven is the language spoken by eladrin, elves, and fomorians. It uses the Rellanic script. Elven, along with Common, Draconic, Dwarven, and Goblin, is one of the foundational languages of the mortal world.",
+   "Script": "Davek"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Deep Speech",
+   "Setting": "Core",
+   "Description": "Deep Speech is the language commonly spoken by mind flayers, githyanki, and kuo-toas. It uses the script Rellanic.",
+   "Script": "Rellanic"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Giant",
+   "Setting": "Core",
+   "Description": "The Giant language is the shared word of giants, orcs, and half-orcs.",
+   "Script": "Davek"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Goblin",
+   "Setting": "Core",
+   "Description": "Goblin is a basic language from the Player's Handbook. It is spoken by goblins, among other creatures.",
+   "Script": "Common"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Primordial",
+   "Setting": "Core",
+   "Description": "The Primordial language is the language spoken by the primordials. It is also spoken by efreets, archons, and elementals. Its script is Barazhad.",
+   "Script": "Barazhad"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Supernal",
+   "Setting": "Core",
+   "Description": "The Supernal language is the language used by the gods, shared with angelic servants and also known by devils. It is written in a system of hieroglyphics. It is a universal language, where listeners who don't speak supernal will understand the words as if the speaker used their own languages. The gods and angels may choose to disguise their speech if this is not desired. Additionally, supernal contains words of power, which include the raw magic of creation.\n\nEach race heard the supernal language in a different way, resulting in the various languages among the different races.\n\nThis language cannot be selected as a 1st-level character, but could be learned through the linguist feat. Should a mortal learn the language, they don't gain the ability to be universally understood, nor can they exploit the words of power.\n\nNote that some GMs may have a house rule preventing players from learning supernal.",
+   "Script": "Supernal"
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Mind",
+   "Setting": "Core",
+   "Description": "Psionic Power includes the language of the mind, which by only be learned by psionic characters and through the appropriate background or with the linguist feat. This special language only exists in script.",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Thri-Kreen",
+   "Setting": "Dark Sun",
+   "Description": "Thri-Kreen: a language unique to the Thri-kreen race that uses features that members of other races have trouble duplicating. It is associated with the Chachik script.",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Argon",
+   "Setting": "Eberron",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Quori",
+   "Setting": "Eberron",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Riedran",
+   "Setting": "Eberron",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Chondathan",
+   "Setting": "Forgotten Realms",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Damaran",
+   "Setting": "Forgotten Realms",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Netherese",
+   "Setting": "Forgotten Realms",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Shou",
+   "Setting": "Forgotten Realms",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Thayan",
+   "Setting": "Forgotten Realms",
+   "Description": "",
+   "Script": ""
+ },
+ {
+   "$doctype": "Language",
+   "Language": "Tulgan",
+   "Setting": "Forgotten Realms",
+   "Description": "",
+   "Script": ""
+ }
+]}

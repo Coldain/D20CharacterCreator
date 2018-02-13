@@ -1,0 +1,353 @@
+{
+	"docs": [{
+  			"$doctype": "Class",
+			"Class": "Ardent",
+			"Subclass1": "Ardent",
+			"Source": "PHB3",
+			"Primary Role": "Leader",
+			"Secondary Role": ["Defender",
+				"Striker"
+			],
+			"Short Description": "Charismatic leaders who manipulate emotions to fill allies with the will to fight and the clarity of purpose needed for victory. When attacking, you loose thoughts that intensify emotions and lay bare truths.",
+			"Preferred Races": ["Human", "Half-Elf", "Kalashtar", "Dragonborn", "Halfling", "Gnome", "Tiefling"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Artificer",
+			"Subclass1": "Artificer",
+			"Source": "EPG",
+			"Primary Role": "Leader",
+			"Secondary Role": "Controller",
+			"Short Description": "You channel arcane power into items that empower your allies and hinder your enemies.",
+			"Preferred Races": ["Human", "Gnome", "Dwarf", "Warforged"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Assassin",
+			"Subclass1": ["Assassin",
+				"Executioner"
+			],
+			"Source": ["DRMZ",
+				"HoS"
+			],
+			"Primary Role": "Striker",
+			"Secondary Role": "Controller",
+			"Short Description": "You are the ghost in the night and the whisper on the wind. Barriers are worthless against you, and you strike your foes with sudden, precise force.",
+			"Preferred Races": ["Revenant", "Half-Orc", "Drow", "Halfling", "Changeling"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Avenger",
+			"Subclass1": "Avenger",
+			"Source": "PHB2",
+			"Primary Role": "Striker",
+			"Secondary Role": "Controller",
+			"Short Description": "Your oaths bring divine wrath upon the enemies of your god. With methodical devastation, you eliminate one foe at a time.",
+			"Preferred Races": ["Elf", "Shifter", "Deva", "Human"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Barbarian",
+			"Subclass1": ["Barbarian",
+				"Berserker"
+			],
+			"Source": ["PHB2",
+				"HoF"
+			],
+			"Primary Role": "Striker",
+			"Secondary Role": ["Defender",
+				"Leader"
+			],
+			"Short Description": "You use powerful two-handed weapons to deal serious damage to your enemies. Your physical power and daunting presence can cause foes to cower before you, and you can temporarily increase your abilities by harnessing great bursts of terrifying rage.",
+			"Preferred Races": ["Goliath", "Dragonborn", "Half-Orc", "Dwarf", "Shifter", "Halfling", "Half-Elf"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Bard",
+			"Subclass1": ["Bard",
+				"Skald"
+			],
+			"Source": ["PHB2",
+				"HoF"
+			],
+			"Primary Role": "Leader",
+			"Secondary Role": "Controller",
+			"Short Description": "Your spells inspire and invigorate your allies. Your spells also include significant control elements.",
+			"Preferred Races": ["Half-Elf", "Gnome", "Tiefling", ""]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Battlemind",
+			"Subclass1": "Battlemind",
+			"Source": "PHB3",
+			"Primary Role": "Defender",
+			"Secondary Role": ["Controller",
+				"Striker"
+			],
+			"Short Description": "You are tough and fast. while your mastery of psionic magic allows you to outwit your foes.",
+			"Preferred Races": ["Dwarf", "Wilden", "Half-Elf", "Goliath", "Gnome", "Tiefling"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Cleric",
+			"Subclass1": ["Templar",
+				"Warpriest"
+			],
+			"Source": ["PHB1",
+				"HoFL"
+			],
+			"Primary Role": "Leader",
+			"Secondary Role": "",
+			"Short Description": "Courageous and devout, clerics are holy warriors and healers. If you want to blast foes with divine powers, bolster your companions with healing and magical power, and lead them to victory with your wisdom and determination, play a cleric.",
+			"Preferred Races": ["Human", "Dwarf", "Deva", "Elf", "Half-Elf", "Dragonborn"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Druid",
+			"Subclass1": ["Druid",
+				"Protector",
+				"Sentinel"
+			],
+			"Source": ["PHB2",
+				"HoF",
+				"HoFK"
+			],
+			"Primary Role": "Leader",
+			"Secondary Role": "Controller",
+			"Short Description": "Your beast form gives you access to powers that provide control at close range, while your humanoid form allows you to hinder your opponents from a distance.",
+			"Preferred Races": ["Elf", "Shifter", "Dwarf", "Goliath", "Human"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Fighter",
+			"Subclass1": ["Weaponmaster",
+				"Knight",
+				"Slayer"
+			],
+			"Source": ["PHB1",
+				"HoFL"
+			],
+			"Primary Role": "Defender",
+			"Secondary Role": ["Leader",
+				"Striker"
+			],
+			"Short Description": "Fighters are experts in armed combat, relying on muscle, training, and pure grit to see them through. If you want to mix it up in close combat, protect your companions, and hack enemies into submission while their attacks rain down fruitlessly on your heavily armored body, be a fighter.",
+			"Preferred Races": ["Dragonborn", "Dwarf", "Human"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Invoker",
+			"Subclass1": "Invoker",
+			"Source": "PHB2",
+			"Primary Role": "Controller",
+			"Secondary Role": ["Leader",
+				"Striker"
+			],
+			"Short Description": "You invoke the power of a god to blast your foes from a distance, leave them unable to defend themselves, and scatter them to the four winds.",
+			"Preferred Races": ["Dwarf", "Eladrin", "Elf"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Monk",
+			"Subclass1": "Monk",
+			"Source": "PHB3",
+			"Primary Role": "Striker",
+			"Secondary Role": "Controller",
+			"Short Description": "You typically eschew weapons in favor of unarmed attacks, and you avoid armor in favor of maneuverability and agility. Few can match your speed and poise on the battlefield. Your powers are more than simple attacks; they are complex forms that allow you to strike and move with unmatch ed grace.",
+			"Preferred Races": ["Human", "Githzerai", "Elf"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Paladin",
+			"Subclass1": ["Paladin",
+				"Blackguard",
+				"Cavalier"
+			],
+			"Source": ["PHB1",
+				"HoS",
+				"HoFK"
+			],
+			"Primary Role": "Defender",
+			"Secondary Role": "Striker",
+			"Short Description": "Devout warriors and champions of their deities, paladins are divinely inspired knights who fight at the front of a battle. If you want to challenge foes to single combat, fight for a cause, and smite your foes with divine might, then paladin is the class for you.",
+			"Preferred Races": ["Human", "Dwarf", "Dragonborn", "Half-Elf"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Psion",
+			"Subclass1": "Psion",
+			"Source": "PHB3",
+			"Primary Role": "Controller",
+			"Secondary Role": "",
+			"Short Description": "You can mentally influence the actions ofyour foes, and you can toss your enemies around the battlefield with psionic force.",
+			"Preferred Races": ["Human", "Gnome", "Eladrin", "Tiefling"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Ranger",
+			"Subclass1": ["Ranger",
+				"Hunter",
+				"Scout"
+			],
+			"Source": ["PHB1",
+				"HoFK"
+			],
+			"Primary Role": "Striker",
+			"Secondary Role": "Controller",
+			"Short Description": "Expert trackers and scouts, rangers are wilderness warriors who excel at hit-and-run fighting. If you want to master both bow and blade, vanish into the woods like a ghost, and bring down your foes before they know you’re there, play a ranger.",
+			"Preferred Races": ["Elf", "Human", "Halfling", "Dragonborn", "Eladrin"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Rogue",
+			"Subclass1": ["Scoundrel",
+				"Thief"
+			],
+			"Source": ["PHB1",
+				"HoFL"
+			],
+			"Primary Role": "Striker",
+			"Secondary Role": "",
+			"Short Description": "Thieves, scoundrels, dungeon-delvers, jacksof-all-trades — rogues have a reputation for larceny and trickery. If you want to slip into and out of the shadows on a whim, tumble across the field of battle with little fear of enemy reprisal, and appear from nowhere to plant a blade in your foe’s back, be a rogue.",
+			"Preferred Races": ["Elf", "Halfling", "Drow", "Tiefling"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Runepriest",
+			"Subclass1": "Runepriest",
+			"Source": "PHB3",
+			"Primary Role": "Leader",
+			"Secondary Role": ["Defender",
+				"Controller"
+			],
+			"Short Description": "The runes you invoke allow you to impart strength and vitality to your allies while leaving your enemies open to attack.",
+			"Preferred Races": ["Deva", "Elf", "Dwarf", "Minotaur", "Goliath"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Seeker",
+			"Subclass1": "Seeker",
+			"Source": "PHB3",
+			"Primary Role": "Controller",
+			"Secondary Role": ["Defender",
+				"Striker"
+			],
+			"Short Description": "You are a primal hunter who forges bonds with mysterious spirits to gain their aid in bringing down your prey.",
+			"Preferred Races": ["Elf", "Shifter", "Goliaths", "Wilden"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Shaman",
+			"Subclass1": "Shaman",
+			"Source": "PHB2",
+			"Primary Role": "Leader",
+			"Secondary Role": ["Defender",
+				"Striker"
+			],
+			"Short Description": "Your spirit companion bolsters and heals your nearby allies, and you can evoke other spirits to aid your allies and harm your foes.",
+			"Preferred Races": ["Elf", "Human", "Shifter", "Dwarf", "Deva"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Sorcerer",
+			"Subclass1": ["Sorcerer",
+				"Elementalist"
+			],
+			"Source": ["PHB2",
+				"HoEC"
+			],
+			"Primary Role": "Striker",
+			"Secondary Role": "Controller",
+			"Short Description": "You channel powerful magical energy through your body, exerting control over wild arcane magic to blast foes.",
+			"Preferred Races": ["Dragonborn", "Half-Elf", "Halfling", "Gnome", "Tiefling"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Swordmage",
+			"Subclass1": "Swordmage",
+			"Source": "FRPG",
+			"Primary Role": "Defender",
+			"Secondary Role": "",
+			"Short Description": "You are a melee combatant who uses spells to fight better.",
+			"Preferred Races": ["Genasi", "Human", "Eladrin", "Githyanki"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Vampire",
+			"Subclass1": "Vampire",
+			"Source": "HoS",
+			"Primary Role": "Striker",
+			"Secondary Role": "",
+			"Short Description": "Infused with the power of darkness and having already experienced death, you are a lethal creature of the night. As your power increases, your supernatural nature comes to the fore-- but will your humanity pay the price?",
+			"Preferred Races": ["Halfling", "Vryloka"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Warden",
+			"Subclass1": "Warden",
+			"Source": "PHB2",
+			"Primary Role": "Defender",
+			"Secondary Role": ["Controller",
+				"Striker"
+			],
+			"Short Description": "You are sturdy and resilient, and you can assume bestial or treelike forms to destroy your foes.",
+			"Preferred Races": ["Goliath", "Shifter", "Human", "Dwarf", "Dragonborn", "Half-Orc"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Warlock",
+			"Subclass1": ["Warlock",
+				"Binder",
+				"Hexblade"
+			],
+			"Source": ["PHB1",
+				"HoS",
+				"HoFK"
+			],
+			"Primary Role": "Striker",
+			"Secondary Role": "Controller",
+			"Short Description": "Wielders of forbidden lore, warlocks are dangerous practitioners of magic who turn their baleful powers against their enemies. If you want to deal with mysterious powers, scour enemies with potent blasts of eldritch energy, and bedevil them with potent curses, warlock is the best choice for you.",
+			"Preferred Races": ["Tiefling", "Gnome", "Eladrin", "Dragonborn", "Half-Elf", "Human"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Warlord",
+			"Subclass1": "Warlord",
+			"Source": "PHB1",
+			"Primary Role": "Leader",
+			"Secondary Role": "",
+			"Short Description": "Hardy and skilled in close combat, warlords are brilliant leaders who have the gift of inspiration. If you want to lead the battle with the point of your sword, coordinate brilliant tactics with your comrades, and bolster and heal them when theyfalter, play a warlord. ",
+			"Preferred Races": ["Dragonborn", "Half-Elf", "Human", "Tiefling", "Eladrin"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Wizard",
+			"Subclass1": ["Wizard",
+				"Bladesinger",
+				"Mage",
+				"Sha'ir",
+				"Witch"
+			],
+			"Source": ["PHB1",
+				"NWCS",
+				"HoFL",
+				"HoEC",
+				"HoF"
+			],
+			"Primary Role": "Controller",
+			"Secondary Role": "",
+			"Short Description": "Masters of potent arcane powers, wizards disdain physical conf lict in favor of awesome magic. If you want to hurl balls of fire that incinerate your enemies, cast spells that change the battlefield,or research arcane rituals that can alter time and  space, you should be a wizard.",
+			"Preferred Races": ["Eladrin", "Human", "Elf", "Hamadryad"]
+		},
+		{
+  			"$doctype": "Class",
+			"Class": "Hybrid",
+			"Subclass1": "Hybrid",
+			"Source": "PHB3",
+			"Primary Role": "Any",
+			"Secondary Role": "",
+			"Short Description": "",
+			"Preferred Races": ""
+		}
+	]
+}

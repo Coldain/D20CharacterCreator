@@ -1,0 +1,117 @@
+{       
+ "docs":[
+ {
+   "$doctype": "Definition",
+   "Name": "Sources",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Campaigns",
+   "Description": "",
+   "Click or pick": "Pick a Campaign Setting"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Roles",
+   "Description": "Each character class specializes in one of four basic functions in combat: control and area offense, defense, healing and support, and focused offense. The roles embodied by these functions are controller, defender, leader, and striker. The classic adventuring party includes one character of each role: wizard, fighter, cleric, and rogue. Character roles identify which classes can stand in for each other. For example, if you don’t have a cleric in your party, a warlord serves just as well in the leader role. Roles also serve as handy tools for building adventuring parties. It’s a good idea to cover each role with at least one character. If you have five or six players in your group, it’s best to double up on defender first, then striker. If you don’t have all the roles covered, that’s okay too—it just means that the characters need to compensate for the missing function.",
+   "Click or pick": "Pick a Play Style"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Classes",
+   "Description": "Your class is the primary definition of what your character can do in the extraordinary magical landscape of the DUNGEONS & DRAGONS world.A class is more than a profession; it is your character’s calling. Your class choice shapes every action you take as you adventure across a spell-tangled,monster-ridden, battle-torn fantasy world. Will you be a gutsy, youthful sword fighter? A pact-sworn warlock with questionable ties? A gods-worshiping cleric who knows too much? A flamboyant rogue with a dagger up your sleeve? A attooed wizard with a crystal staff? The choice is yours.",
+   "Click or pick": "Pick a class"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Subclasses",
+   "Description": "Subclasses are a subset of your class. Feats, abilites, powers, etc are changed out. Even the primary role, power source, and primary abilites can change.",
+   "Click or pick": "Pick a Subclass"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Builds",
+   "Description": "A build option is a recommended way to build a 1st level character in a certain class. The class was constructed with these options in mind, and its powers, features, skills etc are meant to cater to one or more of these choices. However, a player is not required to use the build options given. A player can mix between them (grabbing some things that work well for one and some that work well for another), or even take the class in a completely different direction that may not have been foreseen by its designers. Build options are simply recommendations.",
+   "Click or pick": "Pick a Build"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Deities",
+   "Description": "Deities are the most powerful immortal creatures, residents of the countless dominions that swirl through the Astral Sea.They appear in dreams and visions to their followers and wear countless different faces, and artwork depicting them shows them in a variety of forms. Their true nature is beyond any physical form. Corellon is often depicted as an eladrin, but he is no more an eladrin than he is a fey panther — he is a god, and he transcends the physical laws that bind even angels to their concrete forms. Some deities are good or lawful good, some are evil or chaotic evil, and some are unaligned. Each deity has a vision of how the world should be, and the agents of the deities seek to bring that vision to life in the world. Except for the chaotic evil gods (Gruumsh and Lolth), all deities are enemies of the demons, which would rather destroy the world than govern it. Most people revere more than one deity, praying to different gods at different times. Commoners in a small town might visit a temple that has three altars, where they pray to Bahamut for protection, Pelor for fertile crops, and Moradin to aid their skill at crafting. Clerics and paladins more often serve a single deity, championing that god’s particular cause in the world. Other adventurers range across the spectrum, from paying lip service to the whole pantheon, to fervently serving a single god, to ignoring the gods entirely as they pursue their own divine ascension. Many deities have contradictory versions of how the world should work. Even the agents and worshipers of deities who share an alignment can come into conflict.",
+   "Click or pick": "Pick a Deity"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Races",
+   "Description": "A variety of cultures and societies populate the world of the DUNGEONS & DRAGONS game, some made up of humans but others made up of fantastic races such as elves, dwarves, and tieflings. Adventurers and heroes can arise from these various peoples. Your choice of character race provides you with a basic set of advantages and special abilities. If you’re a fighter, are you a stubborn dwarf monster-slayer, a graceful elf blademaster, or a fierce dragonborn gladiator? If you’re a wizard, are you a brave human spell-for-hire or a devious tiefling conjurer? Your character race not only affects your ability scores and powers but also provides the first cues for building your character’s story.",
+   "Click or pick": "Pick a Race"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Languages",
+   "Description": "Ten languages form the basis of every dialect spoken throughout the D&D game’s many worlds. These languages are transcribed in different scripts, most of which are alphabets, from the flowing characters of the Rellanic alphabet to the runes of the Davek alphabet. The Supernal script is a system of hieroglyphics. Depending on your character’s race, you start off knowing two or three languages and the script associated with each. You can learn additional languages by taking the Linguist feat.\nYou can’t choose the Abyssal or Supernal languages as a 1st-level character.",
+   "Click or pick": "Pick a Langauge"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Subraces",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Abilities",
+   "Description": "Abilities generally describe a creature's physical and mental characteristics, and determine the creature's strengths and weaknesses. Ability modifiers, based on the ability scores, contribute to all kinds of effects like attack rolls, defenses, and skill checks.\n\nCreatures have three physical abilities, Strength (Str), Constitution (Con), and Dexterity (Dex), and three mental abilities, Intelligence (Int), Wisdom (Wis), and Charisma (Cha).",
+   "Click or pick": "Pick an Ability"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Skills",
+   "Description": "Along with your powers, skills are a major way to define what your character does in the D&D world. These range from your knowledge about the creatures and world around you to your ability to perform acrobatic or athletic deeds of daring-do; from sneaking around and picking locks to charming your way into a king's good graces, and so on.\n\nSome skills require training to perform certain actions, and all skills benefit from the bonuses given by training",
+   "Click or pick": "Pick a Skill"
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Items",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Feats",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Powers",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Spells",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "Traits",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "",
+   "Description": "",
+   "Click or pick": ""
+ },
+ {
+   "$doctype": "Definition",
+   "Name": "",
+   "Description": "",
+   "Click or pick": ""
+ }
+]}

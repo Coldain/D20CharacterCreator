@@ -9,6 +9,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using DnD4e.Assets.Scripts.Controller.Data;
+using RestSharp;
 
 namespace DnD4e.Assets.Scripts.Views.Home
 {
@@ -37,7 +39,11 @@ namespace DnD4e.Assets.Scripts.Views.Home
 
         public void buttonSimple_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Comming...");
+            string endPoint = @"http://localhost:5984/_all_dbs";
+            var client = new RestClient(endPoint);
+            MyDB myDB = new MyDB();
+
+            //MessageBox.Show("Comming...");
         }
         private void buttonLoad_Click(object sender, RoutedEventArgs e)
         {

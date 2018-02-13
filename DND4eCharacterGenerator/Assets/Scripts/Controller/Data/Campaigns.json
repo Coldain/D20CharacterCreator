@@ -1,0 +1,59 @@
+{
+"docs":[
+ {
+   "$doctype": "Campaign",
+   "Setting": "Core",
+   "Short Description": "(Also known as Points of Light or Nentir Vale) Imageine a world of bold Warriors, mighty wizards, and terrible monsters.",
+   "Description": "While the setting is intentionally incomplete, some pre-designed assumptions about the settings exists that the DM is free to use or ignore as he wishes.\n\nThe written history of the campaign setting describes that several mighty empires has existed throughout history, civilizations of marvels that developed until they encountered their end and their parts where reclaimed by the wild. Ruins of these empires, filled with monsters and sometimes ancient artifacts, dot the wilderness outside villages, towns and cities that provide relative safety for their inhabitants (\"points of light\" in the darkness of the wild, hence one of the names for the campaign setting).\n\nSome of these ancient empires includes the dragonborn empire of Arkhosia and the tiefling empire of Bael Turath, who destroyed each other in a war a very long time ago. The latest empire was the human empire of Nerath, which fell into ruin a mere century ago. Separate kingdoms and city-states now mind their own business in the dark centuries that awaits before the raise of the next great empire.\n\nThe deities of the Points of Light setting make up the core pantheon of 4th edition. Many were copied or adapted from the deities of other settings, such as Forgotten Realms.",
+   "Backstory": "In the beginning of the cosmos, the primordials emerged from the Elemental Chaos below and the gods emerged from the Astral Sea above. The primordials, creatures of creation and destruction and beings of raw elemental power, created the mortal world and, as a side-effect, its echoes in the form of the Feywild and the Shadowfell. The gods got interested in this creation and begun to shape some of it after their own natures, instilling it with a property of permanence that was utterly antithetical to the chaotic primordials. The primordials wanted to destroy the world to start over with a new creation. The gods, now invested in the world and the lifeforms they had created from it, opposed this. This opposition and certain events led to the cosmos greatest conflict, an event named the Dawn War, where primordials, gods and their servants clashed. In the end, the gods won, and most of the primordials were slain or imprisoned. The primal spirits, an expression of the worlds features in form of spiritual energy, then declared that neither primordial nor god should interfere directly in the worlds affairs because of the danger the power of both posed to the mortal world, and enacted the \"primal ban\", a property that makes the worlds collective primal energy resist entry into the world by the cosmos most powerful beings. The gods then had no choice but to try to influence the world indirectly through their believers and servants. Great weapons and monsters created during the Dawn War still remains, scattered throughout the planes, and are the center of many a plot.",
+   "Tidbits": "Points of Light and Nentir Vale are informal names for the default campaign setting of the 4th edition core rulebooks. The setting is intentionally incomplete, allowing the gaps to be filled by imported or homebrew content. The eponymous region of the setting, the Nentir Vale, is described as a cold and sparsely populated land."
+ },
+ {
+   "$doctype": "Campaign",
+   "Setting": "Forgotten Realms",
+   "Short Description": "Walk the streets of Waterdeep, sail the Sea of Fallen Stars, and traverse the trails of the Far East.",
+   "Description": "",
+   "Backstory": "",
+   "Tidbits": "Forgotten Realms is the Dungeons & Dragons campaign setting that takes place on the world of Toril, especially the subcontinent of Faerûn."
+ },
+ {
+   "$doctype": "Campaign",
+   "Setting": "Eberron",
+   "Short Description": "Find action and adventure from the steaming jungles of Aerenal to the colossal ruions of Xen'drik",
+   "Description": "",
+   "Backstory": "",
+   "Tidbits": "Eberron is the Dungeons & Dragons campaign setting that takes place on the world of Eberron, especially the continent of Khorvaire."
+ },
+ {
+   "$doctype": "Campaign",
+   "Setting": "Dark Sun",
+   "Short Description": "Discover the deadly world of Athas, home ot trackles deserts, tyrannical sorcerer kings and death at every turn.",
+   "Description": "",
+   "Backstory": "",
+   "Tidbits": "Dark Sun is the Dungeons & Dragons campaign setting that takes place on the world of Athas, especially the Tyr region"
+ },
+ {
+   "$doctype": "Campaign",
+   "Setting": "Wraith Recon",
+   "Short Description": "",
+   "Description": "",
+   "Backstory": "",
+   "Tidbits": ""
+ },
+ {
+   "$doctype": "Campaign",
+   "Setting": "Amethyst",
+   "Short Description": "",
+   "Description": "",
+   "Backstory": "",
+   "Tidbits": ""
+ },
+ {
+   "$doctype": "Campaign",
+   "Setting": "Kingdoms of Kalamar",
+   "Short Description": "",
+   "Description": "",
+   "Backstory": "",
+   "Tidbits": ""
+ }
+]}

@@ -1,0 +1,73 @@
+{
+	"docs": [
+ {
+   "$doctype": "List",
+   "Name": "Sources",
+   "List": ["Players Hand Book 1", "Players Hand Book 2", "Players Hand Book 3", "Eberron Player's  Guide", "Neverwinter Campaign Setting", "Forgotten Realms Player's Guide", "Dark Sun Campaign Setting", "Dragon Magazine", "Heroes of the Fallen Lands", "Heroes of the Forgotten Kingdoms", "Heroes of the Feywild", "Heroes of Shadow", "Heroes of the Elemental Chaos", "Martial Power", "Martial Power 2", "Manual of the Planes", "Monster Manual", "Monster Manual 2"],
+   "Definitions": "",
+   "SubList": ["PHB", "PHB2", "PHB3", "EPG", "NWCS", "FRPG", "DSCS", "DRMZ", "HoFL", "HoFK", "HoF", "HoS", "HoEC", "MP", "MP2", "MoP", "MM1", "MM2"]
+ },
+ {
+   "$doctype": "List",
+   "Name": "Abilities",
+   "List": ["Constitution", "Dexterity", "Charisma", "Strength", "Wisdom", "Intelligence"],
+   "Definitions": ["Constitution (Con) represents a character's health, stamina, and vital force. Because Constitution affects hit points and healing surges, it is a benefit to all player characters.\n\nConstitution is the key ability for Endurance skill checks.\n\nA character's Constitution score (not modifier) contributes to his or her maximum number of hit points.\n\nA character's Constitution modifier contributes to his or her number of healing surges per day.\n\nIn addition, a character's Constitution modifier or Strength modifier, whichever is higher, will contribute to Fortitude defense.\n\nConstitution and Strength are redundant with each other for the purpose of Fortitude defense. For this reason, Constitution may be less useful for characters who need Strength for attack rolls, class features, or skill checks.", "Dexterity (Dex) measures hand-eye coordination, agility, reflexes, and balance.\n\nDexterity is the key ability for Acrobatics, Stealth, and Thievery skill checks.\n\nRanged basic attacks are based on Dexterity, except with heavy thrown weapons.\n\nA character's Dexterity modifier contributes to initiative checks.\n\nIn addition, a character's Dexterity modifier or Intelligence modifier, whichever is higher, will contribute to Reflex defense. If the character wears light armor, his or her Dexterity modifier or Intelligence modifier, whichever is higher, also contributes to Armor Class.\n\nDexterity and Intelligence are redundant with each other for the purpose of defense bonuses. For this reason, Dexterity may be less useful for characters who need Intelligence for attack rolls, class features, or skill checks.", "Charisma (Cha) measures a character's force of personality, persuasiveness, and leadership.\n\nCharisma is the key ability for Bluff, Diplomacy, Intimidate, and Streetwise skill checks.\n\nIn addition, a character's Charisma modifier or Wisdom modifier, whichever is higher, will contribute to Will defense.\n\nCharisma and Wisdom are redundant with each other for the purpose of Will defense, but Wisdom has the additional benefit of improving Perception checks. For this reason, Charisma can be a dump stat for characters who don't depend on Charisma for attack rolls, class features, or skill checks.", "Strength (Str) measures a character’s physical power.\n\nStrength is the key ability for Athletics skill checks.\n\nMelee basic attacks are based on Strength, as are ranged basic attacks with heavy thrown weapons.\n\nStrength determines the weight for your carrying, lifting and dragging capacities.\n\nIn addition, a character's Strength modifier or Constitution modifier, whichever is higher, will contribute to Fortitude defense.\n\nStrength and Constitution are redundant with each other for the purpose of Fortitude defense, but Constitution has the additional benefit of improving hit points and healing surges. For this reason, Strength can be a dump stat for characters who don't depend on Strength for attack rolls, class features, or skill checks.", "Wisdom (Wis) measures your common sense, perception, self-discipline, and empathy. You use your Wisdom score to notice details, sense danger, and get a read on other people.\n\nMany Cleric powers are based on Wisdom. Fighter, Ranger, and other classes also have powers that benefit from your wisdom modifier.\nYour Wisdom or Charisma modifier contributes to your Will defense (whichever is higher).\nWisdom is the key ability for Dungeoneering, Heal, Insight, Nature, and Perception skill checks.", "Intelligence (Int) describes how well a character learns and reasons.\n\nIntelligence is the key ability for Arcana, History, and Religion skill checks.\n\nIn addition, a character's Intelligence modifier or Dexterity modifier, whichever is higher, will contribute to Reflex defense. If a character wears light armor, his or her Intelligence modifier or Dexterity modifier, whichever is higher, also contributes to Armor Class.\n\nIntelligence and Dexterity are redundant with each other for the purpose of defense bonuses, but Dexterity has the additional benefit of improving initiative checks. For this reason, Intelligence can be a dump stat for characters who don't depend on Intelligence for attack rolls, class features, or skill checks."],
+   "SubList": ["Con", "Dex", "Cha", "Str", "Wis", "Int"]
+ },
+ {
+   "$doctype": "List",
+   "Name": "Skills",
+   "List": ["Acrobatics", "Arcana", "Athletics", "Bluff", "Diplomacy", "Dungeoneering", "Endurance", "Heal", "History", "Insight", "Intimidate", "Nature", "Perception", "Religion", "Stealth", "Streetwise", "Thievery"],
+   "Definitions": "",
+   "SubList": ["Dex", "Int", "Str", "Cha", "Cha", "Wis", "Con", "Wis", "Int", "Wis", "Cha", "Wis", "Wis", "Int", "Dex", "Cha", "Dex"]
+ },
+ {
+   "$doctype": "List",
+   "Name": "Lables",
+   "List": "",
+   "Definitions": "",
+   "SubList": ""
+ },
+ {
+   "$doctype": "List",
+   "Name": "Genders",
+   "List": ["Male", "Female"],
+   "Definitions": "",
+   "SubList": ""
+ },
+ {
+   "$doctype": "List",
+   "Name": "Alignments",
+   "List": ["Unaligned", "Lawful Good", "Good", "Evil", "Chaotic Evil"],
+   "Definitions": "",
+   "SubList": ""
+ },
+ {
+   "$doctype": "List",
+   "Name": "",
+   "List": "",
+   "Definitions": "",
+   "SubList": ""
+ },
+ {
+   "$doctype": "List",
+   "Name": "",
+   "List": "",
+   "Definitions": "",
+   "SubList": ""
+ },
+ {
+   "$doctype": "List",
+   "Name": "",
+   "List": "",
+   "Definitions": "",
+   "SubList": ""
+ },
+ {
+   "$doctype": "List",
+   "Name": "",
+   "List": "",
+   "Definitions": ["Players Hand Book 1", "Players Hand Book 2", "Players Hand Book 3", "Eberron Player's  Guide", "Neverwinter Campaign Setting", "Forgotten Realms Player's Guide", "Dragon Magazine", "Heroes of the Fallen Lands", "Heroes of the Forgotten Kingdoms", "Heroes of the Feywild", "Heroes of Shadow", "Heroes of the Elemental Chaos", "Martial Power", "Martial Power 2"],
+   "SubList": ""
+ }
+]}

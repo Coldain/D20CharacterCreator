@@ -1,0 +1,33 @@
+{
+"docs":[
+ {
+   "$doctype": "Role",
+   "Roles": "Leader",
+   "Description": "Leaders inspire, heal, and aid the other characters in an adventuring group. Leaders have good defenses, but their strength lies in powers that protect their companions and target specific foes for the party to concentrate on. Clerics and warlords (and other leaders) encourage and motivate their adventuring companions, but just because they fill the leader role doesn’t mean they’re necessarily a group’s spokesperson or commander. The party leader—if the group has one—might as easily be a charismatic warlock or an authoritative paladin. Leaders (the role) fulfill their function through their mechanics; party leaders are born through roleplaying. A leader primarily supports the party by aiding allies, and making enemies more vulnerable to attack.The leader role refers only to a class's combat function; a character with a leader role does not have to be the decision maker or spokesperson for the party. The Cleric is the classic Leader class.",
+   "Pick": "Play as a Leader"
+ },
+ {
+   "$doctype": "Role",
+   "Roles": "Striker",
+   "Description": "Strikers specialize in dealing high amounts of damage to a single target at a time. They have the most concentrated offense of any character in the game. Strikers rely on superior mobility, trickery, or magic to move around tough foes and single out the enemy they want to attack. A striker primarily eliminates single threats by closing with a target quickly and safely, then rapidly dealing damage to it.The Rogue is the classic Striker class.",
+   "Pick": "Play as a Striker"
+ },
+ {
+   "$doctype": "Role",
+   "Roles": "Defender",
+   "Description": "Defenders have the highest defenses in the game and good close-up offense. They are the party’s front-line combatants; wherever they’re standing, that’s where the action is. Defenders have abilities and powers that make it difficult for enemies to move past them or to ignore them in battle. A character with the Defender role primarily focuses enemy fire by making it difficult for enemies to move past, and punishing enemies who attack other party members.The Fighter is the classic Defender class.",
+   "Pick": "Play as a Defender"
+ },
+ {
+   "$doctype": "Role",
+   "Roles": "Controller",
+   "Description": "Controllers deal with large numbers of enemies at the same time. They favor offense over defense, using powers that deal damage to multiple foes at once, as well as subtler powers that weaken, confuse, or delay their foes. A character with the Controller role primarily handles crowds by creating hazardous terrain and repositioning enemies, or spreading conditions and damage over multiple enemies.The Wizard is the classic Controller class.",
+   "Pick": "Play as a Controller"
+ },
+ {
+   "$doctype": "Role",
+   "Roles": "anything",
+   "Description": "Ready to just jump in!",
+   "Pick": "Play as anything"
+ }
+]}
