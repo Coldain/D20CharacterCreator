@@ -129,6 +129,7 @@
     <Compile Include="Assets\Scripts\Model\Definitions.cs" />
     <Compile Include="Assets\Scripts\Model\Deities.cs" />
     <Compile Include="Assets\Scripts\Model\Experience Manager.cs" />
+    <Compile Include="Assets\Scripts\Model\Feats.cs" />
     <Compile Include="Assets\Scripts\Model\Information.cs" />
     <Compile Include="Assets\Scripts\Model\Languages.cs" />
     <Compile Include="Assets\Scripts\Model\Powers.cs" />
