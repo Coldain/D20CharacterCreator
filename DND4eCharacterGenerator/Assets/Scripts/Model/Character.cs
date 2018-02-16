@@ -2137,9 +2137,9 @@ namespace DnD4e.CharacterOOP
             _alignment = buffer._alignment;
             _gender = buffer._gender;
             Class = new Classes(buffer._class_class, buffer._class_subclasses, buffer._class_primaryRoles, buffer._class_secondaryRoles, buffer._class_shortDescription, buffer._class_source, buffer._class_image, buffer.class_preferedRaces);
-            Class.Subclass = new SubClasses(buffer._class_subclass_subClass, buffer._class_subclass_shortDescription, buffer._class_subclass_description, buffer._class_subclass_source, buffer._class_subclass_power, buffer._class_subclass_role, buffer._class_subclass_abilities,
+            Class.Subclass = new SubClasses(buffer._class_subclass_subClass, buffer._class_subclass_shortDescription, buffer._class_subclass_description, buffer._class_subclass_source, buffer._class_subclass_keywords, buffer._class_subclass_role, buffer._class_subclass_abilities,
                 buffer._class_subclass_hPStart, buffer._class_subclass_hPLvl, buffer._class_subclass_defences, buffer._class_subclass_attack, buffer._class_subclass_surges, buffer._class_subclass_proficiencies, buffer._class_subclass_skillTraining, buffer._class_subclass_skills, buffer._class_subclass_paths,
-                buffer._class_subclass_defaultFeat, buffer._class_subclass_implements, buffer._class_subclass_special, buffer._class_subclass_encounter, buffer._class_subclass_builds, buffer._class_subclass_feats, buffer._class_subclass_headers, buffer._class_subclass_bodies, buffer._class_subclass_listOptions,
+                buffer._class_subclass_defaultFeat, buffer._class_subclass_implements, buffer._class_subclass_powers, buffer._class_subclass_encounter, buffer._class_subclass_builds, buffer._class_subclass_feats, buffer._class_subclass_headers, buffer._class_subclass_bodies, buffer._class_subclass_listOptions,
                 buffer._class_subclass_pp);
             Class.Subclass.Build = new Builds(buffer._class_subclass_build_build, buffer._class_subclass_build_subclass, buffer._class_subclass_build_description, buffer._class_subclass_build_feat, buffer._class_subclass_build_humanFeat, buffer._class_subclass_build_skills,
                 buffer._class_subclass_build_atwills, buffer._class_subclass_build_encounter, buffer._class_subclass_build_daily, buffer._class_subclass_build_option, buffer._class_subclass_build_shortDescription);
@@ -2357,7 +2357,7 @@ namespace DnD4e.CharacterOOP
             buffer._class_subclass_shortDescription = Class.Subclass.ShortDescription;
             buffer._class_subclass_description = Class.Subclass.Description;
             buffer._class_subclass_source = Class.Subclass.Source;
-            buffer._class_subclass_power = Class.Subclass.Power;
+            buffer._class_subclass_keywords = Class.Subclass.Keywords;
             buffer._class_subclass_role = Class.Subclass.Role;
             buffer._class_subclass_abilities = Class.Subclass.Abilities;
             buffer._class_subclass_hPStart = Class.Subclass.HPStart;
@@ -2371,7 +2371,7 @@ namespace DnD4e.CharacterOOP
             buffer._class_subclass_paths = Class.Subclass.Paths;
             buffer._class_subclass_defaultFeat = Class.Subclass.DefaultFeat;
             buffer._class_subclass_implements = Class.Subclass.Implements;
-            buffer._class_subclass_special = Class.Subclass.Special;
+            buffer._class_subclass_powers = Class.Subclass.Powers;
             buffer._class_subclass_encounter = Class.Subclass.Encounter;
             buffer._class_subclass_build_build = Class.Subclass.Build.Build;
             buffer._class_subclass_build_subclass = Class.Subclass.Build.Subclass;

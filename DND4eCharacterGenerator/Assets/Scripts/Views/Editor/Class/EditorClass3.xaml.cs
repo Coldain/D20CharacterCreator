@@ -163,7 +163,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
         {
             if (classPicked)
             {
-                SelectionDetailsClass classDetails = new SelectionDetailsClass(editor.main.characterCurrent.Class);
+                SelectionDetailsClass classDetails = new SelectionDetailsClass(editor.main.characterCurrent.Class, editor.main);
                 editor.framedetails.Content = classDetails;
                 ChangeSelections(true);
             }
@@ -188,7 +188,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
         {
             if (subclassPicked)
             {
-                SelectionDetailsSubclass details = new SelectionDetailsSubclass(editor.main.characterCurrent.Class.Subclass);
+                SelectionDetailsSubclass details = new SelectionDetailsSubclass(editor.main.characterCurrent.Class.Subclass, editor.main);
                 editor.framedetails.Content = details;
                 ChangeSelections(true);
             }
@@ -455,7 +455,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
                     canvasSelected.Background = brush;
                     Rectangle rect = (Rectangle)canvasSelected.Children[0];
                     rect.Stroke = Brushes.Transparent;
-                    SelectionDetailsClass classDetails = new SelectionDetailsClass(editor.main.characterCurrent.Class);
+                    SelectionDetailsClass classDetails = new SelectionDetailsClass(editor.main.characterCurrent.Class, editor.main);
                     editor.framedetails.Content = classDetails;
                 }
         }
@@ -464,7 +464,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
         {            
             if (currentGrid != null)
             {
-                SelectionDetailsClass classDetails = new SelectionDetailsClass(editor.main.characterCurrent.Class);
+                SelectionDetailsClass classDetails = new SelectionDetailsClass(editor.main.characterCurrent.Class, editor.main);
                 editor.framedetails.Content = classDetails;
                 buttonDeselect_Click();
                 switch (currentGrid.Name)

@@ -184,8 +184,8 @@ namespace DnD4e.Assets.Scripts.Model
         public string _class_subclass_optionPicked2_optionName { get; set; }
         [DataMember(Name = "_class_subclass_paths")]
         public List<string> _class_subclass_paths { get; set; }
-        [DataMember(Name = "_class_subclass_power")]
-        public string _class_subclass_power { get; set; }
+        [DataMember(Name = "_class_subclass_keywords")]
+        public List<string> _class_subclass_keywords { get; set; }
         [DataMember(Name = "_class_subclass_pp")]
         public bool _class_subclass_pp { get; set; }
         [DataMember(Name = "_class_subclass_proficiencies")]
@@ -200,8 +200,8 @@ namespace DnD4e.Assets.Scripts.Model
         public List<int> _class_subclass_skills { get; set; }
         [DataMember(Name = "_class_subclass_source")]
         public string _class_subclass_source { get; set; }
-        [DataMember(Name = "_class_subclass_special")]
-        public string _class_subclass_special { get; set; }
+        [DataMember(Name = "_class_subclass_powers")]
+        public List<string> _class_subclass_powers { get; set; }
         [DataMember(Name = "_class_subclass_subClass")]
         public string _class_subclass_subClass { get; set; }
         [DataMember(Name = "_class_subclass_surges")]

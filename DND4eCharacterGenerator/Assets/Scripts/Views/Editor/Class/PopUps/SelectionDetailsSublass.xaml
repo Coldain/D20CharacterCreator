@@ -15,6 +15,7 @@
             <RowDefinition Height="66"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="labelClass" Content="{Binding SubClass}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock Name="textblockDescription" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Description}"/>
@@ -62,5 +63,49 @@
             <Label Content="Hit Points" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="8" Padding="0" Margin="0,0,37,0"/>
         </Grid>
         <TextBlock Name="textblockHeaders" Grid.Row="5" TextWrapping="Wrap"/>
+        <StackPanel Name="stackpanelPowers" Grid.Row="6">
+        </StackPanel>
+
+        <!--<ListView Name="SPPowers" ItemsSource="{Binding details}" BorderBrush="{x:Null}" Width="235" Height="176" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:tempPowerDetails}">
+                    <StackPanel Margin="-5,-5,5,0">
+                        <Grid >
+                            <Rectangle Width="270" Margin="-10,0,0,0">
+                                <Rectangle.Style>
+                                    <Style TargetType="Rectangle">
+                                        <Setter Property="Fill">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                                    <LinearGradientBrush.RelativeTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                            <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
+                                                            <TranslateTransform/>
+                                                        </TransformGroup>
+                                                    </LinearGradientBrush.RelativeTransform>
+                                                    <GradientStop Color="White" Offset="1"/>
+                                                    <GradientStop Color="#FFD4D3BE" Offset="0.478"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Filled}" Value="1">
+                                                <Setter Property="Fill" Value="Transparent"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Rectangle.Style>
+                            </Rectangle>
+                            <TextBlock Name="labelDescription" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="1">
+                                        <Run Text="{Binding Header}" FontWeight="Bold"/> <Run Text="{Binding Body}"/>
+                            </TextBlock>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+
     </Grid>
 </Page>

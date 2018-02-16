@@ -19,7 +19,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
         public MainController main = new MainController();
         public ExcelImporter tempExcel = new ExcelImporter();
         HomePage homePage = new HomePage();
-        int mainLoadTotals = 12;
+        int mainLoadTotals = 13;
         int mainLoadCurrent = 0;
         string mainLoadName = "Data Loading...";
 
@@ -206,7 +206,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 Thread.Sleep(1);
                 worker.ReportProgress((int)percentage, String.Format("Processing " + tempSubclass.SubClass));
                 tempSubclass.Source = mySubclassData[1];
-                tempSubclass.Power = mySubclassData[2];
+                tempSubclass.Keywords = mySubclassData[2].Split('|').ToList();
                 tempSubclass.Role = mySubclassData[3];
                 tempSubclass.Abilities = mySubclassData[4].Split('|').ToList();
                 tempSubclass.HPStart = Convert.ToInt16(mySubclassData[5]);
@@ -255,7 +255,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tempSubclass.Paths = mySubclassData[42].Split('|').ToList();
                 tempSubclass.DefaultFeat = mySubclassData[43];
                 tempSubclass.Implements = mySubclassData[44].Split('|').ToList();
-                tempSubclass.Special = mySubclassData[45];
+                tempSubclass.Powers = mySubclassData[45].Split('|').ToList();
                 tempSubclass.Encounter = mySubclassData[46];
                 tempSubclass.Feats = mySubclassData[47].Split('|').ToList();
                 tempSubclass.Description = mySubclassData[48];

@@ -68,14 +68,14 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class.PopUps
         {
             Random rand = new Random();
             mySubclass = subs[rand.Next(0, subs.Count)];
-            SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass);
+            SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass, editor.main);
             popUp.framedetails.Content = details;
             ChangeSelections(true);
         }
 
         private void buttonSelect_Click(object sender, RoutedEventArgs e)
         {
-            SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass);
+            SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass, editor.main);
             editor.framedetails.Content = details;
             priorPage.subclassPicked = true;
             priorPage.ChangeSelections(true);
@@ -197,7 +197,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class.PopUps
             mySubclass = grid.DataContext as SubClasses;
             if (mySubclass != null)
             {
-                SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass);
+                SelectionDetailsSubclass details = new SelectionDetailsSubclass(mySubclass, editor.main);
                 popUp.framedetails.Content = details;
                 ChangeSelections(true);
             }

@@ -15,7 +15,7 @@ namespace DnD4e.Assets.Scripts.Model
         private string _shortDescription;
         private string _description;
         private string _source;
-        private string _power;
+        private List<string> _keywords;
         private string _role;
         private List<string> _abilities;
         private int _hPStart;
@@ -29,7 +29,7 @@ namespace DnD4e.Assets.Scripts.Model
         private List<string> _paths;
         private string _defaultFeat;
         private List<string> _implements;
-        private string _special;
+        private List<string> _powers;
         private string _encounter;
         private Builds _build = new Builds();
         private List<string> _builds;
@@ -91,16 +91,16 @@ namespace DnD4e.Assets.Scripts.Model
                 NotifyPropertyChanged("Source");
             }
         }
-        public string Power
+        public List<string> Keywords
         {
             get
             {
-                return _power;
+                return _keywords;
             }
             set
             {
-                _power = value;
-                NotifyPropertyChanged("Power");
+                _keywords = value;
+                NotifyPropertyChanged("Keywords");
             }
         }
         public string Role
@@ -259,16 +259,16 @@ namespace DnD4e.Assets.Scripts.Model
                 NotifyPropertyChanged("Implements");
             }
         }
-        public string Special
+        public List<string> Powers
         {
             get
             {
-                return _special;
+                return _powers;
             }
             set
             {
-                _special = value;
-                NotifyPropertyChanged("Special");
+                _powers = value;
+                NotifyPropertyChanged("Powers");
             }
         }
         public string Encounter
@@ -406,7 +406,7 @@ namespace DnD4e.Assets.Scripts.Model
             Description = copySubClass.Description;
             ShortDescription = copySubClass.ShortDescription;
             Source = copySubClass.Source;
-            Power = copySubClass.Power;
+            Keywords = copySubClass.Keywords;
             Role = copySubClass.Role;
             Abilities = copySubClass.Abilities;
             HPStart = copySubClass.HPStart;
@@ -420,7 +420,7 @@ namespace DnD4e.Assets.Scripts.Model
             Paths = copySubClass.Paths;
             DefaultFeat = copySubClass.DefaultFeat;
             Implements = copySubClass.Implements;
-            Special = copySubClass.Special;
+            Powers = copySubClass.Powers;
             Encounter = copySubClass.Encounter;
             Feats = copySubClass.Feats;
             Build = copySubClass.Build;
@@ -433,13 +433,13 @@ namespace DnD4e.Assets.Scripts.Model
             PP = copySubClass.PP;
         }
 
-        public SubClasses(string class_subclass_subClass, string class_subclass_shortDescription, string class_subclass_description, string class_subclass_source, string class_subclass_power, string class_subclass_role, List<string> class_subclass_abilities, int class_subclass_hPStart, int class_subclass_hPLvl, List<int> class_subclass_defences, int class_subclass_attack, int class_subclass_surges, List<bool> class_subclass_proficiencies, int class_subclass_skillTraining, List<int> class_subclass_skills, List<string> class_subclass_paths, string class_subclass_defaultFeat, List<string> class_subclass_implements, string class_subclass_special, string class_subclass_encounter, List<string> class_subclass_builds, List<string> class_subclass_feats, List<string> class_subclass_headers, List<string> class_subclass_bodies, List<SubClasses.OptionChoices> class_subclass_listOptions, bool class_subclass_pp)
+        public SubClasses(string class_subclass_subClass, string class_subclass_shortDescription, string class_subclass_description, string class_subclass_source, List<string> class_subclass_keywords, string class_subclass_role, List<string> class_subclass_abilities, int class_subclass_hPStart, int class_subclass_hPLvl, List<int> class_subclass_defences, int class_subclass_attack, int class_subclass_surges, List<bool> class_subclass_proficiencies, int class_subclass_skillTraining, List<int> class_subclass_skills, List<string> class_subclass_paths, string class_subclass_defaultFeat, List<string> class_subclass_implements, List<string> class_subclass_powers, string class_subclass_encounter, List<string> class_subclass_builds, List<string> class_subclass_feats, List<string> class_subclass_headers, List<string> class_subclass_bodies, List<SubClasses.OptionChoices> class_subclass_listOptions, bool class_subclass_pp)
         {
             _subClass = class_subclass_subClass;
             _shortDescription = class_subclass_shortDescription;
             _description = class_subclass_description;
             _source = class_subclass_source;
-            _power = class_subclass_power;
+            _keywords = class_subclass_keywords;
             _role = class_subclass_role;
             _abilities = class_subclass_abilities;
             _hPStart = class_subclass_hPStart;
@@ -453,7 +453,7 @@ namespace DnD4e.Assets.Scripts.Model
             _paths = class_subclass_paths;
             _defaultFeat = class_subclass_defaultFeat;
             _implements = class_subclass_implements;
-            _special = class_subclass_special;
+            _powers = class_subclass_powers;
             _encounter = class_subclass_encounter;
             _builds = class_subclass_builds;
             _feats = class_subclass_feats;

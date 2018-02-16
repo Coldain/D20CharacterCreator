@@ -15,6 +15,7 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="66"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="labelClass" Content="{Binding Class}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
         <Grid Grid.Row="1" Width="262" HorizontalAlignment="Center" Height="152.83">
@@ -81,5 +82,7 @@
             <Label Content="Hit Points" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="8" Padding="0" Margin="0,0,37,0"/>
         </Grid>
         <TextBlock Name="textblockHeaders" Grid.Row="5" TextWrapping="Wrap"/>
+        <StackPanel Name="stackpanelPowers" Grid.Row="6">
+        </StackPanel>
     </Grid>
 </Page>

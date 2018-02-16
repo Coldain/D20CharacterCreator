@@ -1,4 +1,6 @@
 ﻿using DnD4e.Assets.Scripts.Model;
+using DnD4e.Assets.Scripts.Views.Misc;
+using DnD4e.CharacterBuilder.Editor.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,21 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class
     /// </summary>
     public partial class SelectionDetailsSubclass : Page
     {
-        public SelectionDetailsSubclass(SubClasses mySubclass)
+        public SelectionDetailsSubclass(SubClasses mySubclass, MainController main)
         {
             InitializeComponent();
             this.DataContext = mySubclass;
+            foreach (Powers tempPowerL in main.listPowers)
+            {
+                foreach (string tempPowerC in mySubclass.Powers)
+                {                
+                    if (tempPowerC.ToUpper() == tempPowerL.Power.ToUpper())
+                    {
+                        PowerCard tempPowerCard = new PowerCard(main, tempPowerL);
+                        stackpanelPowers.Children.Add(tempPowerCard);
+                    }
+                }
+            }
             if (mySubclass.Bodies != null && mySubclass.Bodies.Count > 1)
             for (int i = 0; i < mySubclass.Headers.Count; i++)
             {
