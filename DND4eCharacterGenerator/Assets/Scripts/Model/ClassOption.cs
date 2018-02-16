@@ -12,7 +12,8 @@ namespace DnD4e.Assets.Scripts.Model
     {
         #region Fields
         private string _optionName;
-        private string _optionDetail;
+        private string _optionDetails;
+        private string _optionType;
         #endregion
 
         #region Properties
@@ -32,12 +33,24 @@ namespace DnD4e.Assets.Scripts.Model
         {
             get
             {
-                return _optionDetail;
+                return _optionDetails;
             }
             set
             {
-                _optionDetail = value;
-                NotifyPropertyChanged("OptionDetail");
+                _optionDetails = value;
+                NotifyPropertyChanged("OptionDetails");
+            }
+        }
+        public string OptionType
+        {
+            get
+            {
+                return _optionType;
+            }
+            set
+            {
+                _optionType = value;
+                NotifyPropertyChanged("OptionType");
             }
         }
         #endregion
@@ -51,7 +64,7 @@ namespace DnD4e.Assets.Scripts.Model
         public ClassOption(string _optionPicked_optionName, string _optionPicked_optionDetails)
         {
             _optionName = _optionPicked_optionName;
-            _optionDetail = _optionPicked_optionDetails;
+            _optionDetails = _optionPicked_optionDetails;
         }
         #endregion
 

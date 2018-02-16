@@ -11,12 +11,11 @@ namespace DnD4e.Assets.Scripts.Controller.Data
     {
 
         public static void Main(string[] args)
-        {            
-            using (var db = new MyCouchClient("http://localhost:5984/", "mydb")
+        {
+            using (var db = new MyCouchClient("http://localhost:5984/", "mydb"))
             {
-                var response = db
                 //var r = await client.Replicator.ReplicateAsync(id, source, target);
-            }
+            };
         }
     }
 }
