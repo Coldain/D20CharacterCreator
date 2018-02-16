@@ -100,3 +100,4 @@ namespace DnD4e.Assets.Scripts.Model
         }
         #endregion
     }
+}

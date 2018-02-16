@@ -473,23 +473,23 @@ namespace DnD4e.Assets.Scripts.Views.Home
             #endregion
 
             #region Feats Data
-            //mainLoadName = "Loading Languages...";
-            //tempExcel.SetSheet(sheets[x]);
-            ////Languages data
-            //for (int i = 2; i < (itemCounts[x] + 2); i++)
-            //{
-            //    double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
-            //    string row = i.ToString();
-            //    List<string> myLanguageData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
-            //    Languages tempLanguage = new Languages();
-            //    tempLanguage.Language = myLanguageData[0];
-            //    Thread.Sleep(1);
-            //    worker.ReportProgress((int)percentage, String.Format("Processing " + tempLanguage.Language));
-            //    tempLanguage.Setting = myLanguageData[1];
-            //    tempLanguage.Description = myLanguageData[2];
-            //    tempLanguage.Image = "/DND4eCharacterGenerator;component/Assets/Images/Languages/" + myLanguageData[0] + ".png";
-            //    main.listLanguages.Add(tempLanguage);
-            //}
+            mainLoadName = "Loading Feats...";
+            tempExcel.SetSheet(sheets[x]);
+            //Languages data
+            for (int i = 2; i < (itemCounts[x] + 2); i++)
+            {
+                double percentage = ((double)i / (double)(itemCounts[x] + 1)) * 100.0;
+                string row = i.ToString();
+                List<string> myFeatData = tempExcel.GetRangeValue("A" + row, endColumns[x] + row);
+                Feats tempFeat = new Feats();
+                tempFeat.Feat = myFeatData[0];
+                Thread.Sleep(1);
+                worker.ReportProgress((int)percentage, String.Format("Processing " + tempFeat.Feat));
+                tempFeat.Source = myFeatData[1];
+                tempFeat.Prerequisites = myFeatData[2].Split('|').ToList();
+                tempFeat.Benefit = myFeatData[3];
+                main.listFeats.Add(tempFeat);
+            }
             x++;
             #endregion
 
@@ -517,7 +517,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tempPower.Hits = myPowerData[9].Split('|').ToList();
                 tempPower.HitLevels = myPowerData[10].Split('|').ToList();
                 tempPower.MethodTypes = myPowerData[11].Split('|').ToList();
-                tempPower.MethodRanges = myPowerData[12].Split('|').ToList(); ;
+                tempPower.MethodRanges = myPowerData[12].Split('|').ToList();
                 tempPower.Target = myPowerData[13];
                 tempPower.Prerequisite = myPowerData[14];
                 tempPower.PrerequisiteType = myPowerData[15];
