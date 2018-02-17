@@ -82,7 +82,7 @@
             <Label Content="Hit Points" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="8" Padding="0" Margin="0,0,37,0"/>
         </Grid>
         <TextBlock Name="textblockHeaders" Grid.Row="5" TextWrapping="Wrap"/>
-        <StackPanel Name="stackpanelPowers" Grid.Row="6">
+        <StackPanel Name="stackpanelPowers" Grid.Row="6" Margin="0,5,0,0">
         </StackPanel>
     </Grid>
 </Page>

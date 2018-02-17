@@ -1,4 +1,6 @@
 ﻿using DnD4e.Assets.Scripts.Model;
+using DnD4e.Assets.Scripts.Views.Misc;
+using DnD4e.CharacterBuilder.Editor.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +20,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
 {
     public partial class SelectionDetailsRace : Page
     {
-        public SelectionDetailsRace(Races myRace)
+        public SelectionDetailsRace(Races myRace, MainController main)
         {
             InitializeComponent();
             this.DataContext = myRace;
@@ -49,6 +51,18 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
                 {
                     Abilities(myRace.Abilities[1], Brushes.Gray, 12);
                     Abilities(myRace.Abilities[2], Brushes.Gray, 12);
+                }
+
+                foreach (Powers tempPowerL in main.listPowers)
+                {
+                    foreach (string tempPowerC in myRace.Powers)
+                    {
+                        if (tempPowerC.ToUpper() == tempPowerL.Power.ToUpper())
+                        {
+                            PowerCard tempPowerCard = new PowerCard(main, tempPowerL);
+                            stackpanelPowers.Children.Add(tempPowerCard);
+                        }
+                    }
                 }
             }
         }    

@@ -183,7 +183,7 @@ namespace DnD4e.CharacterBuilder.Editor.View.Class
             //    RandomChoice(Headers[4], i);
             //}
 
-            SelectionDetailsClass details = new SelectionDetailsClass(myclass);
+            SelectionDetailsClass details = new SelectionDetailsClass(myclass, editor.main);
             editor.framedetails.Content = details;
             ChangeSelections(true);
         }
@@ -262,7 +262,7 @@ namespace DnD4e.CharacterBuilder.Editor.View.Class
             myclass = grid.DataContext as Classes;
             if (myclass != null)
             {
-                SelectionDetailsClass details = new SelectionDetailsClass(myclass);
+                SelectionDetailsClass details = new SelectionDetailsClass(myclass, editor.main);
                 editor.framedetails.Content = details;
                 ChangeSelections(true);
             }

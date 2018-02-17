@@ -112,7 +112,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
         {
             Random rand = new Random();
             myRace = editor.main.listRaces[rand.Next(0, editor.main.listRaces.Count)];
-            SelectionDetailsRace details = new SelectionDetailsRace(myRace);
+            SelectionDetailsRace details = new SelectionDetailsRace(myRace, editor.main);
             editor.framedetails.Content = details;
             ChangeSelections(true);
         }
@@ -258,7 +258,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
             myRace = grid.DataContext as Races;
             if (myRace != null)
             {
-                SelectionDetailsRace details = new SelectionDetailsRace(myRace);
+                SelectionDetailsRace details = new SelectionDetailsRace(myRace, editor.main);
                 editor.framedetails.Content = details;
                 ChangeSelections(true);
             }

@@ -110,7 +110,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
         {
             if (racePicked)
             {
-                SelectionDetailsRace raceDetails = new SelectionDetailsRace(editor.main.characterCurrent.Race);
+                SelectionDetailsRace raceDetails = new SelectionDetailsRace(editor.main.characterCurrent.Race, editor.main);
                 editor.framedetails.Content = raceDetails;
                 ChangeSelections(true);
             }
@@ -368,7 +368,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
                     canvasSelected.Background = brush;
                     Rectangle rect = (Rectangle)canvasSelected.Children[0];
                     rect.Stroke = Brushes.Transparent;
-                    SelectionDetailsRace raceDetails = new SelectionDetailsRace(editor.main.characterCurrent.Race);
+                    SelectionDetailsRace raceDetails = new SelectionDetailsRace(editor.main.characterCurrent.Race, editor.main);
                     editor.framedetails.Content = raceDetails;
                 }
         }
@@ -377,7 +377,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
         {            
             if (currentGrid != null)
             {
-                SelectionDetailsRace raceDetails = new SelectionDetailsRace(editor.main.characterCurrent.Race);
+                SelectionDetailsRace raceDetails = new SelectionDetailsRace(editor.main.characterCurrent.Race, editor.main);
                 editor.framedetails.Content = raceDetails;
                 buttonDeselect_Click();
                 switch (currentGrid.Name)

@@ -17,6 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="labelClass" Content="{Binding Race}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
         <Grid Grid.Row="1" Width="262" HorizontalAlignment="Center" Height="152.83">
@@ -69,5 +70,7 @@
             <LineBreak/>
             <Run Text="{Binding Adventure}"/>
         </TextBlock>
+        <StackPanel Name="stackpanelPowers" Grid.Row="8" Margin="0,5,0,0">
+        </StackPanel>
     </Grid>
 </Page>
