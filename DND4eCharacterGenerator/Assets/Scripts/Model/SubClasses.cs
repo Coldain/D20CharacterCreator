@@ -482,6 +482,8 @@ namespace DnD4e.Assets.Scripts.Model
             private List<string> _optionDetails;
             private List<string> _options;
             private List<string> _optionSelections;
+            private List<string> _optionsBenefits;
+            private List<string> _optionBenefitTypes;
             private string _optionType;
             #endregion
 
@@ -520,6 +522,30 @@ namespace DnD4e.Assets.Scripts.Model
                 {
                     _optionSelections = value;
                     NotifyPropertyChanged("OptionSelections");
+                }
+            }
+            public List<string> OptionsBenefits
+            {
+                get
+                {
+                    return _optionsBenefits;
+                }
+                set
+                {
+                    _optionSelections = value;
+                    NotifyPropertyChanged("OptionsBenefits");
+                }
+            }
+            public List<string> OptionBenefitTypes
+            {
+                get
+                {
+                    return _optionBenefitTypes;
+                }
+                set
+                {
+                    _optionBenefitTypes = value;
+                    NotifyPropertyChanged("OptionBenefitTypes");
                 }
             }
             public string OptionType

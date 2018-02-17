@@ -14,6 +14,8 @@ namespace DnD4e.Assets.Scripts.Model
         private string _optionName;
         private string _optionDetails;
         private string _optionType;
+        private List<string> _optionBenefits;
+        private List<string> _optionBenefitTypes;
         #endregion
 
         #region Properties
@@ -53,6 +55,30 @@ namespace DnD4e.Assets.Scripts.Model
                 NotifyPropertyChanged("OptionType");
             }
         }
+        public List<string> OptionBenefits
+        {
+            get
+            {
+                return _optionBenefits;
+            }
+            set
+            {
+                _optionBenefits = value;
+                NotifyPropertyChanged("OptionBenefits");
+            }
+        }
+        public List<string> OptionBenefitTypes
+        {
+            get
+            {
+                return _optionBenefitTypes;
+            }
+            set
+            {
+                _optionBenefitTypes = value;
+                NotifyPropertyChanged("OptionBenefitTypes");
+            }
+        }
         #endregion
 
         #region Constructors
@@ -61,10 +87,12 @@ namespace DnD4e.Assets.Scripts.Model
             OptionName = "Option";
             OptionDetails = "";
         }
-        public ClassOption(string _optionPicked_optionName, string _optionPicked_optionDetails)
+        public ClassOption(string _optionPicked_optionName, string _optionPicked_optionDetails, List<string> _optionPicked_optionBenefits, List<string> _optionPicked_optionBenefitTypes)
         {
             _optionName = _optionPicked_optionName;
             _optionDetails = _optionPicked_optionDetails;
+            _optionBenefits = _optionPicked_optionBenefits;
+            _optionBenefitTypes = _optionPicked_optionBenefitTypes;
         }
         #endregion
 

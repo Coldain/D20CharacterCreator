@@ -268,15 +268,19 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tempChoice1.OptionDetails = mySubclassData[52].Split('|').ToList();
                 tempChoice1.Options = mySubclassData[53].Split('|').ToList();
                 tempChoice1.OptionSelections = mySubclassData[54].Split('|').ToList();
-                tempChoice1.OptionType = mySubclassData[55];
+                tempChoice1.OptionsBenefits = mySubclassData[55].Split('|').ToList();
+                tempChoice1.OptionBenefitTypes = mySubclassData[56].Split('|').ToList();
+                tempChoice1.OptionType = mySubclassData[57];
                 tempListChoices.Add(tempChoice1);
-                tempChoice2.OptionDetails = mySubclassData[56].Split('|').ToList();
-                tempChoice2.Options = mySubclassData[57].Split('|').ToList();
-                tempChoice2.OptionSelections = mySubclassData[58].Split('|').ToList();
-                tempChoice2.OptionType = mySubclassData[59];
+                tempChoice2.OptionDetails = mySubclassData[58].Split('|').ToList();
+                tempChoice2.Options = mySubclassData[59].Split('|').ToList();
+                tempChoice2.OptionSelections = mySubclassData[60].Split('|').ToList();
+                tempChoice2.OptionsBenefits = mySubclassData[61].Split('|').ToList();
+                tempChoice2.OptionBenefitTypes = mySubclassData[62].Split('|').ToList();
+                tempChoice2.OptionType = mySubclassData[63];
                 tempListChoices.Add(tempChoice2);
                 tempSubclass.ListOptions = tempListChoices;
-                tempSubclass.PP = Convert.ToBoolean(mySubclassData[60]);
+                tempSubclass.PP = Convert.ToBoolean(mySubclassData[64]);
                 main.listSubClasses.Add(tempSubclass);
                 foreach (Classes tempClass in main.listclassMain)
                 {

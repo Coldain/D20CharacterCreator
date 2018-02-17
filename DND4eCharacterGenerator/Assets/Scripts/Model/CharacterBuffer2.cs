@@ -178,10 +178,18 @@ namespace DnD4e.Assets.Scripts.Model
         public string _class_subclass_optionPicked1_optionDetails { get; set; }
         [DataMember(Name = "_class_subclass_optionPicked1_optionName")]
         public string _class_subclass_optionPicked1_optionName { get; set; }
+        [DataMember(Name = "_class_subclass_optionPicked1_optionBenefits")]
+        public List<string> _class_subclass_optionPicked1_optionBenefits { get; set; }
+        [DataMember(Name = "_class_subclass_optionPicked1_optionBenefitTypes")]
+        public List<string> _class_subclass_optionPicked1_optionBenefitTypes { get; set; }
         [DataMember(Name = "_class_subclass_optionPicked2_optionDetails")]
         public string _class_subclass_optionPicked2_optionDetails { get; set; }
         [DataMember(Name = "_class_subclass_optionPicked2_optionName")]
         public string _class_subclass_optionPicked2_optionName { get; set; }
+        [DataMember(Name = "_class_subclass_optionPicked2_optionBenefits")]
+        public List<string> _class_subclass_optionPicked2_optionBenefits { get; set; }
+        [DataMember(Name = "_class_subclass_optionPicked2_optionBenefitTypes")]
+        public List<string> _class_subclass_optionPicked2_optionBenefitTypes { get; set; }
         [DataMember(Name = "_class_subclass_paths")]
         public List<string> _class_subclass_paths { get; set; }
         [DataMember(Name = "_class_subclass_keywords")]

@@ -2143,8 +2143,8 @@ namespace DnD4e.CharacterOOP
                 buffer._class_subclass_pp);
             Class.Subclass.Build = new Builds(buffer._class_subclass_build_build, buffer._class_subclass_build_subclass, buffer._class_subclass_build_description, buffer._class_subclass_build_feat, buffer._class_subclass_build_humanFeat, buffer._class_subclass_build_skills,
                 buffer._class_subclass_build_atwills, buffer._class_subclass_build_encounter, buffer._class_subclass_build_daily, buffer._class_subclass_build_option, buffer._class_subclass_build_shortDescription);
-            Class.Subclass.OptionPicked1 = new ClassOption(buffer._class_subclass_optionPicked1_optionName, buffer._class_subclass_optionPicked1_optionDetails);
-            Class.Subclass.OptionPicked1 = new ClassOption(buffer._class_subclass_optionPicked2_optionName, buffer._class_subclass_optionPicked2_optionDetails);
+            Class.Subclass.OptionPicked1 = new ClassOption(buffer._class_subclass_optionPicked1_optionName, buffer._class_subclass_optionPicked1_optionDetails, buffer._class_subclass_optionPicked1_optionBenefits, buffer._class_subclass_optionPicked1_optionBenefitTypes);
+            Class.Subclass.OptionPicked1 = new ClassOption(buffer._class_subclass_optionPicked2_optionName, buffer._class_subclass_optionPicked2_optionDetails, buffer._class_subclass_optionPicked2_optionBenefits, buffer._class_subclass_optionPicked2_optionBenefitTypes);
             Race = new Races(buffer._race_race, buffer._race_size, buffer._race_speedType, buffer._race_vision, buffer._race_shortDescription, buffer._race_description, buffer._race_heightFeet, buffer._race_heightCM, buffer._race_weightKG, buffer._race_weightLBS, 
                 buffer._race_age, buffer._race_source, buffer._race_image, buffer._race_speed, buffer._race_subRaces, buffer._race_traits, buffer._race_abilities, buffer._race_defences, buffer._race_skills, buffer._race_resistances, buffer._race_powers, 
                 buffer._race_languages, buffer._race_feats, buffer._race_headers, buffer._race_bodies, buffer._race_physical, buffer._race_playing, buffer._race_adventure, buffer._race_maleNames, buffer._race_femaleNames, buffer._race_abilityChoice);
@@ -2391,8 +2391,12 @@ namespace DnD4e.CharacterOOP
             buffer._class_subclass_listOptions = Class.Subclass.ListOptions;
             buffer._class_subclass_optionPicked1_optionName = Class.Subclass.OptionPicked1.OptionName;
             buffer._class_subclass_optionPicked1_optionDetails = Class.Subclass.OptionPicked1.OptionDetails;
+            buffer._class_subclass_optionPicked1_optionBenefits = Class.Subclass.OptionPicked1.OptionBenefits;
+            buffer._class_subclass_optionPicked1_optionBenefitTypes = Class.Subclass.OptionPicked1.OptionBenefitTypes;
             buffer._class_subclass_optionPicked2_optionName = Class.Subclass.OptionPicked2.OptionName;
             buffer._class_subclass_optionPicked2_optionDetails = Class.Subclass.OptionPicked2.OptionDetails;
+            buffer._class_subclass_optionPicked2_optionBenefits = Class.Subclass.OptionPicked2.OptionBenefits;
+            buffer._class_subclass_optionPicked2_optionBenefitTypes = Class.Subclass.OptionPicked2.OptionBenefitTypes;
             buffer._class_subclass_pp = Class.Subclass.PP;
             buffer._race_race = Race.Race;
             buffer._race_size = Race.Size;
