@@ -224,6 +224,9 @@
     <Compile Include="Assets\Scripts\Views\Editor\Manager\EditorManager.xaml.cs">
       <DependentUpon>EditorManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\Scripts\Views\Editor\Power\EdiorPower.xaml.cs">
+      <DependentUpon>EdiorPower.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\Scripts\Views\Editor\Race\EditorRace2.xaml.cs">
       <DependentUpon>EditorRace2.xaml</DependentUpon>
     </Compile>
@@ -323,6 +326,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Scripts\Views\Editor\PopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Scripts\Views\Editor\Power\EdiorPower.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -480,7 +487,6 @@
     <Folder Include="Assets\Images\Characters\Poses\" />
     <Folder Include="Assets\Images\Races\" />
     <Folder Include="Assets\Scripts\Views\Editor\Feat\" />
-    <Folder Include="Assets\Scripts\Views\Editor\Power\" />
     <Folder Include="Assets\Scripts\Views\Editor\Shop\" />
   </ItemGroup>
   <ItemGroup>
