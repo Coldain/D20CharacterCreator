@@ -50,13 +50,76 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                             if (!headers.Contains(header))
                                 headers.Add(header);
                             int i = 1;
+                            int x = 0;
                             while (i <= editor.main.characterCurrent.Level)
                             {
                                 switch (i)
                                 {
                                     case 1:
                                         {
-
+                                            x = PowerAdjust(2, x);
+                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 3:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 6:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            x = PowerAdjust(1, x);
                                             break;
                                         }
                                     default:
@@ -397,9 +460,27 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                     break;
             }
         }
-        private void PowerAdjust(int i)
+        private int PowerAdjust(int iPowers, int iList)
         {
-            if (i < )
+            if (iPowers < editor.main.characterCurrent.PowerList[iList].Count())
+            {
+                while (iPowers < editor.main.characterCurrent.PowerList[iList].Count())
+                {
+                    Powers tempPower = new Powers();
+                    editor.main.characterCurrent.PowerList[iList].Add(tempPower);
+                    iPowers++;
+                }
+            }
+            else if (iPowers > editor.main.characterCurrent.PowerList[iList].Count())
+            {
+                while (iPowers < editor.main.characterCurrent.PowerList[iList].Count())
+                {
+                    Powers tempPower = new Powers();                    
+                    editor.main.characterCurrent.PowerList[iList].RemoveAt(editor.main.characterCurrent.PowerList[iList].IndexOf(tempPower));
+                    iPowers--;
+                }
+            }
+            return iList++;
         }
     }
 

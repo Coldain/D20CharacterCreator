@@ -36,7 +36,7 @@ namespace DnD4e.CharacterOOP
         public string _company;
         public string _companions;
         public string _notes;
-        public List<List<Powers>> _powerList;
+        public List<Tuple<List<string>, List<Powers>>> _powerList;
         #endregion
         #region Defenses
         public int _armorClass;
@@ -504,7 +504,7 @@ namespace DnD4e.CharacterOOP
                 NotifyPropertyChanged("Notes");
             }
         }
-        public List<List<Powers>> PowerList
+        public List<Tuple<List<string>, List<Powers>>> PowerList
         {
             get
             {
@@ -2118,7 +2118,7 @@ namespace DnD4e.CharacterOOP
             RacialIntelligence = false;
             RacialWisdom = false;
             RacialCharisma = false;
-            PowerList = new List<List<Powers>>();
+            PowerList = new List<Tuple<List<string>, List<Powers>>>();
     }
 
         public Character(JSONCharacter buffer)
@@ -2272,10 +2272,10 @@ namespace DnD4e.CharacterOOP
             _streetwiseMisc = buffer._streetwiseMisc;
             _thieveryMisc = buffer._thieveryMisc;
             if (buffer._powerList != null)
-                foreach (List<JSONPower> bufferPowerList in buffer._powerList)
+                foreach (Tuple<List<string>, List<JSONPower>> bufferPowerList in buffer._powerList)
                 {
-                    List<Powers> tempPowerList = new List<Powers>();
-                    foreach (JSONPower bufferPower in bufferPowerList)
+                    Tuple<List<string>, List<Powers>> tempPowerList = new Tuple<List<string>, List<Powers>>(null, null);
+                    foreach (JSONPower bufferPower in bufferPowerList.Item2)
                     {
                         Powers tempPower = new Powers();
                         tempPower.Power = bufferPower._power;
@@ -2302,10 +2302,12 @@ namespace DnD4e.CharacterOOP
                         tempPower.AdditionalEffectName = bufferPower._additionalEffectName;
                         tempPower.AdditionalEffectDescription = bufferPower._additionalEffectDescription;
                         tempPower.Feats = bufferPower._feats;
-                        tempPowerList.Add(tempPower);
+                        tempPowerList.Item1.Add("Level " + tempPower.OriginType + " : " + tempPower.Origin + " - " + tempPower.ActionType);
+                        tempPowerList.Item2.Add(tempPower);
                     }
                     PowerList.Add(tempPowerList);
                 }
+            PowerList.RemoveAt(1);
         }
 
         #endregion
@@ -2558,10 +2560,10 @@ namespace DnD4e.CharacterOOP
             buffer._stealthMisc = _stealthMisc;
             buffer._streetwiseMisc = _streetwiseMisc;
             buffer._thieveryMisc = _thieveryMisc;
-            foreach (List<Powers> temPowerList in PowerList)
+            foreach (Tuple<List<string>, List<Powers>> temPowerList in PowerList)
             {
-                List<JSONPower> bufferPowerList = new List<JSONPower>();
-                foreach (Powers tempPower in temPowerList)
+                Tuple<List<string>, List <JSONPower>> bufferPowerList = new Tuple<List<string>, List <JSONPower>>(null,null);
+                foreach (Powers tempPower in temPowerList.Item2)
                 {
                     JSONPower bufferPower = new JSONPower();
                     bufferPower._power = tempPower.Power;
@@ -2588,10 +2590,12 @@ namespace DnD4e.CharacterOOP
                     bufferPower._additionalEffectName = tempPower.AdditionalEffectName;
                     bufferPower._additionalEffectDescription = tempPower.AdditionalEffectDescription;
                     bufferPower._feats = tempPower.Feats;
-                    bufferPowerList.Add(bufferPower);
+                    bufferPowerList.Item1.Add("Level " + bufferPower._originType + " : " + bufferPower._origin + " - " + bufferPower._actionType);
+                    bufferPowerList.Item2.Add(bufferPower);
                 }
                 buffer._powerList.Add(bufferPowerList);
             }
+            buffer._powerList.RemoveAt(1);
             return buffer;
         }
         #endregion
