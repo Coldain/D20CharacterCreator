@@ -26,7 +26,6 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
         public EditorRace1(CharacterEditor _editor)
         {
             editor = _editor;           
-            List<raceSelections> Selection = new List<raceSelections>();
             List<raceSelections> choices = new List<raceSelections>();
             InitializeComponent();
             SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[7].Pick, editor.main.listDefinitions[7].Description);

@@ -503,7 +503,7 @@ namespace DnD4e.Assets.Scripts.Model
         [DataMember(Name = "_wisdomRaw")]
         public int _wisdomRaw { get; set; }
         [DataMember(Name = "_powerList")]
-        public List<JSONPower> _powerList { get; set; }
+        public List<List<JSONPower>> _powerList { get; set; }
     }
 
 //    [DataContract(Name = "Class")]

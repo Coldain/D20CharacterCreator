@@ -49,8 +49,10 @@ namespace DnD4e.Assets.Scripts.Views.Misc
                 details = details,
             };
             InitializeComponent();
+            PowerCardDetails powerCardDetails = new PowerCardDetails(details);
+            viewboxPowerDetails.Child = powerCardDetails;
+
             
-            SPPowers.ItemsSource = details;
 
         }
 

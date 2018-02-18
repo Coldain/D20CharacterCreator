@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Misc"
-             mc:Ignorable="d" 
-             d:DesignHeight="325" d:DesignWidth="250">
+             mc:Ignorable="d">
 
     <UserControl.Resources>
         <Style x:Key="CollapsableTextblock" TargetType="TextBlock">
@@ -102,48 +101,7 @@
                 <Run Text="Target" FontWeight="Bold"/>: <Run Text="{Binding power.Target}"/>
                 </TextBlock>
             </Grid>
-            <Viewbox Grid.Row="2" Grid.ColumnSpan="2" StretchDirection="DownOnly" Stretch="UniformToFill" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                <ListView Name="SPPowers" ItemsSource="{Binding details}" BorderBrush="{x:Null}" Width="235" Height="176" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <ListView.ItemTemplate>
-                        <DataTemplate DataType="{x:Type local:tempPowerDetails}">
-                            <StackPanel Margin="-5,-5,5,0">
-                                <Grid >
-                                    <Rectangle Width="270" Margin="-10,0,0,0">
-                                        <Rectangle.Style>
-                                            <Style TargetType="Rectangle">
-                                                <Setter Property="Fill">
-                                                    <Setter.Value>
-                                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                                            <LinearGradientBrush.RelativeTransform>
-                                                                <TransformGroup>
-                                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                                                    <RotateTransform Angle="270" CenterY="0.5" CenterX="0.5"/>
-                                                                    <TranslateTransform/>
-                                                                </TransformGroup>
-                                                            </LinearGradientBrush.RelativeTransform>
-                                                            <GradientStop Color="White" Offset="1"/>
-                                                            <GradientStop Color="#FFD4D3BE" Offset="0.478"/>
-                                                        </LinearGradientBrush>
-                                                    </Setter.Value>
-                                                </Setter>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Filled}" Value="1">
-                                                        <Setter Property="Fill" Value="Transparent"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Rectangle.Style>
-                                    </Rectangle>
-                                    <TextBlock Name="labelDescription" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="1">
-                                        <Run Text="{Binding Header}" FontWeight="Bold"/> <Run Text="{Binding Body}"/>
-                                    </TextBlock>
-                                </Grid>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Viewbox>
+            <Viewbox Name="viewboxPowerDetails" Grid.Row="2" Grid.ColumnSpan="2" StretchDirection="DownOnly" Stretch="UniformToFill" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
             <TextBlock Grid.Row="5" Padding="0" Margin="0,-2,0,0">
                 <Run Text="{Binding power.Origin}"/> <Run Text="{Binding power.PowerType}"/> <Run Text="{Binding power.OriginType}"/>
             </TextBlock>

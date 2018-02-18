@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,11 @@ namespace DnD4e.Assets.Scripts.Views.Misc
     /// </summary>
     public partial class PowerCardDetails : UserControl
     {
-        public PowerCardDetails()
+        public PowerCardDetails(List<tempPowerDetails> details)
         {
+            this.DataContext = details;
             InitializeComponent();
+            SPPowers.ItemsSource = details;
         }
     }
 }

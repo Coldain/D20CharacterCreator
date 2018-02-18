@@ -1,0 +1,76 @@
+﻿<Page x:Class="DnD4e.Assets.Scripts.Views.Editor.Power.SelectionDetailsPower"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Editor.Power"
+      mc:Ignorable="d" 
+      d:DesignWidth="281"
+      Title="SelectionDetailsClass">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="153"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="67"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="labelClass" Content="{Binding Race}" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Grid Grid.Row="1" Width="262" HorizontalAlignment="Center" Height="152.83">
+            <Image Name="imageClass" Source="{Binding Image}" Margin="1.5,0" Grid.RowSpan="2"/>
+            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/borderClassImage.PNG" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Image Source="/DND4eCharacterGenerator;component/Assets/Images/Headers/borderClassImage.PNG" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                        <SkewTransform AngleY="0" AngleX="0"/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        <TextBlock Name="textblockDescription" Grid.Row="2" TextWrapping="Wrap" />
+        <Canvas Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+            <Path Stroke="#FF9B8D4D" StrokeThickness="2"  Fill="#FFE4E2D0" Data="M15,0 L251,0 A15,15,0,0,1,261,15 L261,30 A15,15,0,0,1,251,45 L10,45 A15,15,0,0,1,0,30 L0,15 A15,15,0,0,1,15,0" Margin="10,0,0,0"/>
+            <Label Content="STR" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="22" Canvas.Top="6" Foreground="Black" VerticalContentAlignment="Center"/>
+            <Label Content="CON" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="64.2" Canvas.Top="6" Foreground="Black" VerticalContentAlignment="Center"/>
+            <Label Content="DEX" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="106.4" Canvas.Top="6" Foreground="Black" VerticalContentAlignment="Center"/>
+            <Label Content="INT" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="148.6" Canvas.Top="6" Foreground="Black" VerticalContentAlignment="Center"/>
+            <Label Content="WIS" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="190.8" Canvas.Top="6" Foreground="Black" VerticalContentAlignment="Center"/>
+            <Label Content="CHA" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="233" Canvas.Top="6" Foreground="Black" VerticalContentAlignment="Center"/>
+            <Rectangle Height="1" Width="236" Canvas.Left="22" Canvas.Top="21" Fill="#FF9B8D4D"/>
+            <Label Name="labelSTR" Content="+0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="25" Canvas.Top="22" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelCON" Content="+0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="70" Canvas.Top="22" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelDEX" Content="+0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="110" Canvas.Top="22" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelINT" Content="+0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="151" Canvas.Top="22" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelWIS" Content="+0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="195" Canvas.Top="22" Foreground="LightGray" VerticalContentAlignment="Center"/>
+            <Label Name="labelCHA" Content="+0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="238" Canvas.Top="22" Foreground="LightGray" VerticalContentAlignment="Center"/>
+        </Canvas>
+        <Label Grid.Row="3" Content="Key Abilities" VerticalAlignment="Bottom" Padding="0" HorizontalAlignment="Left" Margin="22,0,0,0" FontSize="8" RenderTransformOrigin="0.378,-0.159"/>
+        <TextBlock Name="textblockHeaders" Grid.Row="4" TextWrapping="Wrap"/>
+        <TextBlock Grid.Row="5" TextWrapping="Wrap">
+            <Bold> <Run>Physical Description:</Run></Bold>
+            <LineBreak/>
+            <Run Text="{Binding Physical}"/>
+            <LineBreak/>
+        </TextBlock>
+        <TextBlock Grid.Row="6" TextWrapping="Wrap">
+            <Bold> <Run Text="Playing a "/> <Run Text="{Binding Race}"/>  <Run Text=":"/> </Bold>
+            <LineBreak/>
+            <Run Text="{Binding Playing}"/>
+            <LineBreak/>
+        </TextBlock>
+        <TextBlock Grid.Row="7" TextWrapping="Wrap">
+            <Bold> <Run Text="Example "/> <Run Text="{Binding Race}"/>  <Run Text=" Adventurers:"/> </Bold>
+            <LineBreak/>
+            <Run Text="{Binding Adventure}"/>
+        </TextBlock>
+        <StackPanel Name="stackpanelPowers" Grid.Row="8" Margin="0,5,0,0">
+        </StackPanel>
+    </Grid>
+</Page>

@@ -224,8 +224,14 @@
     <Compile Include="Assets\Scripts\Views\Editor\Manager\EditorManager.xaml.cs">
       <DependentUpon>EditorManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Assets\Scripts\Views\Editor\Power\EdiorPower.xaml.cs">
-      <DependentUpon>EdiorPower.xaml</DependentUpon>
+    <Compile Include="Assets\Scripts\Views\Editor\Power\EditorPower2.xaml.cs">
+      <DependentUpon>EditorPower2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Scripts\Views\Editor\Power\EditorPower1.xaml.cs">
+      <DependentUpon>EditorPower1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Scripts\Views\Editor\Power\SelectionDetailsPower.xaml.cs">
+      <DependentUpon>SelectionDetailsPower.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\Scripts\Views\Editor\Race\EditorRace2.xaml.cs">
       <DependentUpon>EditorRace2.xaml</DependentUpon>
@@ -329,9 +335,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\Scripts\Views\Editor\Power\EdiorPower.xaml">
+    <Page Include="Assets\Scripts\Views\Editor\Power\EditorPower2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Scripts\Views\Editor\Power\EditorPower1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Scripts\Views\Editor\Power\SelectionDetailsPower.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Scripts\Views\Editor\Race\EditorRace2.xaml">
       <Generator>MSBuild:Compile</Generator>

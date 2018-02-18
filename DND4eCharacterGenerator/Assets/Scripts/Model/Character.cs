@@ -36,7 +36,7 @@ namespace DnD4e.CharacterOOP
         public string _company;
         public string _companions;
         public string _notes;
-        public List<Powers> _powerList;
+        public List<List<Powers>> _powerList;
         #endregion
         #region Defenses
         public int _armorClass;
@@ -504,7 +504,7 @@ namespace DnD4e.CharacterOOP
                 NotifyPropertyChanged("Notes");
             }
         }
-        public List<Powers> PowerList
+        public List<List<Powers>> PowerList
         {
             get
             {
@@ -2118,7 +2118,7 @@ namespace DnD4e.CharacterOOP
             RacialIntelligence = false;
             RacialWisdom = false;
             RacialCharisma = false;
-            PowerList = new List<Powers>();
+            PowerList = new List<List<Powers>>();
     }
 
         public Character(JSONCharacter buffer)
@@ -2272,34 +2272,39 @@ namespace DnD4e.CharacterOOP
             _streetwiseMisc = buffer._streetwiseMisc;
             _thieveryMisc = buffer._thieveryMisc;
             if (buffer._powerList != null)
-                foreach (JSONPower bufferPower in buffer._powerList)
+                foreach (List<JSONPower> bufferPowerList in buffer._powerList)
                 {
-                    Powers tempPower = new Powers();
-                    tempPower.Power = bufferPower._power;
-                    tempPower.Source = bufferPower._source;
-                    tempPower.Origin = bufferPower._origin;
-                    tempPower.OriginType = bufferPower._originType;
-                    tempPower.PowerType = bufferPower._powerType;
-                    tempPower.PowerUsage = bufferPower._powerUsage;
-                    tempPower.ActionType = bufferPower._actionType;
-                    tempPower.AttackType = bufferPower._attackType;
-                    tempPower.AttackVsType = bufferPower._attackVsType;
-                    tempPower.Hit = bufferPower._hit;
-                    tempPower.Hits = bufferPower._hits;
-                    tempPower.HitLevels = bufferPower._hitLevels;
-                    tempPower.MethodTypes = bufferPower._methodTypes;
-                    tempPower.MethodRanges = bufferPower._methodRanges;
-                    tempPower.Target = bufferPower._target;
-                    tempPower.Prerequisite = bufferPower._prerequisite;
-                    tempPower.PrerequisiteType = bufferPower._prerequisiteType;
-                    tempPower.Requirement = bufferPower._requirement;
-                    tempPower.RequirementType = bufferPower._requirementType;
-                    tempPower.Headers = bufferPower._headers;
-                    tempPower.Bodies = bufferPower._bodies;
-                    tempPower.AdditionalEffectName = bufferPower._additionalEffectName;
-                    tempPower.AdditionalEffectDescription = bufferPower._additionalEffectDescription;
-                    tempPower.Feats = bufferPower._feats;
-                    PowerList.Add(tempPower);
+                    List<Powers> tempPowerList = new List<Powers>();
+                    foreach (JSONPower bufferPower in bufferPowerList)
+                    {
+                        Powers tempPower = new Powers();
+                        tempPower.Power = bufferPower._power;
+                        tempPower.Source = bufferPower._source;
+                        tempPower.Origin = bufferPower._origin;
+                        tempPower.OriginType = bufferPower._originType;
+                        tempPower.PowerType = bufferPower._powerType;
+                        tempPower.PowerUsage = bufferPower._powerUsage;
+                        tempPower.ActionType = bufferPower._actionType;
+                        tempPower.AttackType = bufferPower._attackType;
+                        tempPower.AttackVsType = bufferPower._attackVsType;
+                        tempPower.Hit = bufferPower._hit;
+                        tempPower.Hits = bufferPower._hits;
+                        tempPower.HitLevels = bufferPower._hitLevels;
+                        tempPower.MethodTypes = bufferPower._methodTypes;
+                        tempPower.MethodRanges = bufferPower._methodRanges;
+                        tempPower.Target = bufferPower._target;
+                        tempPower.Prerequisite = bufferPower._prerequisite;
+                        tempPower.PrerequisiteType = bufferPower._prerequisiteType;
+                        tempPower.Requirement = bufferPower._requirement;
+                        tempPower.RequirementType = bufferPower._requirementType;
+                        tempPower.Headers = bufferPower._headers;
+                        tempPower.Bodies = bufferPower._bodies;
+                        tempPower.AdditionalEffectName = bufferPower._additionalEffectName;
+                        tempPower.AdditionalEffectDescription = bufferPower._additionalEffectDescription;
+                        tempPower.Feats = bufferPower._feats;
+                        tempPowerList.Add(tempPower);
+                    }
+                    PowerList.Add(tempPowerList);
                 }
         }
 
@@ -2315,7 +2320,7 @@ namespace DnD4e.CharacterOOP
                 PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
-      
+
         public JSONCharacter SaveCharacter()
         {
             JSONCharacter buffer = new JSONCharacter();
@@ -2553,34 +2558,39 @@ namespace DnD4e.CharacterOOP
             buffer._stealthMisc = _stealthMisc;
             buffer._streetwiseMisc = _streetwiseMisc;
             buffer._thieveryMisc = _thieveryMisc;
-            foreach (Powers tempPower in PowerList)
+            foreach (List<Powers> temPowerList in PowerList)
             {
-                JSONPower bufferPower = new JSONPower();
-                bufferPower._power = tempPower.Power;
-                bufferPower._source = tempPower.Source;
-                bufferPower._origin = tempPower.Origin;
-                bufferPower._originType = tempPower.OriginType;
-                bufferPower._powerType = tempPower.PowerType;
-                bufferPower._powerUsage = tempPower.PowerUsage;
-                bufferPower._actionType = tempPower.ActionType;
-                bufferPower._attackType = tempPower.AttackType;
-                bufferPower._attackVsType = tempPower.AttackVsType;
-                bufferPower._hit = tempPower.Hit;
-                bufferPower._hits = tempPower.Hits;
-                bufferPower._hitLevels = tempPower.HitLevels;
-                bufferPower._methodTypes = tempPower.MethodTypes;
-                bufferPower._methodRanges = tempPower.MethodRanges;
-                bufferPower._target = tempPower.Target;
-                bufferPower._prerequisite = tempPower.Prerequisite;
-                bufferPower._prerequisiteType = tempPower.PrerequisiteType;
-                bufferPower._requirement = tempPower.Requirement;
-                bufferPower._requirementType = tempPower.RequirementType;
-                bufferPower._headers = tempPower.Headers;
-                bufferPower._bodies = tempPower.Bodies;
-                bufferPower._additionalEffectName = tempPower.AdditionalEffectName;
-                bufferPower._additionalEffectDescription = tempPower.AdditionalEffectDescription;
-                bufferPower._feats = tempPower.Feats;
-                buffer._powerList.Add(bufferPower);
+                List<JSONPower> bufferPowerList = new List<JSONPower>();
+                foreach (Powers tempPower in temPowerList)
+                {
+                    JSONPower bufferPower = new JSONPower();
+                    bufferPower._power = tempPower.Power;
+                    bufferPower._source = tempPower.Source;
+                    bufferPower._origin = tempPower.Origin;
+                    bufferPower._originType = tempPower.OriginType;
+                    bufferPower._powerType = tempPower.PowerType;
+                    bufferPower._powerUsage = tempPower.PowerUsage;
+                    bufferPower._actionType = tempPower.ActionType;
+                    bufferPower._attackType = tempPower.AttackType;
+                    bufferPower._attackVsType = tempPower.AttackVsType;
+                    bufferPower._hit = tempPower.Hit;
+                    bufferPower._hits = tempPower.Hits;
+                    bufferPower._hitLevels = tempPower.HitLevels;
+                    bufferPower._methodTypes = tempPower.MethodTypes;
+                    bufferPower._methodRanges = tempPower.MethodRanges;
+                    bufferPower._target = tempPower.Target;
+                    bufferPower._prerequisite = tempPower.Prerequisite;
+                    bufferPower._prerequisiteType = tempPower.PrerequisiteType;
+                    bufferPower._requirement = tempPower.Requirement;
+                    bufferPower._requirementType = tempPower.RequirementType;
+                    bufferPower._headers = tempPower.Headers;
+                    bufferPower._bodies = tempPower.Bodies;
+                    bufferPower._additionalEffectName = tempPower.AdditionalEffectName;
+                    bufferPower._additionalEffectDescription = tempPower.AdditionalEffectDescription;
+                    bufferPower._feats = tempPower.Feats;
+                    bufferPowerList.Add(bufferPower);
+                }
+                buffer._powerList.Add(bufferPowerList);
             }
             return buffer;
         }
