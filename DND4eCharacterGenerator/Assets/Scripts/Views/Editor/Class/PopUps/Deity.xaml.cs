@@ -33,13 +33,14 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Class.PopUps
             popUp = _popUp;
             InitializeComponent();
             List<Deities> templist = new List<Deities>();
-            foreach (Deities deity in editor.main.listDeities)
-            {
-                if (editor.main.characterCurrent.Campaign.Setting == deity.Setting)
+            foreach (Campaigns campain in editor.main.characterCurrent.CampaignList)
+                foreach (Deities deity in editor.main.listDeities)
                 {
-                    templist.Add(deity);
+                    if (campain.Setting == deity.Setting)
+                    {
+                        templist.Add(deity);
+                    }
                 }
-            }
             gods = templist;
             List<deitySelections> choices = new List<deitySelections>();
             deitySelections first = new deitySelections() { Relevance = "Deities" };

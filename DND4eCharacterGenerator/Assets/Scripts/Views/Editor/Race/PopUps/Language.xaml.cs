@@ -40,24 +40,25 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race.PopUps
             List<languageSelections> choices = new List<languageSelections>();
             languageSelections first = new languageSelections() { Relevance = "Languages" };
             first.Options = new ObservableCollection<Languages>();
-            foreach (Languages item in editor.main.characterCurrent.KnownLanguages) myLanguages.Remove(item);
+            foreach (Languages item in editor.main.characterCurrent.KnownLanguages)
+                myLanguages.Remove(item);
             for (int i = 0; i < editor.main.listLanguages.Count; i++)
             {
-                if (editor.main.listLanguages[i].Setting == editor.main.characterCurrent.Campaign.Setting && editor.main.listLanguages[i].Language != "Mind")
-                    if (editor.main.characterCurrent.Level == 1)
-                    {
-                        if (editor.main.listLanguages[i].Language != "Abyssal" && editor.main.listLanguages[i].Language != "Supernal")
+                foreach (Campaigns campaign in editor.main.characterCurrent.CampaignList)
+                    if (editor.main.listLanguages[i].Setting == campaign.Setting && editor.main.listLanguages[i].Language != "Mind")
+                        if (editor.main.characterCurrent.Level == 1)
+                        {
+                            if (editor.main.listLanguages[i].Language != "Abyssal" && editor.main.listLanguages[i].Language != "Supernal")
+                            {
+                                Languages tempLanguage = new Languages(myLanguages[i]);
+                                first.Options.Add(tempLanguage);
+                            }
+                        }
+                        else
                         {
                             Languages tempLanguage = new Languages(myLanguages[i]);
                             first.Options.Add(tempLanguage);
                         }
-                    }
-                    else
-                    {
-                        Languages tempLanguage = new Languages(myLanguages[i]);
-                        first.Options.Add(tempLanguage);
-                    }
-
             }            
             choices.Add(first);
             myLanguages = first.Options.ToList();
