@@ -22,6 +22,7 @@ using DnD4e.Assets.Scripts.Views.Editor.Details;
 using DnD4e.Assets.Scripts.Views.Editor.Abilities;
 using DnD4e.Assets.Scripts.Views.Editor.Skills;
 using DnD4e.Assets.Scripts.Views.Editor.Manager;
+using DnD4e.Assets.Scripts.Views.Editor.Power;
 
 namespace DnD4e.Assets.Scripts.Views.Editor
 {
@@ -148,8 +149,14 @@ namespace DnD4e.Assets.Scripts.Views.Editor
 
         private void buttonSelectPowers_Click(object sender, RoutedEventArgs e)
         {
-            currentButton = pathPowers.Name;
-            PathSelected();
+            if (main.characterCurrent.Class.Subclass.SubClass != null || main.characterCurrent.Class.Subclass.SubClass != "Subclass")
+            {
+                EditorPower1 details = new EditorPower1(this);
+                currentButton = pathPowers.Name;
+                PathSelected();
+            }
+            else
+                MessageBox.Show("Pleaes Select a Subclass first");
         }
 
         private void buttonSelectFeats_Click(object sender, RoutedEventArgs e)

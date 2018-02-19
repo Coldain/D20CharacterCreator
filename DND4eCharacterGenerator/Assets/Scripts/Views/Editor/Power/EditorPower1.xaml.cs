@@ -149,18 +149,18 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                 powerSelections1 tempPowers = new powerSelections1() { Relevance = tempPowerLists.Item1[0] };
                 tempPowers.Options = new ObservableCollection<Powers>(tempPowerLists.Item2);
                 choices.Add(tempPowers);
-                //trvFamilies.ItemsSource = choices;
+                trvFamilies.ItemsSource = choices;
             }
         }
 
         private void TreeViewItem_OnItemSelected(object sender, RoutedEventArgs e)
         {
-            //trvFamilies.Tag = e.OriginalSource;
-            //tvi = (trvFamilies.Tag as TreeViewItem);
-            //if (tvi != null)
-            //    tvi.IsSelected = false;
-            //if (tvi2 != null)
-            //    tvi2.IsSelected = false;
+            trvFamilies.Tag = e.OriginalSource;
+            tvi = (trvFamilies.Tag as TreeViewItem);
+            if (tvi != null)
+                tvi.IsSelected = false;
+            if (tvi2 != null)
+                tvi2.IsSelected = false;
         }
 
         private void Item_Selected(object sender, RoutedEventArgs e)
@@ -204,9 +204,9 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
         {
             Random rand = new Random();
             myPower = editor.main.listPowers[rand.Next(0, editor.main.listPowers.Count)];
-            //SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
-            //editor.framedetails.Content = details;
-            //ChangeSelections(true);
+            SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
+            editor.framedetails.Content = details;
+            ChangeSelections(true);
         }
 
         private void buttonSelect_Click(object sender, RoutedEventArgs e)
@@ -350,9 +350,9 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
             myPower = grid.DataContext as Powers;
             if (myPower != null)
             {
-                //SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
-                //editor.framedetails.Content = details;
-                //ChangeSelections(true);
+                SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
+                editor.framedetails.Content = details;
+                ChangeSelections(true);
             }
         }
 

@@ -28,47 +28,47 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Race
             editor = _editor;           
             List<raceSelections> choices = new List<raceSelections>();
             InitializeComponent();
-            //SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[7].Pick, editor.main.listDefinitions[7].Description);
-            // editor.framedetails.Content = details;
-            //if (editor.main.characterCurrent.Class.PreferredRaces == null)
-            //{
-            //    raceSelections races = new raceSelections() { Relevance = "Races" };
-            //    races.Options = new ObservableCollection<Races>(editor.main.listRaces);
-            //    choices.Add(races); ;
-            //    trvFamilies.ItemsSource = choices;
-            //}
-            //else
-            //{
-            //    List<Races> otherRaces = new List<Races>();
-            //    List<Races> suggestedRaces = new List<Races>();
-            //    foreach (string race in editor.main.characterCurrent.Class.PreferredRaces)
-            //    {
-            //        for (int i = 0; i < editor.main.listRaces.Count; i++)
-            //        {
-            //            if (race == editor.main.listRaces[i].Race)
-            //                suggestedRaces.Add(editor.main.listRaces[i]);
-            //        }
-            //    }
-            //    otherRaces = editor.main.listRaces.Except(suggestedRaces).ToList();           
-            //    raceSelections suggested = new raceSelections() { Relevance = "Suggested Races" };
-            //    suggested.Options = new ObservableCollection<Races>(suggestedRaces);
-            //    choices.Add(suggested);
-            //    raceSelections others = new raceSelections() { Relevance = "Other Races" };
-            //    others.Options = new ObservableCollection<Races>(otherRaces);
-            //    choices.Add(others);
-            //    trvFamilies.ItemsSource = choices;
-            //}
+            SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[7].Pick, editor.main.listDefinitions[7].Description);
+             editor.framedetails.Content = details;
+            if (editor.main.characterCurrent.Class.PreferredRaces == null)
+            {
+                raceSelections races = new raceSelections() { Relevance = "Races" };
+                races.Options = new ObservableCollection<Races>(editor.main.listRaces);
+                choices.Add(races); ;
+                trvFamilies.ItemsSource = choices;
+            }
+            else
+            {
+                List<Races> otherRaces = new List<Races>();
+                List<Races> suggestedRaces = new List<Races>();
+                foreach (string race in editor.main.characterCurrent.Class.PreferredRaces)
+                {
+                    for (int i = 0; i < editor.main.listRaces.Count; i++)
+                    {
+                        if (race == editor.main.listRaces[i].Race)
+                            suggestedRaces.Add(editor.main.listRaces[i]);
+                    }
+                }
+                otherRaces = editor.main.listRaces.Except(suggestedRaces).ToList();           
+                raceSelections suggested = new raceSelections() { Relevance = "Suggested Races" };
+                suggested.Options = new ObservableCollection<Races>(suggestedRaces);
+                choices.Add(suggested);
+                raceSelections others = new raceSelections() { Relevance = "Other Races" };
+                others.Options = new ObservableCollection<Races>(otherRaces);
+                choices.Add(others);
+                trvFamilies.ItemsSource = choices;
+            }
         }
 
-        //private void TreeViewItem_OnItemSelected(object sender, RoutedEventArgs e)
-        //{
-        //    trvFamilies.Tag = e.OriginalSource;
-        //    tvi = (trvFamilies.Tag as TreeViewItem);
-        //    if (tvi != null)
-        //        tvi.IsSelected = false;
-        //    if (tvi2 != null)
-        //        tvi2.IsSelected = false;
-        //}
+        private void TreeViewItem_OnItemSelected(object sender, RoutedEventArgs e)
+        {
+            trvFamilies.Tag = e.OriginalSource;
+            tvi = (trvFamilies.Tag as TreeViewItem);
+            if (tvi != null)
+                tvi.IsSelected = false;
+            if (tvi2 != null)
+                tvi2.IsSelected = false;
+        }
 
         private void Item_Selected(object sender, RoutedEventArgs e)
         {
