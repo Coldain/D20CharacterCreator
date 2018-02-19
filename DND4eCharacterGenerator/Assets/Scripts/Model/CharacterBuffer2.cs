@@ -90,18 +90,6 @@ namespace DnD4e.Assets.Scripts.Model
         public int _bluffPenalty { get; set; }
         [DataMember(Name = "_bluffTraining")]
         public bool _bluffTraining { get; set; }
-        [DataMember(Name = "_campaign_image")]
-        public string _campaign_image { get; set; }
-        [DataMember(Name = "_campaign_setting")]
-        public string _campaign_setting { get; set; }
-        [DataMember(Name = "_campaign_shortdescription")]
-        public string _campaign_shortdescription { get; set; }
-        [DataMember(Name = "_campaign_tidbits")]
-        public string _campaign_tidbits { get; set; }
-        [DataMember(Name = "_campaign_description")]
-        public string _campaign_description { get; set; }
-        [DataMember(Name = "_campaign_background")]
-        public string _campaign_background { get; set; }
         [DataMember(Name = "_charisma")]
         public int _charisma { get; set; }
         [DataMember(Name = "_charismaCheck")]
@@ -110,6 +98,8 @@ namespace DnD4e.Assets.Scripts.Model
         public int _charismaMod { get; set; }
         [DataMember(Name = "_charismaRaw")]
         public int _charismaRaw { get; set; }
+        [DataMember(Name = "_campaigns")]
+        public List<JSONCampaigns> _campaigns { get; set; }
         [DataMember(Name = "_class_class")]
         public string _class_class { get; set; }
         [DataMember(Name = "_class_image")]
@@ -506,62 +496,62 @@ namespace DnD4e.Assets.Scripts.Model
         public List<Tuple<List<string>, List<JSONPower>>> _powerList { get; set; }
     }
 
-//    [DataContract(Name = "Class")]
-//    {
-//    public string Class
-//    {
-//        get
-//        {
-//            return _class;
-//        }
-//        set
-//        {
-//            _class = value;
-//            NotifyPropertyChanged("Class");
-//        }
-//    }
-//    public List<string> Subclasses
-//    {
-//        get
-//        {
-//            return _subclasses;
-//        }
-//        set
-//        {
-//            _subclasses = value;
-//            NotifyPropertyChanged("Subclasses");
-//        }
-//    }
-//    public SubClasses Subclass
-//    {
-//        get
-//        {
-//            return _subclass;
-//        }
-//        set
-//        {
-//            _subclass = value;
-//            NotifyPropertyChanged("Subclass");
-//        }
-//    }
-//    public string PrimaryRoles
-//    {
-//        get
-//        {
-//            return _primaryRoles;
-//        }
-//        set
-//        {
-//            _primaryRoles = value;
-//            NotifyPropertyChanged("PrimaryRoles");
-//        }
-//    }
-//    public string SecondaryRoles { get; set; }
-//    public string ShortDescription { get; set; }
-//    public List<string> Source { get; set; }
-//    public string Image { get; set; }
-//    public List<string> PreferredRaces { get; set; }
-//}
+    //    [DataContract(Name = "Class")]
+    //    {
+    //    public string Class
+    //    {
+    //        get
+    //        {
+    //            return _class;
+    //        }
+    //        set
+    //        {
+    //            _class = value;
+    //            NotifyPropertyChanged("Class");
+    //        }
+    //    }
+    //    public List<string> Subclasses
+    //    {
+    //        get
+    //        {
+    //            return _subclasses;
+    //        }
+    //        set
+    //        {
+    //            _subclasses = value;
+    //            NotifyPropertyChanged("Subclasses");
+    //        }
+    //    }
+    //    public SubClasses Subclass
+    //    {
+    //        get
+    //        {
+    //            return _subclass;
+    //        }
+    //        set
+    //        {
+    //            _subclass = value;
+    //            NotifyPropertyChanged("Subclass");
+    //        }
+    //    }
+    //    public string PrimaryRoles
+    //    {
+    //        get
+    //        {
+    //            return _primaryRoles;
+    //        }
+    //        set
+    //        {
+    //            _primaryRoles = value;
+    //            NotifyPropertyChanged("PrimaryRoles");
+    //        }
+    //    }
+    //    public string SecondaryRoles { get; set; }
+    //    public string ShortDescription { get; set; }
+    //    public List<string> Source { get; set; }
+    //    public string Image { get; set; }
+    //    public List<string> PreferredRaces { get; set; }
+    //}
 
     [DataContract(Name = "Power")]
     public class JSONPower
@@ -599,11 +589,11 @@ namespace DnD4e.Assets.Scripts.Model
         [DataMember(Name = "_prerequisite")]
         public string _prerequisite { get; set; }
         [DataMember(Name = "_prerequisiteType")]
-        public string _prerequisiteType { get; set; }       
+        public string _prerequisiteType { get; set; }
         [DataMember(Name = "_requirement")]
         public string _requirement { get; set; }
         [DataMember(Name = "_requirementType")]
-        public string _requirementType { get; set; }   
+        public string _requirementType { get; set; }
         [DataMember(Name = "_headers")]
         public List<string> _headers { get; set; }
         [DataMember(Name = "_bodies")]
@@ -614,5 +604,22 @@ namespace DnD4e.Assets.Scripts.Model
         public string _additionalEffectDescription { get; set; }
         [DataMember(Name = "_feats")]
         public List<string> _feats { get; set; }
+    }
+
+    [DataContract(Name = "Campaign")]
+    public class JSONCampaigns
+    {
+        [DataMember(Name = "_campaign_image")]
+        public string _campaign_image { get; set; }
+        [DataMember(Name = "_campaign_setting")]
+        public string _campaign_setting { get; set; }
+        [DataMember(Name = "_campaign_shortdescription")]
+        public string _campaign_shortdescription { get; set; }
+        [DataMember(Name = "_campaign_tidbits")]
+        public string _campaign_tidbits { get; set; }
+        [DataMember(Name = "_campaign_description")]
+        public string _campaign_description { get; set; }
+        [DataMember(Name = "_campaign_background")]
+        public string _campaign_background { get; set; }
     }
 }

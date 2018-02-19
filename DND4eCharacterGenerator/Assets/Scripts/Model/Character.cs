@@ -12,7 +12,7 @@ namespace DnD4e.CharacterOOP
     {
         #region Fields
         #region Details
-        public Campaigns _campaign;
+        public List<Campaigns> _campaignList;
         public string _size;
         public int _speed;
         public int _initiative;
@@ -161,16 +161,16 @@ namespace DnD4e.CharacterOOP
 
         #region Properties        
         #region Details
-        public Campaigns Campaign
+        public List<Campaigns> CampaignList
         {
             get
             {
-                return _campaign;
+                return _campaignList;
             }
             set
             {
-                _campaign = value;
-                NotifyPropertyChanged("Campaign");
+                _campaignList = value;
+                NotifyPropertyChanged("CampaignList");
             }
         }
         public string Size
@@ -2123,7 +2123,13 @@ namespace DnD4e.CharacterOOP
 
         public Character(JSONCharacter buffer)
         {
-            Campaign = new Campaigns(buffer._campaign_setting, buffer._campaign_image, buffer._campaign_shortdescription, buffer._campaign_tidbits, buffer._campaign_description, buffer._campaign_background);
+            List<Campaigns> tempCampaigns = new List<Campaigns>();
+            foreach (JSONCampaigns bufferCampaign in buffer._campaigns)
+            {                
+                Campaigns tempCampgain = new Campaigns(bufferCampaign._campaign_setting, bufferCampaign._campaign_image, bufferCampaign._campaign_shortdescription, bufferCampaign._campaign_tidbits, bufferCampaign._campaign_description, bufferCampaign._campaign_background);
+                tempCampaigns.Add(tempCampgain);
+            }
+            CampaignList = tempCampaigns;
             Size = buffer._size;
             Speed = buffer._speed;
             Initiative = buffer._initiative;
@@ -2325,13 +2331,20 @@ namespace DnD4e.CharacterOOP
 
         public JSONCharacter SaveCharacter()
         {
+            List<JSONCampaigns> tempCampgains = new List<JSONCampaigns>();
+            foreach (Campaigns tempCampgain in CampaignList)
+            {
+                JSONCampaigns bufferCampaign = new JSONCampaigns();
+                bufferCampaign._campaign_setting = tempCampgain.Setting;
+                bufferCampaign._campaign_image = tempCampgain.Image;
+                bufferCampaign._campaign_shortdescription = tempCampgain.Shortdescription;
+                bufferCampaign._campaign_tidbits = tempCampgain.Tidbits;
+                bufferCampaign._campaign_description = tempCampgain.Description;
+                bufferCampaign._campaign_background = tempCampgain.Background;
+                tempCampgains.Add(bufferCampaign);
+            }
+            List<JSONCampaigns> bufferCampaigns = tempCampgains;
             JSONCharacter buffer = new JSONCharacter();
-            buffer._campaign_setting = Campaign.Setting;
-            buffer._campaign_image = Campaign.Image;
-            buffer._campaign_shortdescription = Campaign.Shortdescription;
-            buffer._campaign_tidbits = Campaign.Tidbits;
-            buffer._campaign_description = Campaign.Description;
-            buffer._campaign_background = Campaign.Background;
             buffer._size = Size;
             buffer._speed = Speed;
             buffer._initiative = Initiative;
