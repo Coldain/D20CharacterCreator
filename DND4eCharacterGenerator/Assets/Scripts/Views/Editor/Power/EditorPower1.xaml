@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
  <Grid>
         <Label Content="Choose a Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26"/>
-        <TreeView Name="trvFamilies" HorizontalAlignment="Left" Height="557" Margin="25,55,0,0" VerticalAlignment="Top" Width="385" BorderBrush="#FF9B8D4D" Background="#FFDAD8C3" BorderThickness="2" TreeView.SelectedItemChanged="TreeViewItem_OnItemSelected">
+        <!--<TreeView Name="trvFamilies" HorizontalAlignment="Left" Height="557" Margin="25,55,0,0" VerticalAlignment="Top" Width="385" BorderBrush="#FF9B8D4D" Background="#FFDAD8C3" BorderThickness="2" TreeView.SelectedItemChanged="TreeViewItem_OnItemSelected">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type local:powerSelections}" ItemsSource="{Binding Options}">
                     <StackPanel Orientation="Horizontal" Background="#FFA5B4AA" Width="340" HorizontalAlignment="Left">
@@ -43,7 +43,7 @@
                     </Grid>
                 </DataTemplate>
             </TreeView.Resources>
-        </TreeView>
+        </TreeView>-->
         <Grid VerticalAlignment="Bottom" Height="40" >
             <Rectangle Height="1" Stroke="#FF9B8D4D" VerticalAlignment="Top"/>
             <Canvas x:Name="buttonDeselect"  Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False" >

@@ -70,8 +70,9 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="Ensure.That, Version=7.2.1.70, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Ensure.That.7.2.1\lib\net451\Ensure.That.dll</HintPath>

@@ -23,7 +23,8 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
     /// </summary>
     public partial class EditorPower1 : UserControl
     {
-
+        int i = 1;
+        int x = 0;
         bool deselect = false;
         Canvas canvasSelected;
         TreeViewItem tvi;
@@ -42,89 +43,88 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                 {
                     if (tempPowerC == tempPowerL.Power)
                     {
+                        items.Add(tempPowerL);
                         int headerLevel;
                         if (int.TryParse(tempPowerL.OriginType, out headerLevel))
-                        {                            
+                        {
                             string headerName = "Level " + tempPowerL.OriginType + " : " + tempPowerL.Origin + " - " + tempPowerL.ActionType;
                             Tuple<string, int> header = new Tuple<string, int>(headerName, headerLevel);
                             if (!headers.Contains(header))
                                 headers.Add(header);
-                            int i = 1;
-                            int x = 0;
                             while (i <= editor.main.characterCurrent.Level)
                             {
                                 switch (i)
                                 {
                                     case 1:
                                         {
-                                            x = PowerAdjust(2, x);
-                                            x = PowerAdjust(1, x);
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(2, x, headerName);
+                                            x = PowerAdjust(1, x, headerName);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 2:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 3:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 5:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 6:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 7:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 9:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 10:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 11:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 12:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 16:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 20:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 22:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     case 26:
                                         {
-                                            x = PowerAdjust(1, x);
+                                            x = PowerAdjust(1, x, headerName);
                                             break;
                                         }
                                     default:
@@ -133,7 +133,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                                 i++;
                             }
                         }
-                        
+
                     }
 
                 }
@@ -144,44 +144,23 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
 
             SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[15].Pick, editor.main.listDefinitions[15].Description);
             editor.framedetails.Content = details;
-            foreach (Tuple<string, List<Powers>> tempPowerLists in editor.main.characterCurrent.PowerList)
-            { 
-                powerSelections1 tempPowers = new powerSelections1() { Relevance = tempPowerLists.Item1 };
-                powers.Options = new ObservableCollection<Powers>(editor.main.listPowers);
-                choices.Add(powers); ;
-                trvFamilies.ItemsSource = choices;
-            }
-            else
+            foreach (Tuple<List<string>, List<Powers>> tempPowerLists in editor.main.characterCurrent.PowerList)
             {
-                List<Powers> otherPowers = new List<Powers>();
-                List<Powers> suggestedPowers = new List<Powers>();
-                foreach (string power in editor.main.characterCurrent.Class.PreferredPowers)
-                {
-                    for (int i = 0; i < editor.main.listPowers.Count; i++)
-                    {
-                        if (power == editor.main.listPowers[i].Power)
-                            suggestedPowers.Add(editor.main.listPowers[i]);
-                    }
-                }
-                otherPowers = editor.main.listPowers.Except(suggestedPowers).ToList();
-                powerSelections1 suggested = new powerSelections1() { Relevance = "Suggested Powers" };
-                suggested.Options = new ObservableCollection<Powers>(suggestedPowers);
-                choices.Add(suggested);
-                powerSelections1 others = new powerSelections1() { Relevance = "Other Powers" };
-                others.Options = new ObservableCollection<Powers>(otherPowers);
-                choices.Add(others);
-                trvFamilies.ItemsSource = choices;
+                powerSelections1 tempPowers = new powerSelections1() { Relevance = tempPowerLists.Item1[0] };
+                tempPowers.Options = new ObservableCollection<Powers>(tempPowerLists.Item2);
+                choices.Add(tempPowers);
+                //trvFamilies.ItemsSource = choices;
             }
         }
 
         private void TreeViewItem_OnItemSelected(object sender, RoutedEventArgs e)
         {
-            trvFamilies.Tag = e.OriginalSource;
-            tvi = (trvFamilies.Tag as TreeViewItem);
-            if (tvi != null)
-                tvi.IsSelected = false;
-            if (tvi2 != null)
-                tvi2.IsSelected = false;
+            //trvFamilies.Tag = e.OriginalSource;
+            //tvi = (trvFamilies.Tag as TreeViewItem);
+            //if (tvi != null)
+            //    tvi.IsSelected = false;
+            //if (tvi2 != null)
+            //    tvi2.IsSelected = false;
         }
 
         private void Item_Selected(object sender, RoutedEventArgs e)
@@ -225,93 +204,93 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
         {
             Random rand = new Random();
             myPower = editor.main.listPowers[rand.Next(0, editor.main.listPowers.Count)];
-            SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
-            editor.framedetails.Content = details;
-            ChangeSelections(true);
+            //SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
+            //editor.framedetails.Content = details;
+            //ChangeSelections(true);
         }
 
         private void buttonSelect_Click(object sender, RoutedEventArgs e)
         {
-            editor.main.characterCurrent.KnownLanguages = new List<Languages>();
-            editor.main.characterCurrent.PowerList = new Powers(myPower);
-            foreach (string lang in myPower.Languages)
-            {
-                foreach (Languages langs in editor.main.listLanguages)
-                {
-                    if (langs.Language == lang)
-                        editor.main.characterCurrent.KnownLanguages.Add(langs);
-                }
-            }
-            if (myPower.Abilities.Count == 3)
-                switch (myPower.Abilities[0])
-                {
-                    case "Str":
-                        editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
-                        break;
-                    case "Con":
-                        editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
-                        break;
-                    case "Dex":
-                        editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
-                        break;
-                    case "Int":
-                        editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
-                        break;
-                    case "Wis":
-                        editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
-                        break;
-                    case "Cha":
-                        editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
-                        break;
-                }
-            else if (myPower.Abilities.Count == 2)
-            {
-                switch (myPower.Abilities[0])
-                {
-                    case "Str":
-                        editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
-                        break;
-                    case "Con":
-                        editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
-                        break;
-                    case "Dex":
-                        editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
-                        break;
-                    case "Int":
-                        editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
-                        break;
-                    case "Wis":
-                        editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
-                        break;
-                    case "Cha":
-                        editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
-                        break;
-                }
-                switch (myPower.Abilities[1])
-                {
-                    case "Str":
-                        editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
-                        break;
-                    case "Con":
-                        editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
-                        break;
-                    case "Dex":
-                        editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
-                        break;
-                    case "Int":
-                        editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
-                        break;
-                    case "Wis":
-                        editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
-                        break;
-                    case "Cha":
-                        editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
-                        break;
-                }
-            }
-            EditorPower2 power2 = new EditorPower2(editor, this);
-            editor.frameContainer.Content = power2;
-            editor.powerSelected = true;
+            //editor.main.characterCurrent.KnownLanguages = new List<Languages>();
+            //editor.main.characterCurrent.PowerList = new Powers(myPower);
+            //foreach (string lang in myPower.Languages)
+            //{
+            //    foreach (Languages langs in editor.main.listLanguages)
+            //    {
+            //        if (langs.Language == lang)
+            //            editor.main.characterCurrent.KnownLanguages.Add(langs);
+            //    }
+            //}
+            //if (myPower.Abilities.Count == 3)
+            //    switch (myPower.Abilities[0])
+            //    {
+            //        case "Str":
+            //            editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
+            //            break;
+            //        case "Con":
+            //            editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
+            //            break;
+            //        case "Dex":
+            //            editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
+            //            break;
+            //        case "Int":
+            //            editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
+            //            break;
+            //        case "Wis":
+            //            editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
+            //            break;
+            //        case "Cha":
+            //            editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
+            //            break;
+            //    }
+            //else if (myPower.Abilities.Count == 2)
+            //{
+            //    switch (myPower.Abilities[0])
+            //    {
+            //        case "Str":
+            //            editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
+            //            break;
+            //        case "Con":
+            //            editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
+            //            break;
+            //        case "Dex":
+            //            editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
+            //            break;
+            //        case "Int":
+            //            editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
+            //            break;
+            //        case "Wis":
+            //            editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
+            //            break;
+            //        case "Cha":
+            //            editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
+            //            break;
+            //    }
+            //    switch (myPower.Abilities[1])
+            //    {
+            //        case "Str":
+            //            editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
+            //            break;
+            //        case "Con":
+            //            editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
+            //            break;
+            //        case "Dex":
+            //            editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
+            //            break;
+            //        case "Int":
+            //            editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
+            //            break;
+            //        case "Wis":
+            //            editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
+            //            break;
+            //        case "Cha":
+            //            editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
+            //            break;
+            //    }
+            //}
+            //EditorPower2 power2 = new EditorPower2(editor, this);
+            //editor.frameContainer.Content = power2;
+            //editor.powerSelected = true;
         }
 
         private void ChangeSelections(bool switcher)
@@ -371,9 +350,9 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
             myPower = grid.DataContext as Powers;
             if (myPower != null)
             {
-                SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
-                editor.framedetails.Content = details;
-                ChangeSelections(true);
+                //SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
+                //editor.framedetails.Content = details;
+                //ChangeSelections(true);
             }
         }
 
@@ -466,23 +445,23 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                     break;
             }
         }
-        private int PowerAdjust(int iPowers, int iList)
+        private int PowerAdjust(int iPowers, int iList, string powerGroup)
         {
-            if (iPowers < editor.main.characterCurrent.PowerList[iList].Count())
+            if (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
             {
-                while (iPowers < editor.main.characterCurrent.PowerList[iList].Count())
+                while (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
                 {
                     Powers tempPower = new Powers();
-                    editor.main.characterCurrent.PowerList[iList].Add(tempPower);
+                    editor.main.characterCurrent.PowerList[iList].Item2.Add(tempPower);
                     iPowers++;
                 }
             }
-            else if (iPowers > editor.main.characterCurrent.PowerList[iList].Count())
+            else if (iPowers > editor.main.characterCurrent.PowerList[iList].Item2.Count())
             {
-                while (iPowers < editor.main.characterCurrent.PowerList[iList].Count())
+                while (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
                 {
                     Powers tempPower = new Powers();                    
-                    editor.main.characterCurrent.PowerList[iList].RemoveAt(editor.main.characterCurrent.PowerList[iList].IndexOf(tempPower));
+                    editor.main.characterCurrent.PowerList[iList].Item2.RemoveAt(editor.main.characterCurrent.PowerList[iList].Item2.IndexOf(tempPower));
                     iPowers--;
                 }
             }

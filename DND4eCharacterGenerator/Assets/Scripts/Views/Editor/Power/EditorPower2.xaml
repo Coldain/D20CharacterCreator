@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
  <Grid>
-        <Label Content="Choose a Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26"/>
+        <!--<Label Content="Choose a Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26"/>
         <TreeView Name="trvFamilies" HorizontalAlignment="Left" Height="557" Margin="25,55,0,0" VerticalAlignment="Top" Width="385" BorderBrush="#FF9B8D4D" Background="#FFDAD8C3" BorderThickness="2" TreeView.SelectedItemChanged="TreeViewItem_OnItemSelected">
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type local:powerSelections}" ItemsSource="{Binding Options}">
@@ -79,6 +79,6 @@
                 <Label Content="Select" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="33" Canvas.Top="6" Foreground="White"/>
                 <Path x:Name="canvasSelect" Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.6" StrokeThickness="0"/>
             </Canvas>
-        </Grid>
+        </Grid>-->
     </Grid>
 </UserControl>
