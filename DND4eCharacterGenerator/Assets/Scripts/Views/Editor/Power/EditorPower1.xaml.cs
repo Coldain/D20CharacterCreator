@@ -82,42 +82,47 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 7:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 9:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 10:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 11:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 12:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 16:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 20:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
                                         }
-                                    case 2:
+                                    case 22:
+                                        {
+                                            x = PowerAdjust(1, x);
+                                            break;
+                                        }
+                                    case 26:
                                         {
                                             x = PowerAdjust(1, x);
                                             break;
@@ -125,6 +130,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                                     default:
                                         break;
                                 }
+                                i++;
                             }
                         }
                         
@@ -138,9 +144,9 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
 
             SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[15].Pick, editor.main.listDefinitions[15].Description);
             editor.framedetails.Content = details;
-            if (editor.main.characterCurrent.Class.PreferredPowers == null)
-            {
-                powerSelections1 powers = new powerSelections1() { Relevance = "Powers" };
+            foreach (Tuple<string, List<Powers>> tempPowerLists in editor.main.characterCurrent.PowerList)
+            { 
+                powerSelections1 tempPowers = new powerSelections1() { Relevance = tempPowerLists.Item1 };
                 powers.Options = new ObservableCollection<Powers>(editor.main.listPowers);
                 choices.Add(powers); ;
                 trvFamilies.ItemsSource = choices;

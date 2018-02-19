@@ -27,6 +27,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
         Canvas canvasSelected;
         TreeViewItem tvi;
         TreeViewItem tvi2;
+        List<Campaigns> myCampaignList = new List<Campaigns>();
         Campaigns myCampaign = new Campaigns();
         public HomePage home;
 
@@ -35,7 +36,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
             main = _main;
             InitializeComponent();
             List<Selections> choices = new List<Selections>();
-            Selections first = new Selections() { Relevance = "Select a Campaign Setting" };
+            Selections first = new Selections() { Relevance = "Select Campaign Setting(s)" };
             first.Options = new ObservableCollection<Campaigns>(main.listCampaings);
             choices.Add(first);
             trvFamilies.ItemsSource = choices;
@@ -46,11 +47,17 @@ namespace DnD4e.Assets.Scripts.Views.Home
             home.popUp.Hide();
         }
 
+        private void buttonAll_Click(object sender, RoutedEventArgs e)
+        {
+            myCampaignList = main.listCampaings;
+            buttonContinue_Click(null, null);
+        }
+
         private void buttonContinue_Click(object sender, RoutedEventArgs e)
         {
-            if (myCampaign.Setting == "Core")
+            if (myCampaignList.Count > 0)
             {
-                main.characterCurrent.Campaign = myCampaign;
+                main.characterCurrent.CampaignList = myCampaignList;
                 main.fromCustom = true;
                 int level = Int16.Parse(comboBoxLevelSelector.SelectedValue.ToString());
                 main.characterCurrent.Level = level;
@@ -60,11 +67,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 editorWindow.Show();
                 home.Close();
                 home.popUp.Close();                
-            }
-            else
-            {
-                MessageBox.Show(myCampaign.Setting + " is not available at this time. Please pick the D&D Core Campaign Setting.");
-            }
+            }            
         }
 
         private void TreeViewItem_OnItemSelected(object sender, RoutedEventArgs e)
@@ -89,7 +92,7 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 tvi.IsSelected = false;
         }
 
-        private void buttonDeselect_Click(object sender, RoutedEventArgs e)
+            private void buttonDeselect_Click(object sender, RoutedEventArgs e)
         {
             Canvas tempCanvase = sender as Canvas;
             tvi = null;
@@ -167,6 +170,22 @@ namespace DnD4e.Assets.Scripts.Views.Home
             grid.RenderTransform = translation;
             Mouse.Capture(canvasSelected);
             myCampaign = grid.DataContext as Campaigns;
+            if (grid.Children[8].Visibility == Visibility.Visible)
+            {
+                grid.Children[6].Visibility = Visibility.Hidden;
+                grid.Children[7].Visibility = Visibility.Hidden;
+                grid.Children[8].Visibility = Visibility.Hidden;
+                if (myCampaignList.Contains(myCampaign))
+                    myCampaignList.Remove(myCampaign);
+            }
+            else
+            {
+                grid.Children[6].Visibility = Visibility.Visible;
+                grid.Children[7].Visibility = Visibility.Visible;
+                grid.Children[8].Visibility = Visibility.Visible;
+                if (!myCampaignList.Contains(myCampaign))
+                    myCampaignList.Add(myCampaign);
+            }
             if (myCampaign != null)
             {
                 SelectionDetailsRole details = new SelectionDetailsRole(myCampaign.Setting, myCampaign.Tidbits + "\r\n" + "Description" + myCampaign.Description + "\r\n" + "Background" + myCampaign.Background);
@@ -228,8 +247,13 @@ namespace DnD4e.Assets.Scripts.Views.Home
                 case "buttonCancel":
                     buttonCancel_Click(this, null);
                     break;
+                case "buttonAll":
+                    buttonAll_Click(this, null);
+                    break;
                 case "buttonContinue":
                     buttonContinue_Click(this, null);
+                    break;
+                default:
                     break;
             }
         }
