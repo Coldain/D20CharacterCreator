@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:DnD4e.Assets.Scripts.Views.Editor.Power"
              xmlns:other="clr-namespace:DnD4e.Assets.Scripts.Model"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="666" d:DesignWidth="435">
  <Grid>
-        <!--<Label Content="Choose a Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label Content="Choose a Class" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26"/>
         <TreeView Name="trvFamilies" HorizontalAlignment="Left" Height="557" Margin="25,55,0,0" VerticalAlignment="Top" Width="385" BorderBrush="#FF9B8D4D" Background="#FFDAD8C3" BorderThickness="2" TreeView.SelectedItemChanged="TreeViewItem_OnItemSelected">
             <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type local:powerSelections}" ItemsSource="{Binding Options}">
+                <HierarchicalDataTemplate DataType="{x:Type local:powerSelections2}" ItemsSource="{Binding Options}">
                     <StackPanel Orientation="Horizontal" Background="#FFA5B4AA" Width="340" HorizontalAlignment="Left">
                         <TextBlock Text="{Binding Relevance}" Foreground="White" Margin="2,0,0,0" />
                         <TextBlock Text=" [" Foreground="Blue" Margin="0" />
@@ -20,7 +20,7 @@
                     </StackPanel>
                 </HierarchicalDataTemplate>
                 <DataTemplate DataType="{x:Type other:Powers}">
-                    <Grid Width="340" Margin="-20,0,0,0" MouseLeftButtonDown="Item_Selected">
+                    <Grid Name="gridPower2" Width="321" Margin="0,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2.5" FocusVisualStyle="{x:Null}"/>
                             <RowDefinition Height="2"/>
@@ -30,11 +30,11 @@
                             <RowDefinition Height="2.5" FocusVisualStyle="{x:Null}"/>
                         </Grid.RowDefinitions>
                         <Rectangle Stroke="#FF9B8D4D" StrokeThickness="2" Fill="#FFE4E2D0" Grid.Row="1" Grid.RowSpan="4"/>
-                        <Rectangle Stroke="#FF9B8D4D" StrokeThickness="1" Fill="#FFE4E2D0" Height="1" Width="270" HorizontalAlignment="Left" Margin="5,13.5,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-                        <Image Source="{Binding Image}" HorizontalAlignment="Right" Width="60" Height="35" Margin="0,0,2,0" Grid.Row="2" Grid.RowSpan="2" VerticalAlignment="Center"/>
+                        <Rectangle Stroke="#FF9B8D4D" StrokeThickness="1" Fill="#FFE4E2D0" Height="1" Width="222" HorizontalAlignment="Left" Margin="5,13,0,0" Grid.Row="2" VerticalAlignment="Top"/>
                         <Label Content="{Binding Power}" FontSize="10" FontWeight="Bold" Margin="8,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Grid.Row="2"/>
-                        <TextBlock Text="{Binding ShortDescription}" Width="270" FontSize="7" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Margin="8,0,0,0" Grid.Row="3"/>
-                        <Canvas MouseEnter="treeViewItem_MouseEnter" MouseLeftButtonUp="treeViewItem_MouseUp" MouseLeave="treeViewItem_MouseLeave" MouseLeftButtonDown="treeViewItem_MouseDown" Background="#FFCBC5A4" Opacity="0.8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.RowSpan="2" Margin="2,0">
+                        <Label Content="{Binding Bodies[7]}" FontSize="10" FontWeight="Bold" Margin="8,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Bottom" Grid.Row="2"/>
+                        <TextBlock Text="{Binding Bodies[0]}" Width="280" FontSize="7" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Margin="8,0,0,0" Grid.Row="3" />
+                        <Canvas Name="itemRace2" MouseEnter="treeViewItem_MouseEnter" MouseLeftButtonUp="treeViewItem_MouseUp" MouseLeave="treeViewItem_MouseLeave" MouseLeftButtonDown="treeViewItem_MouseDown" Background="#FFCBC5A4" Opacity="0.8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.RowSpan="2" Margin="2,0" FocusVisualStyle="{x:Null}">
                             <Rectangle Stroke="{x:Null}" StrokeThickness="2" Fill="{x:Null}" Opacity="0.6"/>
                         </Canvas>
                     </Grid>
@@ -79,6 +79,6 @@
                 <Label Content="Select" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" UseLayoutRounding="True" FontWeight="Bold" Canvas.Left="33" Canvas.Top="6" Foreground="White"/>
                 <Path x:Name="canvasSelect" Data="M16,1 L84,1 A14,14,0,0,1,99,14 A14,14,0,0,1,84,29 L14,29 A14,14,0,0,1,1,14 A14,14,0,0,1,14,1" MouseLeftButtonDown="path_MouseDown" MouseEnter="path_MouseEnter" MouseLeave="path_MouseLeave" MouseLeftButtonUp="path_MouseUp" Fill="#FF7C7C7C" Opacity="0.6" StrokeThickness="0"/>
             </Canvas>
-        </Grid>-->
+        </Grid>
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using DnD4e.Assets.Scripts.Model;
 using DnD4e.CharacterBuilder.Editor.View.Class;
+using DnD4e.Assets.Scripts.Views.Editor;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,124 +26,130 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
     {
         int i = 1;
         int x = 0;
+        int indexPower;
+        int indexTuple;
         bool deselect = false;
         Canvas canvasSelected;
         TreeViewItem tvi;
         TreeViewItem tvi2;
         Powers myPower = new Powers();
         CharacterEditor editor;
+        List<powerSelections1> choices;
+        List<Powers> items = new List<Powers>();
         public EditorPower1(CharacterEditor _editor)
         {
             editor = _editor;
-            List<powerSelections1> choices = new List<powerSelections1>();
-            List<Tuple<string, int>> headers = new List<Tuple<string, int>>();
-            List<Powers> items = new List<Powers>();
+            choices = new List<powerSelections1>();
+            List<Tuple<string, int>> headers = new List<Tuple<string, int>>();                     
             foreach (Powers tempPowerL in editor.main.listPowers)
             {
-                foreach (string tempPowerC in editor.main.characterCurrent.Class.Subclass.Powers)
+                string temporaryUntilPowersAreDividedBetweenSubclasses;
+                if (editor.main.characterCurrent.Class.Class == editor.main.characterCurrent.Class.Subclass.SubClass)
+                    temporaryUntilPowersAreDividedBetweenSubclasses = editor.main.characterCurrent.Class.Class;
+                else
                 {
-                    if (tempPowerC == tempPowerL.Power)
+                    temporaryUntilPowersAreDividedBetweenSubclasses = editor.main.characterCurrent.Class.Class.Split('(')[0];
+                    temporaryUntilPowersAreDividedBetweenSubclasses = temporaryUntilPowersAreDividedBetweenSubclasses.Substring(0, temporaryUntilPowersAreDividedBetweenSubclasses.Length - 1);
+                }
+                if (temporaryUntilPowersAreDividedBetweenSubclasses == tempPowerL.Origin)
+                {
+                    items.Add(tempPowerL);
+                    int headerLevel;
+                    if (int.TryParse(tempPowerL.OriginType, out headerLevel))
                     {
-                        items.Add(tempPowerL);
-                        int headerLevel;
-                        if (int.TryParse(tempPowerL.OriginType, out headerLevel))
+                        string headerName = "Level " + tempPowerL.OriginType + ": " + tempPowerL.Origin + " - " + tempPowerL.PowerUsage;
+                        Tuple<string, int> header = new Tuple<string, int>(headerName, headerLevel);
+                        if (!headers.Contains(header))
+                            headers.Add(header);
+                        while (i <= editor.main.characterCurrent.Level)
                         {
-                            string headerName = "Level " + tempPowerL.OriginType + " : " + tempPowerL.Origin + " - " + tempPowerL.ActionType;
-                            Tuple<string, int> header = new Tuple<string, int>(headerName, headerLevel);
-                            if (!headers.Contains(header))
-                                headers.Add(header);
-                            while (i <= editor.main.characterCurrent.Level)
+                            switch (i)
                             {
-                                switch (i)
-                                {
-                                    case 1:
-                                        {
-                                            x = PowerAdjust(2, x, headerName);
-                                            x = PowerAdjust(1, x, headerName);
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 3:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 5:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 6:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 7:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 9:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 10:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 11:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 12:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 16:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 20:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 22:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    case 26:
-                                        {
-                                            x = PowerAdjust(1, x, headerName);
-                                            break;
-                                        }
-                                    default:
+                                case 1:
+                                    {
+                                        x = PowerAdjust(2, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - At-Will Attack Powers");
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Encounter Attack Powers");
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Daily Attack Powers");
                                         break;
-                                }
-                                i++;
+                                    }
+                                case 2:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utility Power");
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Encounter Attack Power");
+                                        break;
+                                    }
+                                case 5:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Daily Attack Power");
+                                        break;
+                                    }
+                                case 6:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utilty Power");
+                                        break;
+                                    }
+                                case 7:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Encounter Attack Power");
+                                        break;
+                                    }
+                                case 9:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Daily Attack Power");
+                                        break;
+                                    }
+                                case 10:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utility Power");
+                                        break;
+                                    }
+                                case 11:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Encounter Attack Power");
+                                        break;
+                                    }
+                                case 12:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utility Power");
+                                        break;
+                                    }
+                                case 16:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utility Power");
+                                        break;
+                                    }
+                                case 20:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Daily Attack Power");
+                                        break;
+                                    }
+                                case 22:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utility Power");
+                                        break;
+                                    }
+                                case 26:
+                                    {
+                                        x = PowerAdjust(1, x, "Level " + i + ": " + editor.main.characterCurrent.Class.Subclass.SubClass + " - Utility Power");
+                                        break;
+                                    }
+                                default:
+                                    break;
                             }
+                            i++;
                         }
-
                     }
-
                 }
             }
-
+            this.DataContext = editor.main.characterCurrent.PowerList;
             InitializeComponent();
 
 
-            SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[15].Pick, editor.main.listDefinitions[15].Description);
+            SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[14].Pick, editor.main.listDefinitions[14].Description);
             editor.framedetails.Content = details;
             foreach (Tuple<List<string>, List<Powers>> tempPowerLists in editor.main.characterCurrent.PowerList)
             {
@@ -168,11 +175,46 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
             Grid tempGrid = sender as Grid;
             ContentPresenter tempContent = tempGrid.TemplatedParent as ContentPresenter;
             TreeViewItem temptvi = tempContent.TemplatedParent as TreeViewItem;
+            ItemsControl parent = ItemsControl.ItemsControlFromItemContainer(temptvi);
             tvi2 = temptvi;
             tvi2.IsSelected = false;
             tvi2.FocusVisualStyle = null;
             if (tvi != null)
                 tvi.IsSelected = false;
+            Powers tempPower = temptvi.DataContext as Powers;
+            powerSelections1 tempSelections = parent.DataContext as powerSelections1;
+            List<string> tempStringlist = new List<string>();
+            tempStringlist.Add(tempSelections.Relevance);
+            List<Powers> tempPowerList = new List<Powers>();
+            foreach (Powers tempfreakingPower in tempSelections.Options)
+            {
+                tempPowerList.Add(tempfreakingPower);
+            }
+            Tuple<List<string>, List<Powers>> tempTuple = new Tuple<List<string>, List<Powers>>(tempStringlist, tempPowerList);
+            for (i = 0; i < editor.main.characterCurrent.PowerList.Count(); i++)
+            {
+                if (editor.main.characterCurrent.PowerList[i].Item1[0] == tempStringlist[0])
+                    indexTuple = i;
+            }        
+            indexPower = editor.main.characterCurrent.PowerList[indexTuple].Item2.IndexOf(tempPower);
+            if (tempPower.Power == "Choose a Power")
+            {
+                EditorPower2 power2 = new EditorPower2(editor, items, indexTuple, indexPower);
+                SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[14].Pick, editor.main.listDefinitions[14].Description);                
+                editor.frameContainer.Content = power2;
+                editor.framedetails.Content = details;
+                //choices.Clear();
+                //foreach (var item in editor.main.characterCurrent.PowerList)
+                //{
+                //    powerSelections1 temporarySelections = new powerSelections1();
+                //    temporarySelections.Relevance = item.Item1[0];
+                //    foreach (var item2 in item.Item2)
+                //        temporarySelections.Options.Add(item2);
+                //    choices.Add(temporarySelections);
+                //    trvFamilies.ItemsSource = choices;
+                //}
+                //tvi2.DataContext = editor.main.characterCurrent.PowerList[indexTuple].Item2[indexPower];
+            }
         }
 
         private void buttonDeselect_Click(object sender, RoutedEventArgs e)
@@ -196,101 +238,21 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
                 treeViewItem_MouseUp(canvasSelected, null);
             }
             canvasSelected = null;
-            SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[7].Pick, editor.main.listDefinitions[7].Description);
+            Powers newPower = new Powers();
+            if (myPower != null)
+            editor.main.characterCurrent.PowerList[indexTuple].Item2[indexPower] = myPower;
+            SelectionDetailsRole details = new SelectionDetailsRole(editor.main.listDefinitions[14].Pick, editor.main.listDefinitions[14].Description);
             editor.framedetails.Content = details;
         }
 
         private void buttonChooseForMe_Click(object sender, RoutedEventArgs e)
         {
-            Random rand = new Random();
-            myPower = editor.main.listPowers[rand.Next(0, editor.main.listPowers.Count)];
-            SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
-            editor.framedetails.Content = details;
-            ChangeSelections(true);
+
         }
 
         private void buttonSelect_Click(object sender, RoutedEventArgs e)
-        {
-            //editor.main.characterCurrent.KnownLanguages = new List<Languages>();
-            //editor.main.characterCurrent.PowerList = new Powers(myPower);
-            //foreach (string lang in myPower.Languages)
-            //{
-            //    foreach (Languages langs in editor.main.listLanguages)
-            //    {
-            //        if (langs.Language == lang)
-            //            editor.main.characterCurrent.KnownLanguages.Add(langs);
-            //    }
-            //}
-            //if (myPower.Abilities.Count == 3)
-            //    switch (myPower.Abilities[0])
-            //    {
-            //        case "Str":
-            //            editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
-            //            break;
-            //        case "Con":
-            //            editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
-            //            break;
-            //        case "Dex":
-            //            editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
-            //            break;
-            //        case "Int":
-            //            editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
-            //            break;
-            //        case "Wis":
-            //            editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
-            //            break;
-            //        case "Cha":
-            //            editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
-            //            break;
-            //    }
-            //else if (myPower.Abilities.Count == 2)
-            //{
-            //    switch (myPower.Abilities[0])
-            //    {
-            //        case "Str":
-            //            editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
-            //            break;
-            //        case "Con":
-            //            editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
-            //            break;
-            //        case "Dex":
-            //            editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
-            //            break;
-            //        case "Int":
-            //            editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
-            //            break;
-            //        case "Wis":
-            //            editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
-            //            break;
-            //        case "Cha":
-            //            editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
-            //            break;
-            //    }
-            //    switch (myPower.Abilities[1])
-            //    {
-            //        case "Str":
-            //            editor.main.characterCurrent.Strength = editor.main.characterCurrent.Strength + 2;
-            //            break;
-            //        case "Con":
-            //            editor.main.characterCurrent.Constitution = editor.main.characterCurrent.Constitution + 2;
-            //            break;
-            //        case "Dex":
-            //            editor.main.characterCurrent.Dexterity = editor.main.characterCurrent.Dexterity + 2;
-            //            break;
-            //        case "Int":
-            //            editor.main.characterCurrent.Intelligence = editor.main.characterCurrent.Intelligence + 2;
-            //            break;
-            //        case "Wis":
-            //            editor.main.characterCurrent.Wisdom = editor.main.characterCurrent.Wisdom + 2;
-            //            break;
-            //        case "Cha":
-            //            editor.main.characterCurrent.Charisma = editor.main.characterCurrent.Charisma + 2;
-            //            break;
-            //    }
-            //}
-            //EditorPower2 power2 = new EditorPower2(editor, this);
-            //editor.frameContainer.Content = power2;
-            //editor.powerSelected = true;
+        {            
+            
         }
 
         private void ChangeSelections(bool switcher)
@@ -348,7 +310,7 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
             grid.RenderTransform = translation;
             Mouse.Capture(canvasSelected);
             myPower = grid.DataContext as Powers;
-            if (myPower != null)
+            if (myPower != null && myPower.Power != "Choose a Power")
             {
                 SelectionDetailsPower details = new SelectionDetailsPower(myPower, editor.main);
                 editor.framedetails.Content = details;
@@ -447,27 +409,40 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
         }
         private int PowerAdjust(int iPowers, int iList, string powerGroup)
         {
-            if (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
+            if (editor.main.characterCurrent.PowerList.Count() < iList + 1)
             {
-                while (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
+                List<string> tempStringList = new List<string>();
+                List<Powers> tempPowersList = new List<Powers>();
+                Powers tempPower = new Powers();
+                tempPowersList.Add(tempPower);
+                tempStringList.Add(powerGroup);
+                Tuple<List<string>, List<Powers>> tempTuple = new Tuple<List<string>, List<Powers>>(tempStringList, tempPowersList);
+                editor.main.characterCurrent.PowerList.Add(tempTuple);
+            }
+            if (iPowers > editor.main.characterCurrent.PowerList[iList].Item2.Count())
+            {
+                while (iPowers > editor.main.characterCurrent.PowerList[iList].Item2.Count())
                 {
                     Powers tempPower = new Powers();
                     editor.main.characterCurrent.PowerList[iList].Item2.Add(tempPower);
-                    iPowers++;
-                }
-            }
-            else if (iPowers > editor.main.characterCurrent.PowerList[iList].Item2.Count())
-            {
-                while (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
-                {
-                    Powers tempPower = new Powers();                    
-                    editor.main.characterCurrent.PowerList[iList].Item2.RemoveAt(editor.main.characterCurrent.PowerList[iList].Item2.IndexOf(tempPower));
                     iPowers--;
                 }
             }
-            return iList++;
-        }
+            else if (iPowers < editor.main.characterCurrent.PowerList[iList].Item2.Count())
+            {
+                while (iPowers > editor.main.characterCurrent.PowerList[iList].Item2.Count())
+                {
+                    Powers tempPower = new Powers();
+                    editor.main.characterCurrent.PowerList[iList].Item2.RemoveAt(editor.main.characterCurrent.PowerList[iList].Item2.IndexOf(tempPower));
+                    iPowers++;
+                }
+            }
+            iList++;
+            return iList;
+        }        
     }
+
+    
 
     public class powerSelections1
     {

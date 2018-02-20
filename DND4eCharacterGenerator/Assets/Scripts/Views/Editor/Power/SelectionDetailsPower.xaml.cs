@@ -22,9 +22,14 @@ namespace DnD4e.Assets.Scripts.Views.Editor.Power
     {
         public SelectionDetailsPower(Powers myPower, MainController main)
         {
-            textSource.Text = main.listDefinitionLists[0].MainList[main.listDefinitionLists[0].SubList.IndexOf(myPower.Source) - 1];
+            if (myPower != null && myPower.Source != null && myPower.Source != "")
+            {
+                textSource.Text = main.listDefinitionLists[0].MainList[main.listDefinitionLists[0].SubList.IndexOf(myPower.Source) - 1];
+            }
             this.DataContext = myPower;
-            InitializeComponent();            
+            InitializeComponent();
+            PowerCard tempCard = new PowerCard(main, myPower);
+            stackpanelPowers.Children.Add(tempCard);
         }
     }
 }

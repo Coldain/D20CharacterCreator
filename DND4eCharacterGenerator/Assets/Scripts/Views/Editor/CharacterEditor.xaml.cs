@@ -149,11 +149,12 @@ namespace DnD4e.Assets.Scripts.Views.Editor
 
         private void buttonSelectPowers_Click(object sender, RoutedEventArgs e)
         {
-            if (main.characterCurrent.Class.Subclass.SubClass != null || main.characterCurrent.Class.Subclass.SubClass != "Subclass")
+            if (main.characterCurrent.Class.Subclass.SubClass != null && main.characterCurrent.Class.Subclass.SubClass != "Subclass")
             {
                 EditorPower1 details = new EditorPower1(this);
                 currentButton = pathPowers.Name;
                 PathSelected();
+                frameContainer.Content = details;
             }
             else
                 MessageBox.Show("Pleaes Select a Subclass first");

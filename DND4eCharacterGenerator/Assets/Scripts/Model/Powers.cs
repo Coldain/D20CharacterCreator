@@ -330,7 +330,7 @@ namespace DnD4e.Assets.Scripts.Model
         #region Contstructors
         public Powers()
         {
-            _power = "";
+            _power = "Choose a Power";
             _source = "";
             _origin = "";
             _originType = "";
